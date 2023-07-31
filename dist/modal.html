@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1280" />
+	<link rel="stylesheet" href="./assets/css/common.css" />
+	<script src="./assets/js/jquery-3.4.1.min.js"></script>
+	<script src="./assets/js/dynamicListener.min.js"></script>
+	<script src="./assets/js/swiper.min.js"></script>
+	<script src="./assets/js/ui.js"></script>
+	<title></title>
+</head>
+
+<body class="front_body">
+	<div class="page_wrap">
+	</div>
+	<script>
+		var designAlert = new DesignModal({
+			type: "alert", // alert, confirm
+			//title: "환불 불가",
+			main_message: `필수 내용이 입력되지 않았습니다.`,
+			sub_message: `작성 내용 확인하시기 바랍니다.`,
+			identify_callback: function() {
+				console.log('확인');
+			},
+			cancel_callback: function() {
+				console.log('취소');
+			}
+		});
+		designAlert.show();
+		// 강제로 닫기 designAlert.hide();
+	</script>
+</body>
+
+</html>

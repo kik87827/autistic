@@ -1,0 +1,21 @@
+// component guide
+.guide_page{background:#f8f8f8;min-height:100vh}
+.subcontent_title{font-size:rem(30);padding:rem(30) 0;}
+.guide_page_wrap{max-width:rem(1200);margin:0 auto;padding:rem(20)}
+.source_his_item{margin-bottom:rem(100)}
+.source_his_item:last-of-type{margin-bottom:0}
+.component_title{font-size:24px;color:#000;font-weight:700;border-bottom:2px solid #000;padding-bottom:rem(20);margin-bottom:rem(20)}
+.component_title_sub{font-size:20px;color:#000;}
+.textarea_size{box-sizing:border-box;width:100%;padding:20px;margin-top:rem(40);overflow:hidden;resize:none;}
+.render_wrap{
+    
+    > *{margin:rem(10) rem(30) 0 0;vertical-align: middle;}
+    &.type2 > *{margin:rem(10) 0 0 0;}
+    input.input_calendar_mb{background-color:#fff;}
+
+    .btn_bottom_group{text-align: left;}
+    .form_box{padding:0}
+}
+.component_dep_wrap{}
+.component_dep{margin-bottom:rem(40);}
+.component_dep:last-of-type{margin-bottom:0;}

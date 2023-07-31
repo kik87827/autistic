@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1280" />
+	<link rel="stylesheet" href="./assets/css/common.css" />
+	<script src="./assets/js/jquery-3.4.1.min.js"></script>
+	<script src="./assets/js/dynamicListener.min.js"></script>
+	<script src="./assets/js/swiper.min.js"></script>
+	<script src="./assets/js/ui.js"></script>
+	<title></title>
+</head>
+
+<body class="front_body">
+	<div class="page_wrap">
+		<header class="header_wrap">
+
+		</header>
+		<section class="middle_wrap">
+			내용이 들어갑니다.
+		</section>
+
+		<footer class="footer_wrap">
+
+		</footer>
+		<!-- loading -->
+		<div class="loading_layer">
+			<div class="loading_box_w">
+				<div class="loading_box">
+					<div class="stage">
+						<div class="dot-flashing"></div>
+						<p class="loading_para">Loading</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- // loading -->
+
+		<script>
+			// 퍼블확인용
+			let url = window.location.href.split('?')[1];
+			let url_2 = url !== undefined ? url.split('#')[0] : null;
+			if (url_2 === "loading") {
+				document.querySelector(".loading_layer").classList.add("active");
+			}
+		</script>
+	</div>
+</body>
+
+</html>

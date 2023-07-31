@@ -1,0 +1,7 @@
+/* layout */
+html:not(.touchmode) ::-webkit-scrollbar {width: rem(12);background-color: transparent;height:rem(12);}
+html:not(.touchmode) ::-webkit-scrollbar-thumb {background-color: #ccc;border-radius: rem(12);background-clip: padding-box;border: 3px solid transparent;}
+html:not(.touchmode) ::-webkit-scrollbar-track {background-color: transparent;border-radius: rem(12);box-shadow: inset 0px 0px 5px transparent;}
+
+.front_body{}
+.page_wrap{}

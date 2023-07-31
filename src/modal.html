@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	@@include('./include/_head.html')
+<body class="front_body">
+	<div class="page_wrap">
+	</div>
+	<script>
+		var designAlert = new DesignModal({
+			type: "alert", // alert, confirm
+			//title: "환불 불가",
+			main_message: `필수 내용이 입력되지 않았습니다.`,
+			sub_message: `작성 내용 확인하시기 바랍니다.`,
+			identify_callback: function() {
+				console.log('확인');
+			},
+			cancel_callback: function() {
+				console.log('취소');
+			}
+		});
+		designAlert.show();
+		// 강제로 닫기 designAlert.hide();
+
+	</script>
+</body>
+
+</html>
