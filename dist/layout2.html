@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1280" />
+	<link rel="stylesheet" href="./assets/css/common.css" />
+	<script src="./assets/js/jquery-3.4.1.min.js"></script>
+	<script src="./assets/js/dynamicListener.min.js"></script>
+	<script src="./assets/js/swiper.min.js"></script>
+	<script src="./assets/js/ui.js"></script>
+	<title></title>
+</head>
+
+<body class="front_body center_form_body">
+	<div class="page_wrap">
+		<div class="center_form_page">
+			<div class="bg_center_form"></div>
+			<div class="cform_content_wrap">
+				<div class="cform_content_box_wrap">
+					<div class="cform_content_box">
+						<div class="cform_field_item">
+							내용이 들어갑니다.
+						</div>
+					</div>
+					<div class="cform_else_wrap">
+						<ul class="cform_elselogo_list">
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./images/logo_mi@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./images/logo_kaia@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./images/logo_kadif@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./images/logo_koti@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./images/logo_mqnic@2x.png" alt=""></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="cform_footer_wrap">
+					<p class="cform_footer_para">본 홈페이지의 모든 콘텐츠 및 정보는 저작권법의 보호를 받는바, 무단 연계, 전재, 복사, 배포 등은 법적제재를 받을 수 있습니다</p>
+				</div>
+			</div>
+		</div>
+		<script>
+			// 퍼블확인용
+			let url = window.location.href.split('?')[1];
+			let url_2 = url !== undefined ? url.split('#')[0] : null;
+			if (url_2 === "loading") {
+				document.querySelector(".loading_layer").classList.add("active");
+			}
+		</script>
+	</div>
+</body>
+
+</html>

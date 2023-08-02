@@ -14,31 +14,81 @@
 	<title></title>
 </head>
 
-<body class="front_body">
+<body class="front_body center_form_body">
 	<div class="page_wrap">
-		<header class="header_wrap">
-
-		</header>
-		<section class="middle_wrap">
-			내용이 들어갑니다.
-		</section>
-
-		<footer class="footer_wrap">
-
-		</footer>
-		<!-- loading -->
-		<!-- <div class="loading_layer">
-			<div class="loading_box_w">
-				<div class="loading_box">
-					<div class="stage">
-						<div class="dot-flashing"></div>
-						<p class="loading_para">Loading</p>
+		<div class="center_form_page">
+			<div class="bg_center_form"></div>
+			<div class="cform_content_wrap">
+				<div class="cform_content_box_wrap">
+					<div class="cform_content_box">
+						<div class="cform_field_item">
+							<div class="cform_field_title_row">
+								<p class="cform_field_title_sub">의사결정 지원 TOOL</p>
+								<h1 class="cform_field_title_main">비밀번호 찾기</h1>
+							</div>
+							<div class="cform_field_tb_row">
+								<table class="cform_field_tb">
+									<tr>
+										<th><label for="formitem_01" class="cform_field_label imp">아이디</label></th>
+										<td>
+											<div class="input_component_box">
+												<input type="text" class="input_form" placeholder="4~8자/ 국문, 영문, 숫자" id="formitem_01">
+												<span class="count_wrap">
+													<span class="count_text">0/0</span>
+												</span>
+												<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+											</div>
+											<div class="form_each_message_group">
+												<p class="form_each_message">아이디를 입력해 주세요.</p>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th><label for="formitem_02" class="cform_field_label imp">이메일</label></th>
+										<td>
+											<div class="input_component_box">
+												<input type="text" class="input_form" placeholder="ex) abc@abc.com" id="formitem_02">
+												<span class="count_wrap">
+													<span class="count_text">0/0</span>
+												</span>
+												<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+											</div>
+											<div class="form_each_message_group">
+												<p class="form_each_message">이메일 형식을 확인해 주세요.</p>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th><label for="formitem_03" class="cform_field_label imp">이름</label></th>
+										<td>
+											<div class="input_component_box">
+												<input type="text" class="input_form" placeholder="2~16자 / 국문, 영문" id="formitem_03">
+												<span class="count_wrap">
+													<span class="count_text">0/0</span>
+												</span>
+												<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+											</div>
+											<div class="form_each_message_group">
+												<p class="form_each_message">이름을 입력해 주세요.</p>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="cform_btn_primary_row">
+								<a href="#" class="btn_box primary"><span class="btn_box_text">확인</span></a>
+							</div>
+							<ul class="cform_other_list">
+								<li><a href="#" class="btn_cform_other">로그인하기</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
+				<div class="cform_footer_wrap">
+					<p class="cform_footer_para">본 홈페이지의 모든 콘텐츠 및 정보는 저작권법의 보호를 받는바, 무단 연계, 전재, 복사, 배포 등은 법적제재를 받을 수 있습니다</p>
+				</div>
 			</div>
-		</div> -->
-		<!-- // loading -->
-
+		</div>
 		<script>
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
