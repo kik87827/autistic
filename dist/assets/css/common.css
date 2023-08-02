@@ -940,6 +940,11 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .component_title_sub {
   font-size: 20px;
   color: #000;
+  font-weight: 500;
+}
+
+.render_wrap {
+  margin-top: 20px;
 }
 
 .textarea_size {
