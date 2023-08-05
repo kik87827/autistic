@@ -889,14 +889,12 @@ html:not(.touchmode) ::-webkit-scrollbar {
   background-color: transparent;
   height: 0.75rem;
 }
-
 html:not(.touchmode) ::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 0.75rem;
   background-clip: padding-box;
   border: 3px solid transparent;
 }
-
 html:not(.touchmode) ::-webkit-scrollbar-track {
   background-color: transparent;
   border-radius: 0.75rem;
@@ -904,6 +902,13 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 
 /* contents */
+/* component */
+/* map */
+.ui_picker_render {
+  margin-top: -1px;
+}
+
+/* center form */
 .guide_page {
   background: #f8f8f8;
   min-height: 100vh;

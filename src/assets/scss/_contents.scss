@@ -1,1 +1,222 @@
 /* contents */
+
+/* component */
+.input_component_box{
+    .ico_input{}
+    .ico_input.ico_men{}
+    .count_wrap{}
+    .count_text{}
+    .btn_form_reset{}
+    &.warn{
+        .ico_input{}
+        .ico_input.ico_men{}
+        .count_wrap{}
+        .count_text{}
+        .btn_form_reset{}
+        &+ .form_each_message_group{}
+    }
+    &.wtype2{
+        &.warn{
+            .ico_input{}
+            .ico_input.ico_men{}
+            .count_wrap{}
+            .count_text{}
+            .btn_form_reset{}
+            & + .form_each_message_group{}
+        }
+    }
+    &.focus{
+        .ico_input{}
+        .ico_input.ico_men{}
+        .count_wrap{}
+        .count_text{}
+        .btn_form_reset{}
+        & + .form_each_message_group{}
+    }
+}
+
+
+input.input_origin_item{}
+.btn_box{
+    .btn_box_text{}
+    &.primary{
+        .btn_box_text{}
+    }
+}
+
+.props_form_item{
+}
+input.props_form{}
+.props_label{
+    &.map_guide_label{}
+}
+.map_guide_line{}
+.map_guide_label_text{}
+
+/* map */
+.map_render_left_layer{}
+.map_guide_toggle_group{}
+.btn_map_guide_toggle{}
+.content_map_guide_toggle{}
+.map_guide_list{
+    > li{
+        &:last-of-type{}
+    }
+}
+.map_render_right_layer{}
+.map_zoom_item_list{
+    > li{
+        &:last-of-type{}
+    }
+}
+.map_zoom_item{
+    &.zoomup{
+        &:before{}
+        &:after{}
+    }
+    &.zoomdown{
+        &:before{}
+        &:after{}
+    }
+}
+.map_bottom_wrap{}
+.map_control_row{}
+.map_control_label_cols{}
+.map_control_form_cols{}
+.map_control_label{}
+.map_control_form{
+    > li{
+        &:last-of-type{}
+    }
+}
+.map_control_comp_item{}
+.map_control_comp_thcols{}
+.map_control_comp_tdcols{}
+.map_clabel_fxwrap{
+    &[class^='ico_']{}
+    &.ico_date{
+        &.ico_date:before{}
+    }
+    &.ico_time{
+        &.ico_time:before{}
+    }
+}
+
+.map_clabel_fxtext{}
+
+.hor_form_list{
+    > li{
+        &.short{}
+        &:last-of-type{}
+    }
+    .short_else{}
+}
+.time_picker_item{}
+.btn_formbox{
+    &.primary{}
+}
+.ui_picker_render{margin-top: -1px;}
+
+/* center form */
+.front_body{
+    &.center_form_body{
+        .page_wrap{}
+    }
+}
+.center_form_page{}
+.bg_center_form{}
+.cform_content_wrap{}
+.cform_content_box_wrap{}
+.cform_content_box{}
+.cform_field_item{}
+.cform_field_title{}
+.cform_field_title img{}
+.cform_field_title_row{}
+.cform_field_title_sub{}
+.cform_field_title_main{}
+
+.cform_field_form{}
+.cform_field_row{}
+.cform_field_row .input_component_box{}
+.cform_field_row:last-of-type{}
+
+.cform_field_row{
+    &.warn_message{}
+}
+.warn_message_list{
+     > li{
+         &:before{}
+         &:last-of-type{}
+     }
+}
+
+
+.cform_btn_primary_row{
+    .btn_box{}
+    .btn_box_text{}
+}
+
+
+.cform_other_list{
+    > li{
+        &:before{}
+        &:last-of-type{}
+    }
+}
+.btn_cform_other{}
+
+.cform_else_row{}
+.btn_cform_else_list{
+    > li{
+        &:before{}
+        &:last-of-type{}
+    }
+}
+.cform_else_cols{}
+.cform_else_label{}
+.cform_else_item{}
+
+.cform_else_wrap{}
+.cform_elselogo_list{
+    > li{
+        &:before{}
+        &:last-of-type{}
+    }
+}
+.cform_elselogo{}
+.cform_elselogo img{}
+
+
+.cform_field_tb_row{}
+.cform_field_tb{
+    th{}
+    td{}
+}
+.cform_field_tb tr{
+    &:last-of-type{
+        th{}
+        td{}
+    }
+}
+
+.cform_field_tb td .input_component_box{}
+.cform_field_label{
+    &.imp{
+        &:after{}
+    }
+}
+
+.form_each_message_group{}
+.form_each_message{}
+.td_blockitem{
+    &:last-of-type{}
+}
+
+.cform_footer_wrap{}
+.cform_footer_para{}
+
+.cform_btn_primary_row{
+    .btn_box{}
+    .btn_box_text{}
+}
+

@@ -1,7 +1,37 @@
 /* layout */
-html:not(.touchmode) ::-webkit-scrollbar {width: rem(12);background-color: transparent;height:rem(12);}
-html:not(.touchmode) ::-webkit-scrollbar-thumb {background-color: #ccc;border-radius: rem(12);background-clip: padding-box;border: 3px solid transparent;}
-html:not(.touchmode) ::-webkit-scrollbar-track {background-color: transparent;border-radius: rem(12);box-shadow: inset 0px 0px 5px transparent;}
+html:not(.touchmode) {
+    ::-webkit-scrollbar {width: rem(12);background-color: transparent;height:rem(12);}
+    ::-webkit-scrollbar-thumb {background-color: #ccc;border-radius: rem(12);background-clip: padding-box;border: 3px solid transparent;}
+    ::-webkit-scrollbar-track {background-color: transparent;border-radius: rem(12);box-shadow: inset 0px 0px 5px transparent;}
+}
 
-.front_body{}
+.front_body.map_api_body{
+    .page_wrap{}
+}
+
 .page_wrap{}
+
+.header_wrap{}
+.hgroup_main_cols{}
+.toplogo{}
+.toplogo_link{}
+.nav_list_wrap{}
+.nav_list{
+    > li{
+        &:last-of-type{}
+    }
+}
+
+.nav_oneitem{}
+.nav_oneitem_text{}
+.nav_twoitem_list_wrap{}
+.nav_twoitem_list{
+    > li{
+        &:last-of-type{}
+    }
+}
+.nav_twoitem{}
+.bg_twonav{}
+.footer_wrap{}
+
+.map_render_wrap{}
