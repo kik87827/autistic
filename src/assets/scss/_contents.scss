@@ -42,6 +42,9 @@ input.input_origin_item{}
     &.primary{
         .btn_box_text{}
     }
+    &.medium{
+
+    }
 }
 
 .props_form_item{
@@ -53,8 +56,21 @@ input.props_form{}
 .map_guide_line{}
 .map_guide_label_text{}
 
+.btn_box_obj{
+    &[class^='ico_']:before{}
+    &.ico_loadmap{}
+    &.ico_loadmap:before{}
+    .btn_box_obj_text{}
+    &:hover{
+        &:before{}
+        .btn_box_obj_text{}
+    }
+}
+
 /* map */
-.map_render_left_layer{}
+.map_render_left_layer{
+    .btn_box_obj{}
+}
 .map_guide_toggle_group{}
 .btn_map_guide_toggle{}
 .content_map_guide_toggle{}
@@ -116,6 +132,61 @@ input.props_form{}
     &.primary{}
 }
 .ui_picker_render{margin-top: -1px;}
+.map_summary_box{}
+.map_summary_row{
+    &:last-of-type{}
+}
+.map_summary_tail_list{
+    > li{
+        &:last-of-type{}
+    }
+}
+.map_summary_label_cols{}
+.map_summary_data_cols{}
+.map_summary_label{}
+.map_summary_data{}
+.map_summary_para{}
+.map_summary_control_wrap{
+    .btn_box{}
+}
+
+.map_fold_row{}
+.map_fold_control_row{}
+.btn_map_fold_control{
+    &:after{}
+    &.active{
+        &:after{}
+    }
+}
+.map_fold_content_row{}
+.map_fold_content{}
+
+.map_fold_title_row{}
+.map_fold_title_cols{
+    &:last-of-type{}
+}
+.map_fold_data_title{}
+.map_caption_dl{
+    dt,
+    dd{}
+    dt{}
+    dd{}
+}
+.map_caption_label{}
+.map_caption_value{}
+
+
+.chart_title_flex_wrap{}
+.chart_title_flex_cols{}
+.chart_map_title{}
+.chart_content_flex_wrap{}
+.chart_content_flex_cols{}
+.nodata_guide_wrap{
+    &:before{}
+}
+.nodata_guide{}
+.chart_content_render{}
+
 
 /* center form */
 .front_body{

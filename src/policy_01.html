@@ -5,9 +5,89 @@
 	<div class="page_wrap">
 		@@include('./include/_header.html')
 		<section class="map_render_wrap">
-			내용이 들어갑니다.
+			<div class="map_render_left_layer">
+				<a href="#" class="btn_box_obj ico_loadmap"><span class="btn_box_obj_text">자율차 서비스 차로</span></a>
+			</div>
+			<div class="map_render_right_layer">
+				<ul class="map_zoom_item_list">
+					<li><button type="button" class="map_zoom_item zoomup"><span class="hdtext">확대</span></button></li>
+					<li><button type="button" class="map_zoom_item zoomdown"><span class="hdtext">측서</span></button></li>
+				</ul>
+			</div>
+			<div class="map_render" style="background:#ddd;">
+				<!-- style='개발 확인 및 전달용입니다' -->
+				<a href="#" style="display:inline-block;position:absolute;top:300px;left:500px;"><img src="./images/ic_check_road@2x.png" style="max-width:40px;" alt=""></a>
+				<a href="#" style="display:inline-block;position:absolute;top:300px;left:900px;"><img src="./images/ic_marker_road@2x.png" style="max-width:24px;" alt=""></a>
+				<div class="map_summary_box">
+					<div class="map_summary_row">
+						<ul class="map_summary_tail_list">
+							<li>
+								<div class="map_summary_label_cols"><span class="map_summary_label">도로 ID</span></div>
+								<div class="map_summary_data_cols"><span class="map_summary_data">8133610</span></div>
+							</li>
+							<li>
+								<div class="map_summary_label_cols"><span class="map_summary_label">제한속도</span></div>
+								<div class="map_summary_data_cols"><span class="map_summary_data">100km/h</span></div>
+							</li>
+						</ul>
+					</div>
+					<div class="map_summary_row">
+						<p class="map_summary_para">경기도 성남시 수정구 수진2동<br>고속도로(4차로) 수도권제1순환고속도로</p>
+						<div class="map_summary_control_wrap">
+							<a href="#" class="btn_box medium primary">상세정보</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
-		@@include('./include/_footer.html')
+		<div class="map_bottom_wrap">
+			<div class="map_fold_row">
+				<div class="map_fold_control_row"><a href="javascript:;" class="btn_map_fold_control"><span class="hdtext">열기/닫기</span></span></a></div>
+				<div class="map_fold_content_row">
+					<div class="map_fold_content">
+						내용이 들어갑니다.
+					</div>
+				</div>
+			</div>
+			<div class="map_control_row">
+				<div class="map_control_label_cols">
+					<span class="map_control_label">특정일 시간대 조회</span>
+				</div>
+				<div class="map_control_form_cols">
+					<ul class="map_control_form">
+						<li>
+							<div class="map_control_comp_item">
+								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_date"><span class="map_clabel_fxtext">날짜선택</span></span></div>
+								<div class="map_control_comp_tdcols">
+									<div class="tui-datepicker-input tui-datetime-input tui-has-focus" value="2023-07-19">
+										<input type="text" id="datepicker-input" aria-label="Date-Time">
+										<span class="tui-ico-date"></span>
+									</div>
+									<div id="map_date_render" class="ui_picker_render"></div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="map_control_comp_item">
+								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_time"><span class="map_clabel_fxtext">시간선택</span></span></div>
+								<div class="map_control_comp_tdcols">
+									<ul class="hor_form_list">
+										<li>
+											<div id="timepicker-selectbox" class="time_picker_item"></div>
+										</li>
+										<li class="short"><span class="short_else">~</span></li>
+										<li>
+											<div id="timepicker-selectbox2" class="time_picker_item"></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><a href="#" class="btn_formbox primary">조회</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<script>
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
