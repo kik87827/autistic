@@ -14,14 +14,14 @@
 	<title></title>
 </head>
 
-<body class="front_body">
+<body class="front_body map_api_body">
 	<div class="page_wrap">
 		<header class="header_wrap">
 			<div class="hgroup_main_cols">
 				<h1 class="toplogo"><a href="#" class="toplogo_link"><span class="hdtext">의사교통지원 TOOL</span></a></h1>
 				<nav class="nav_list_wrap">
 					<ul class="nav_list">
-						<li>
+						<li id="one_depth_01">
 							<a href="#" class="nav_oneitem"><span class="nav_oneitem_text">정책 및 제도 분석 서비스</span></a>
 							<div class="nav_twoitem_list_wrap">
 								<ul class="nav_twoitem_list">
@@ -30,7 +30,7 @@
 								</ul>
 							</div>
 						</li>
-						<li>
+						<li id="one_depth_02">
 							<a href="#" class="nav_oneitem"><span class="nav_oneitem_text">교통현황 모니터링</span></a>
 							<div class="nav_twoitem_list_wrap">
 								<ul class="nav_twoitem_list">
@@ -39,7 +39,7 @@
 								</ul>
 							</div>
 						</li>
-						<li>
+						<li id="one_depth_03">
 							<a href="#" class="nav_oneitem"><span class="nav_oneitem_text">혼재기 교통상황 예측</span></a>
 							<div class="nav_twoitem_list_wrap">
 								<ul class="nav_twoitem_list">
@@ -63,27 +63,147 @@
 			</div>
 			<div class="bg_twonav"></div>
 		</header>
-		<section class="middle_wrap">
-			내용이 들어갑니다.
-		</section>
-
-		<footer class="footer_wrap">
-
-		</footer>
-		<!-- loading -->
-		<!-- <div class="loading_layer">
-			<div class="loading_box_w">
-				<div class="loading_box">
-					<div class="stage">
-						<div class="dot-flashing"></div>
-						<p class="loading_para">Loading</p>
+		<section class="map_render_wrap">
+			<div class="map_render_left_layer">
+				<div class="map_guide_toggle_group">
+					<a href="#" class="btn_map_guide_toggle"><span class="hdtext">지도 안내</span></a>
+					<div class="content_map_guide_toggle">
+						<ul class="map_guide_list">
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_01">
+									<label for="map_guide_props_01" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#f24e77"></span>
+										<span class="map_guide_label_text">수요대응 미니셔틀</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_02">
+									<label for="map_guide_props_02" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#65dfc2"></span>
+										<span class="map_guide_label_text">도시 환경 관리</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_03">
+									<label for="map_guide_props_03" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#6eca72"></span>
+										<span class="map_guide_label_text">A 서비스</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_04">
+									<label for="map_guide_props_04" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#f5c351"></span>
+										<span class="map_guide_label_text">B 서비스</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_05">
+									<label for="map_guide_props_05" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#f48b41"></span>
+										<span class="map_guide_label_text">C 서비스</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_06">
+									<label for="map_guide_props_06" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#aa38e0"></span>
+										<span class="map_guide_label_text">D 서비스</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_07">
+									<label for="map_guide_props_07" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#f24e77"></span>
+										<span class="map_guide_label_text">E 서비스</span>
+									</label>
+								</div>
+							</li>
+							<li>
+								<div class="props_form_item">
+									<input type="checkbox" class="props_form" id="map_guide_props_08">
+									<label for="map_guide_props_08" class="props_label map_guide_label">
+										<span class="map_guide_line" style="background-color:#3ecbff"></span>
+										<span class="map_guide_label_text">F 서비스</span>
+									</label>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-		</div> -->
-		<!-- // loading -->
-
+			<div class="map_render_right_layer">
+				<ul class="map_zoom_item_list">
+					<li><button type="button" class="map_zoom_item zoomup"><span class="hdtext">확대</span></button></li>
+					<li><button type="button" class="map_zoom_item zoomdown"><span class="hdtext">측서</span></button></li>
+				</ul>
+			</div>
+			내용이 들어갑니다.
+		</section>
+		<div class="map_bottom_wrap">
+			<div class="map_fold_row">
+				<div class="map_fold_control_row"><a href="javascript:;" class="btn_map_fold_control"><span class="hdtext">열기/닫기</span></span></a></div>
+				<div class="map_fold_content_row">
+					<div class="map_fold_content">
+						내용이 들어갑니다.
+					</div>
+				</div>
+			</div>
+			<div class="map_control_row">
+				<div class="map_control_label_cols">
+					<span class="map_control_label">특정일 시간대 조회</span>
+				</div>
+				<div class="map_control_form_cols">
+					<ul class="map_control_form">
+						<li>
+							<div class="map_control_comp_item">
+								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_date"><span class="map_clabel_fxtext">날짜선택</span></span></div>
+								<div class="map_control_comp_tdcols">
+									<div class="tui-datepicker-input tui-datetime-input tui-has-focus" value="2023-07-19">
+										<input type="text" id="datepicker-input" aria-label="Date-Time">
+										<span class="tui-ico-date"></span>
+									</div>
+									<div id="map_date_render" class="ui_picker_render"></div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="map_control_comp_item">
+								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_time"><span class="map_clabel_fxtext">시간선택</span></span></div>
+								<div class="map_control_comp_tdcols">
+									<ul class="hor_form_list">
+										<li>
+											<div id="timepicker-selectbox" class="time_picker_item"></div>
+										</li>
+										<li class="short"><span class="short_else">~</span></li>
+										<li>
+											<div id="timepicker-selectbox2" class="time_picker_item"></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><a href="#" class="btn_formbox primary">조회</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<script>
+			menuRock("#one_depth_01");
+
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
 			let url_2 = url !== undefined ? url.split('#')[0] : null;

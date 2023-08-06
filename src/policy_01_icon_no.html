@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="ko">
 @@include('./include/_head.html')
-<body class="front_body">
+<body class="front_body map_api_body">
 	<div class="page_wrap">
 		@@include('./include/_header.html')
-		<section class="middle_wrap">
-			내용이 들어갑니다.
+		<section class="map_render_wrap">
+			<div class="map_render_left_layer">
+				<a href="#" class="btn_box_obj ico_loadmap"><span class="btn_box_obj_text">자율차 서비스 차로</span></a>
+			</div>
+			<div class="map_render_right_layer">
+				<ul class="map_zoom_item_list">
+					<li><button type="button" class="map_zoom_item zoomup"><span class="hdtext">확대</span></button></li>
+					<li><button type="button" class="map_zoom_item zoomdown"><span class="hdtext">측서</span></button></li>
+				</ul>
+			</div>
+			<div class="map_render" style="background:#ddd;">
+				<!-- style='개발 확인 및 전달용입니다' -->
+				<a href="#" style="display:inline-block;position:absolute;top:300px;left:500px;"><img src="./images/ic_check_dot@2x.png" style="max-width:34px;" alt=""></a>
+				<a href="#" style="display:inline-block;position:absolute;top:600px;left:200px;"><img src="./images/ic_check_dot@2x.png" style="max-width:34px;" alt=""></a>
+				
+			</div>
 		</section>
-		@@include('./include/_footer.html')
-		<!-- loading -->
-		<!-- <div class="loading_layer">
-			<div class="loading_box_w">
-				<div class="loading_box">
-					<div class="stage">
-						<div class="dot-flashing"></div>
-						<p class="loading_para">Loading</p>
-					</div>
+		<div class="map_bottom_wrap">
+			<div class="map_control_row">
+				<div class="map_control_label_cols">
+					<span class="map_control_label">특정일 시간대 조회</span>
+				</div>
+				<div class="map_control_form_cols">
+					<ul class="map_control_form">
+						<li>
+							<div class="map_control_comp_item">
+								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_date"><span class="map_clabel_fxtext">날짜선택</span></span></div>
+								<div class="map_control_comp_tdcols">
+									<div class="tui-datepicker-input tui-datetime-input tui-has-focus" value="2023-07-19">
+										<input type="text" id="datepicker-input" aria-label="Date-Time">
+										<span class="tui-ico-date"></span>
+									</div>
+									<div id="map_date_render" class="ui_picker_render"></div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="map_control_comp_item">
+								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_time"><span class="map_clabel_fxtext">시간선택</span></span></div>
+								<div class="map_control_comp_tdcols">
+									<ul class="hor_form_list">
+										<li>
+											<div id="timepicker-selectbox" class="time_picker_item"></div>
+										</li>
+										<li class="short"><span class="short_else">~</span></li>
+										<li>
+											<div id="timepicker-selectbox2" class="time_picker_item"></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li><a href="#" class="btn_formbox primary">조회</a></li>
+					</ul>
 				</div>
 			</div>
-		</div> -->
-		<!-- // loading -->
-		
+		</div>
 		<script>
+			menuRock("#one_depth_01");
+
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
 			let url_2 = url !== undefined ? url.split('#')[0] : null;
