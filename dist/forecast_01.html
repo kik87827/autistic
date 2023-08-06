@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1280" />
+	<link rel="stylesheet" href="./assets/css/common.css" />
+	<script src="./assets/js/jquery-3.4.1.min.js"></script>
+	<script src="./assets/js/dynamicListener.min.js"></script>
+	<script src="./assets/js/swiper.min.js"></script>
+	<script src="./assets/js/ui.js"></script>
+	<title></title>
+</head>
+
+<body class="front_body map_api_body">
+	<div class="page_wrap">
+		<header class="header_wrap">
+			<div class="hgroup_main_cols">
+				<h1 class="toplogo"><a href="#" class="toplogo_link"><span class="hdtext">의사교통지원 TOOL</span></a></h1>
+				<nav class="nav_list_wrap">
+					<ul class="nav_list">
+						<li id="one_depth_01">
+							<a href="#" class="nav_oneitem"><span class="nav_oneitem_text">정책 및 제도 분석 서비스</span></a>
+							<div class="nav_twoitem_list_wrap">
+								<ul class="nav_twoitem_list">
+									<li><a href="#" class="nav_twoitem">자율차 서비스 차로 조회</a></li>
+									<li><a href="#" class="nav_twoitem">공유 모빌리티 운행 정보 조회</a></li>
+								</ul>
+							</div>
+						</li>
+						<li id="one_depth_02">
+							<a href="#" class="nav_oneitem"><span class="nav_oneitem_text">교통현황 모니터링</span></a>
+							<div class="nav_twoitem_list_wrap">
+								<ul class="nav_twoitem_list">
+									<li><a href="#" class="nav_twoitem">지표 표출</a></li>
+									<li><a href="#" class="nav_twoitem">모니터링 정보 분석</a></li>
+								</ul>
+							</div>
+						</li>
+						<li id="one_depth_03">
+							<a href="#" class="nav_oneitem"><span class="nav_oneitem_text">혼재기 교통상황 예측</span></a>
+							<div class="nav_twoitem_list_wrap">
+								<ul class="nav_twoitem_list">
+									<li><a href="#" class="nav_twoitem">지표 표출</a></li>
+									<li><a href="#" class="nav_twoitem">모니터링 정보 분석</a></li>
+									<li><a href="#" class="nav_twoitem">Use-case 관리</a></li>
+									<li><a href="#" class="nav_twoitem">Simulation 목록 관리</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="hgroup_sub_cols">
+				<ul class="hgroup_util_list">
+					<li>
+						<a href="#" class="hgroup_util_item">user</a>
+					</li>
+					<li><a href="#" class="util_ico_menu"><span class="hdtext">로그아웃</span></a></li>
+				</ul>
+			</div>
+			<div class="bg_twonav"></div>
+		</header>
+		<section class="map_screen_wrap">
+			<div class="map_screen_title_row">
+				<div class="map_screen_title_main_cols">
+					<h2 class="map_screen_title">지표 표출</h2>
+					<div class="map_screen_title_sub">
+						혼재기 교통상황 예측
+					</div>
+				</div>
+				<div class="map_screen_title_sub_cols">
+					<ul class="btn_map_screen_list">
+						<li><a href="#" class="btn_quad ico_car"><span class="btn_quad_text">시뮬레이션 실행</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="map_screen_content_row">
+				<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#d9d9d9;box-sizing:border-box;color:#5f637a;padding:20px;">
+					그라파나 표출 영역
+				</div>
+			</div>
+		</section>
+		<script>
+			menuRock("#one_depth_03");
+
+			// 퍼블확인용
+			let url = window.location.href.split('?')[1];
+			let url_2 = url !== undefined ? url.split('#')[0] : null;
+			if (url_2 === "loading") {
+				document.querySelector(".loading_layer").classList.add("active");
+			}
+		</script>
+	</div>
+</body>
+
+</html>
