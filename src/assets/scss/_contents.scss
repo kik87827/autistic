@@ -67,6 +67,17 @@ input.props_form{}
     }
 }
 
+
+.btn_quad{
+    &[class^='ico_']{}
+    &.ico_car{
+        .btn_quad_text{}
+    }
+}
+.btn_quad_text{}
+
+
+
 /* map */
 .map_render_left_layer{
     .btn_box_obj{}

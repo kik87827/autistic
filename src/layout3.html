@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+@@include('./include/_head.html')
+<body class="front_body map_api_body">
+	<div class="page_wrap">
+		@@include('./include/_header.html')
+		<section class="map_screen_wrap">
+			<div class="map_screen_title_row">
+				<div class="map_screen_title_main_cols">
+					<h2 class="map_screen_title">지표 표출</h2>
+					<div class="map_screen_title_sub">
+						교통현황 모니터링
+					</div>
+				</div>
+				<div class="map_screen_title_sub_cols">
+					<ul class="btn_map_screen_list">
+						<li><a href="#" class="btn_quad ico_car"><span class="btn_quad_text">시뮬레이션 실행</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="map_screen_content_row">
+				<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#d9d9d9;box-sizing:border-box;color:#5f637a;padding:20px;">
+					그라파나 표출 영역
+				</div>
+			</div>
+		</section>
+		<script>
+			// 퍼블확인용
+			let url = window.location.href.split('?')[1];
+			let url_2 = url !== undefined ? url.split('#')[0] : null;
+			if(url_2 === "loading"){
+				document.querySelector(".loading_layer").classList.add("active");
+			}
+		</script>
+	</div>
+</body>
+</html>

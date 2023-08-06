@@ -35,3 +35,19 @@ html:not(.touchmode) {
 .footer_wrap{}
 
 .map_render_wrap{}
+
+.map_screen_wrap{}
+.map_screen_title_row{}
+.map_screen_title_main_cols{}
+.map_screen_title_sub_cols{}
+.map_screen_title{}
+.map_screen_title_sub{}
+.map_screen_title_sub:before{}
+
+.btn_map_screen_list{
+    .btn_quad{}
+}
+.btn_map_screen_list > li{}
+.btn_map_screen_list > li:last-of-type{}
+
+.map_screen_content_row{}
