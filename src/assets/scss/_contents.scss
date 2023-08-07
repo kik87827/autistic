@@ -105,6 +105,11 @@ input.props_form{
 .btn_map_guide_toggle{
     width: 40px;height: 40px;border-radius: 8px;box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);background: #fff; display:flex;align-items:center;justify-content:center;
     &:after{display:block;content:'';width:24px;height:24px;background:url("../images/ic_map_guide.png") no-repeat 0 0/100% auto;}
+
+    &:hover{
+        background-color:#7b54ff;
+        &:after{background-position:0 100%;}
+    }
 }
 .content_map_guide_toggle{
     position:absolute;top:calc(100% + 10px);left:0;box-sizing: border-box; width:174px;display:none;

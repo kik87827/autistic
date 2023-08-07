@@ -2108,6 +2108,12 @@ input.props_form:checked {
   height: 24px;
   background: url("../images/ic_map_guide.png") no-repeat 0 0/100% auto;
 }
+.btn_map_guide_toggle:hover {
+  background-color: #7b54ff;
+}
+.btn_map_guide_toggle:hover:after {
+  background-position: 0 100%;
+}
 
 .content_map_guide_toggle {
   position: absolute;
