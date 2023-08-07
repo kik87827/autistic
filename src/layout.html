@@ -94,7 +94,7 @@
 			</div>
 			<div class="map_render">
 				<!-- 퍼블 확인용 -->
-				<iframe class="map_pub_iframe" src="http://vsm.mqnic.com:7654/CACHE/SEJONG.html#15.31/36.485775/127.251423/20/2" frameborder="0" scrolling="no"></iframe>
+				<!-- <iframe class="map_pub_iframe" src="http://vsm.mqnic.com:7654/CACHE/SEJONG.html#15.31/36.485775/127.251423/20/2" frameborder="0" scrolling="no"></iframe> -->
 				<!-- // 퍼블 확인용 -->
 			</div>
 		</section>
@@ -148,6 +148,27 @@
 		</div>
 		<script>
 			menuRock("#one_depth_01");
+
+			var datepicker = new tui.DatePicker('#map_date_render', {
+				date: new Date(),
+				input: {
+					element: '#datepicker-input',
+					format: 'yyyy-MM-dd'
+				}
+			});
+
+			var tpSelectbox = new tui.TimePicker('#timepicker-selectbox', {
+				initialHour: 15,
+                inputType: 'selectbox',
+                showMeridiem: false
+            });
+
+			var tpSelectbox = new tui.TimePicker('#timepicker-selectbox2', {
+                initialHour: 3,
+                initialMinute: 3,
+                inputType: 'selectbox',
+                showMeridiem: false
+            });
 			
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];

@@ -115,19 +115,18 @@ input.props_form{}
 .map_control_form_cols{flex:1; min-width:0; padding:10px 30px; display:flex;align-items: center;}
 .map_control_label{font-size: 15px;font-weight: 700;line-height: 1;text-align: center;color: #e4e1ed;}
 .map_control_form{
-    display:flex; align-items: center;
+    display:flex; align-items: center;gap:20px;
     > li{
         &:last-of-type{}
     }
 }
 .map_control_comp_item{display:flex; align-items: center;}
-.map_control_comp_thcols{}
+.map_control_comp_thcols{margin-right:4px;}
 .map_control_comp_tdcols{}
 .map_clabel_fxwrap{
     display:flex;align-items:center;
-    &:before{display:block;content:'';width:16px;height:16px;background-repeat:no-repeat;background-position: 0 0;background-size:100% auto; flex:0 0 16px;}
-    &[class^='ico_']{
-    }
+    &:before{display:block;content:'';width:16px;height:16px;background-repeat:no-repeat;background-position: 0 0;background-size:100% auto; flex:0 0 16px;margin-right:4px;}
+    
     &.ico_date{
         &.ico_date:before{background-image:url("../images/ic_calendar@2x.png");}
     }
