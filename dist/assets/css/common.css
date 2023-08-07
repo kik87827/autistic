@@ -1882,6 +1882,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .hgroup_sub_cols {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 5;
 }
 
 .hgroup_util_list {
@@ -1896,16 +1898,43 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   margin-right: 0;
 }
 
+.hgroup_util_item_wrap {
+  position: relative;
+  display: inline-block;
+}
+.hgroup_util_item_wrap:hover .hgroup_util_item {
+  background: #7b54ff;
+  color: #fff;
+}
+.hgroup_util_item_wrap:hover .hgroup_util_item:after {
+  background-position: 0 100%;
+}
+.hgroup_util_item_wrap:hover .hgroup_util_menu_list_wrap {
+  display: block;
+}
+
 .hgroup_util_item {
   display: inline-block;
+  position: relative;
   border-radius: 4px;
   background-color: #f5f5f5;
   white-space: nowrap;
   height: 24px;
   line-height: 24px;
-  padding: 0 10px;
+  padding: 0 23px 0 10px;
   font-size: 14px;
   color: #5f637a;
+}
+.hgroup_util_item:after {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: url("../images/ico_combo.png") no-repeat 0 0/100% auto;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
 
 .util_ico_menu {
@@ -1913,6 +1942,56 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   width: 24px;
   height: 24px;
   background: url("../images/ic_logout_off@2x.png") no-repeat 0 0/100% auto;
+}
+
+.hgroup_util_menu_list_wrap {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+.hgroup_util_menu_list {
+  border-radius: 4px;
+  position: relative;
+  top: 4px;
+  padding: 6px 0;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.hgroup_util_menu {
+  display: flex;
+  padding: 7px 10px;
+  align-items: center;
+  gap: 8px;
+}
+.hgroup_util_menu:hover, .hgroup_util_menu:focus {
+  background: #f7f5ff;
+  color: #313444;
+}
+
+.hgroup_util_ico {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+.hgroup_util_ico.ico_edit {
+  background-image: url("../images/ic_user_edit.png");
+}
+.hgroup_util_ico.ico_manage {
+  background-image: url("../images/ic_user_set.png");
+}
+
+.hgroup_util_text {
+  font-size: 13px;
+  color: #5f637a;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .map_render_wrap {
