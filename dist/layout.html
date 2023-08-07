@@ -151,7 +151,11 @@
 					<li><button type="button" class="map_zoom_item zoomdown"><span class="hdtext">측서</span></button></li>
 				</ul>
 			</div>
-			내용이 들어갑니다.
+			<div class="map_render">
+				<!-- 퍼블 확인용 -->
+				<iframe class="map_pub_iframe" src="http://vsm.mqnic.com:7654/CACHE/SEJONG.html#15.31/36.485775/127.251423/20/2" frameborder="0" scrolling="no"></iframe>
+				<!-- // 퍼블 확인용 -->
+			</div>
 		</section>
 		<div class="map_bottom_wrap">
 			<div class="map_fold_row">
@@ -202,6 +206,8 @@
 			</div>
 		</div>
 		<script>
+			menuRock("#one_depth_01");
+
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
 			let url_2 = url !== undefined ? url.split('#')[0] : null;
