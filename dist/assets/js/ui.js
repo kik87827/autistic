@@ -133,3 +133,22 @@ function siblings(t) {
     return e != t;
   });
 }
+
+
+/* map */
+function renderApi() {
+  const map_guide_toggle_group = document.querySelector(".map_guide_toggle_group");
+  const btn_map_guide_toggle = document.querySelector(".btn_map_guide_toggle");
+  if (!!btn_map_guide_toggle) {
+    btn_map_guide_toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.currentTarget.closest(".map_guide_toggle_group").classList.toggle("active");
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".map_guide_toggle_group")) {
+      map_guide_toggle_group.classList.remove("active");
+    }
+  });
+}

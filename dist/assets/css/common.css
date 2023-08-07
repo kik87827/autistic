@@ -2008,6 +2008,51 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 
 /* contents */
 /* component */
+.props_form_item {
+  display: flex;
+}
+
+input.props_form {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  background: url("../images/bg_checkbox.png") no-repeat 0 0/100% auto;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+input.props_form:checked {
+  background-position: 0 100%;
+}
+
+.props_label {
+  margin-left: 4px;
+}
+.props_label.map_guide_label {
+  padding-left: 24px;
+  position: relative;
+}
+
+.map_guide_line {
+  display: inline-block;
+  width: 16px;
+  height: 4px;
+  position: absolute;
+  top: 9px;
+  left: 0;
+}
+
+.map_guide_label_text {
+  color: #5f637a;
+  display: inline-block;
+  line-height: 1;
+  font-size: 13px;
+}
+
 /* map */
 .map_render {
   position: absolute;
@@ -2032,6 +2077,58 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   left: 20px;
   z-index: 5;
 }
+.map_guide_toggle_group {
+  display: inline-block;
+  position: relative;
+}
+.map_guide_toggle_group.active .btn_map_guide_toggle {
+  background-color: #7b54ff;
+}
+.map_guide_toggle_group.active .btn_map_guide_toggle:after {
+  background-position: 0 100%;
+}
+.map_guide_toggle_group.active .content_map_guide_toggle {
+  display: block;
+}
+
+.btn_map_guide_toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn_map_guide_toggle:after {
+  display: block;
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url("../images/ic_map_guide.png") no-repeat 0 0/100% auto;
+}
+
+.content_map_guide_toggle {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  box-sizing: border-box;
+  width: 174px;
+  display: none;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.map_guide_list > li {
+  margin-bottom: 4px;
+}
+.map_guide_list > li:last-of-type {
+  margin-bottom: 0;
+}
+
 .map_render_right_layer {
   position: absolute;
   top: 20px;

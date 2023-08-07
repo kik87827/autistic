@@ -48,13 +48,22 @@ input.input_origin_item{}
 }
 
 .props_form_item{
+    display:flex;
 }
-input.props_form{}
+input.props_form{
+    display:inline-block;vertical-align:middle;cursor:pointer;flex:0 0 24px;width:24px;height:24px;background:url("../images/bg_checkbox.png") no-repeat 0 0/100% auto;appearance: none;-webkit-appearance: none;-moz-appearance: none;-ms-appearance: none;
+    &:checked{
+        background-position:0 100%;
+    }
+}
 .props_label{
-    &.map_guide_label{}
+    margin-left:4px;
+    &.map_guide_label{
+        padding-left:24px;position:relative;
+    }
 }
-.map_guide_line{}
-.map_guide_label_text{}
+.map_guide_line{display:inline-block;width:16px;height:4px;position:absolute;top:9px;left:0;}
+.map_guide_label_text{color: #5f637a;display:inline-block;line-height:1;font-size:13px;}
 
 .btn_box_obj{
     &[class^='ico_']:before{}
@@ -85,12 +94,29 @@ input.props_form{}
     position:absolute;top:20px;left:20px; z-index:5;
     .btn_box_obj{}
 }
-.map_guide_toggle_group{}
-.btn_map_guide_toggle{}
-.content_map_guide_toggle{}
+.map_guide_toggle_group{display:inline-block;position:relative;
+    &.active{
+        .btn_map_guide_toggle{background-color:#7b54ff;
+            &:after{background-position:0 100%;}
+        }
+        .content_map_guide_toggle{display:block;}
+    }
+}
+.btn_map_guide_toggle{
+    width: 40px;height: 40px;border-radius: 8px;box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);background: #fff; display:flex;align-items:center;justify-content:center;
+    &:after{display:block;content:'';width:24px;height:24px;background:url("../images/ic_map_guide.png") no-repeat 0 0/100% auto;}
+}
+.content_map_guide_toggle{
+    position:absolute;top:calc(100% + 10px);left:0;box-sizing: border-box; width:174px;display:none;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
 .map_guide_list{
     > li{
-        &:last-of-type{}
+        margin-bottom:4px;
+        &:last-of-type{margin-bottom:0}
     }
 }
 .map_render_right_layer{position:absolute;top:20px;right:20px;z-index:5;}
