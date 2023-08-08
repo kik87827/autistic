@@ -17,7 +17,7 @@
 	<title></title>
 </head>
 
-<body class="front_body map_api_body">
+<body class="front_body">
 	<div class="page_wrap">
 		<header class="header_wrap">
 			<div class="hgroup_main_cols">
@@ -89,29 +89,99 @@
 			</div>
 			<div class="bg_twonav"></div>
 		</header>
-		<section class="map_screen_wrap">
-			<div class="map_screen_title_row">
-				<div class="map_screen_title_main_cols">
-					<h2 class="map_screen_title">모니터링 정보 분석</h2>
-					<div class="map_screen_title_sub">
-						교통현황 모니터링
+		<section class="middle_wrap">
+			<div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+			<div style="padding:100px">
+
+				<div class="combo_item" id="select_combo">
+					<a href="javascript:;" class="combo_target">지금 출발</a>
+					<div class="combo_option_group">
+						<div class="combo_option_scroll" data-rowCount="3">
+							<ul class="combo_option_list">
+								<li><a href="javascript:;" data-value="option_0" class="combo_option">지금 출발</a></li>
+								<li><a href="javascript:;" data-value="option_1" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_2" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_3" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_4" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_5" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_6" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_7" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_8" class="combo_option">날짜 입력</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-				<div class="map_screen_title_sub_cols">
-					<ul class="btn_map_screen_list">
-						<li><a href="#" class="btn_quad ico_down"><span class="btn_quad_text">다운로드</span></a></li>
-						<li><a href="#" class="btn_quad ico_car"><span class="btn_quad_text">시뮬레이션 실행</span></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="map_screen_content_row">
-				<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:#d9d9d9;box-sizing:border-box;color:#5f637a;padding:20px;">
-					그래프 영역
+				<div class="combo_item reverse_item" id="select_combo2">
+					<a href="javascript:;" class="combo_target">지금 출발</a>
+					<div class="combo_option_group reverse_pos">
+						<div class="combo_option_scroll" data-rowCount="3">
+							<ul class="combo_option_list">
+								<li><a href="javascript:;" data-value="option_0" class="combo_option">지금 출발</a></li>
+								<li><a href="javascript:;" data-value="option_1" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_2" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_3" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_4" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_5" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_6" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_7" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_8" class="combo_option">날짜 입력</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
+
+		<footer class="footer_wrap">
+
+		</footer>
+		<!-- loading -->
+		<!-- <div class="loading_layer">
+			<div class="loading_box_w">
+				<div class="loading_box">
+					<div class="stage">
+						<div class="dot-flashing"></div>
+						<p class="loading_para">Loading</p>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<!-- // loading -->
+
+
+
 		<script>
-			menuRock("#one_depth_03");
+			// 
+			// combobox
+			comboChangeCallback({
+				target: "select_combo",
+				callback(value) {
+					console.log(value);
+				}
+			});
+			comboChangeCallback({
+				target: "select_combo2",
+				callback(value2) {
+					console.log(value2);
+				}
+			});
 
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];

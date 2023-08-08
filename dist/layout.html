@@ -11,7 +11,7 @@
 	<script src="./assets/js/dynamicListener.min.js"></script>
 	<script src="./assets/js/swiper.min.js"></script>
 	<script src="./assets/js/tui-date-picker.js"></script>
-	<script src="./assets/js/tui-time-picker.js"></script>
+	<!-- <script src="./assets/js/tui-time-picker.js"></script> -->
 	<script src="./assets/js/ui.js"></script>
 
 	<title></title>
@@ -216,11 +216,53 @@
 								<div class="map_control_comp_tdcols">
 									<ul class="hor_form_list">
 										<li>
-											<div id="timepicker-selectbox" class="time_picker_item"></div>
+											<div class="combo_item reverse_item" id="select_combo_start">
+												<a href="javascript:;" class="combo_target">00:00</a>
+												<div class="combo_option_group reverse_pos">
+													<div class="combo_option_scroll" data-rowCount="10">
+														<ul class="combo_option_list">
+															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
+															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
+															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
+															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
+															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
+															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
+															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
+															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
+															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
+															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
+															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
+															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
+															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
 										</li>
 										<li class="short"><span class="short_else">~</span></li>
 										<li>
-											<div id="timepicker-selectbox2" class="time_picker_item"></div>
+											<div class="combo_item reverse_item" id="select_combo_end">
+												<a href="javascript:;" class="combo_target">11:00</a>
+												<div class="combo_option_group reverse_pos">
+													<div class="combo_option_scroll" data-rowCount="10">
+														<ul class="combo_option_list">
+															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
+															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
+															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
+															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
+															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
+															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
+															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
+															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
+															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
+															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
+															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
+															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
+															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
 										</li>
 									</ul>
 								</div>
@@ -234,6 +276,21 @@
 		<script>
 			menuRock("#one_depth_01");
 
+			//combo callback
+			comboChangeCallback({
+				target: "select_combo_start",
+				callback(value) {
+					console.log(value);
+				}
+			});
+			comboChangeCallback({
+				target: "select_combo_end",
+				callback(value) {
+					console.log(value);
+				}
+			});
+
+
 			var datepicker = new tui.DatePicker('#map_date_render', {
 				date: new Date(),
 				language: 'ko',
@@ -242,20 +299,6 @@
 					format: 'yyyy-MM-dd'
 				}
 			});
-
-			// var tpSelectbox = new tui.TimePicker('#timepicker-selectbox', {
-			// 	initialHour: 15,
-			//     inputType: 'selectbox',
-			//     showMeridiem: false
-			// });
-
-			// var tpSelectbox = new tui.TimePicker('#timepicker-selectbox2', {
-			//     initialHour: 3,
-			//     initialMinute: 3,
-			//     inputType: 'selectbox',
-			//     showMeridiem: false
-			// });
-
 			// api guide
 			renderApi();
 

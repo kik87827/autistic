@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+@@include('./include/_head.html')
+<body class="front_body">
+	<div class="page_wrap">
+		@@include('./include/_header.html')
+		<section class="middle_wrap">
+			<div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+			<div style="padding:100px">
+
+				<div class="combo_item" id="select_combo">
+					<a href="javascript:;" class="combo_target">지금 출발</a>
+					<div class="combo_option_group">
+						<div class="combo_option_scroll" data-rowCount="3">
+							<ul class="combo_option_list">
+								<li><a href="javascript:;" data-value="option_0" class="combo_option">지금 출발</a></li>
+								<li><a href="javascript:;" data-value="option_1" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_2" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_3" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_4" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_5" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_6" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_7" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_8" class="combo_option">날짜 입력</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="combo_item reverse_item" id="select_combo2">
+					<a href="javascript:;" class="combo_target">지금 출발</a>
+					<div class="combo_option_group reverse_pos">
+						<div class="combo_option_scroll" data-rowCount="3">
+							<ul class="combo_option_list">
+								<li><a href="javascript:;" data-value="option_0" class="combo_option">지금 출발</a></li>
+								<li><a href="javascript:;" data-value="option_1" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_2" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_3" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_4" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_5" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_6" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_7" class="combo_option">날짜 입력</a></li>
+								<li><a href="javascript:;" data-value="option_8" class="combo_option">날짜 입력</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		@@include('./include/_footer.html')
+		<!-- loading -->
+		<!-- <div class="loading_layer">
+			<div class="loading_box_w">
+				<div class="loading_box">
+					<div class="stage">
+						<div class="dot-flashing"></div>
+						<p class="loading_para">Loading</p>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<!-- // loading -->
+
+
+		
+		<script>
+			// 
+			// combobox
+			comboChangeCallback({
+				target: "select_combo",
+				callback(value) {
+					console.log(value);
+				}
+			});
+			comboChangeCallback({
+				target: "select_combo2",
+				callback(value2) {
+					console.log(value2);
+				}
+			});
+
+			// 퍼블확인용
+			let url = window.location.href.split('?')[1];
+			let url_2 = url !== undefined ? url.split('#')[0] : null;
+			if(url_2 === "loading"){
+				document.querySelector(".loading_layer").classList.add("active");
+			}
+		</script>
+	</div>
+</body>
+</html>

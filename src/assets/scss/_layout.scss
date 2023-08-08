@@ -1,8 +1,8 @@
 /* layout */
 html:not(.touchmode) {
-    ::-webkit-scrollbar {width: rem(12);background-color: transparent;height:rem(12);}
-    ::-webkit-scrollbar-thumb {background-color: #ccc;border-radius: rem(12);background-clip: padding-box;border: 3px solid transparent;}
-    ::-webkit-scrollbar-track {background-color: transparent;border-radius: rem(12);box-shadow: inset 0px 0px 5px transparent;}
+    ::-webkit-scrollbar {width: 12px;background-color: transparent;height:12px;}
+    ::-webkit-scrollbar-thumb {background-color: #ccc;border-radius: 12px;background-clip: padding-box;border: 3px solid transparent;}
+    ::-webkit-scrollbar-track {background-color: transparent;border-radius: 12px;box-shadow: inset 0px 0px 5px transparent;}
 }
 
 .front_body{
@@ -107,7 +107,9 @@ html:not(.touchmode) {
 }
 .hgroup_util_menu{display:flex;padding:7px 10px;align-items:center;gap:8px;
     &:hover,
-    &:focus{background:#f7f5ff;color:#313444;}
+    &:focus{background:#f7f5ff;color:#313444;
+        .hgroup_util_ico{background-position:0 100%;}
+    }
 }
 .hgroup_util_ico{
     display:block;flex:0 0 16px;width:16px;height:16px;background-position:0 0;background-repeat:no-repeat;background-size:100% auto;

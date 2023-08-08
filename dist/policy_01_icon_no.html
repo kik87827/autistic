@@ -11,7 +11,7 @@
 	<script src="./assets/js/dynamicListener.min.js"></script>
 	<script src="./assets/js/swiper.min.js"></script>
 	<script src="./assets/js/tui-date-picker.js"></script>
-	<script src="./assets/js/tui-time-picker.js"></script>
+	<!-- <script src="./assets/js/tui-time-picker.js"></script> -->
 	<script src="./assets/js/ui.js"></script>
 
 	<title></title>
@@ -63,27 +63,6 @@
 							<a href="#" class="hgroup_util_item">user type</a>
 						</div>
 					</li>
-					<li>
-						<div class="hgroup_util_item_wrap">
-							<a href="#" class="hgroup_util_item">admin</a>
-							<div class="hgroup_util_menu_list_wrap">
-								<ul class="hgroup_util_menu_list">
-									<li>
-										<a href="#" class="hgroup_util_menu">
-											<i class="hgroup_util_ico ico_edit"></i>
-											<span class="hgroup_util_text">정보수정</span>
-										</a>
-									</li>
-									<li>
-										<a href="#" class="hgroup_util_menu">
-											<i class="hgroup_util_ico ico_manage"></i>
-											<span class="hgroup_util_text">사용자 관리</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
 					<li><a href="#" class="util_ico_menu"><span class="hdtext">로그아웃</span></a></li>
 				</ul>
 			</div>
@@ -91,7 +70,7 @@
 		</header>
 		<section class="map_render_wrap">
 			<div class="map_render_left_layer">
-				<a href="#" class="btn_box_obj ico_loadmap"><span class="btn_box_obj_text">자율차 서비스 차로</span></a>
+				<a href="#" class="btn_box_obj has_ico ico_loadmap active"><span class="btn_box_obj_text">자율차 서비스 차로</span></a>
 			</div>
 			<div class="map_render_right_layer">
 				<ul class="map_zoom_item_list">
@@ -101,8 +80,8 @@
 			</div>
 			<div class="map_render" style="background:#ddd;">
 				<!-- style='개발 확인 및 전달용입니다' -->
-				<a href="#" style="display:inline-block;position:absolute;top:300px;left:500px;"><img src="../assets/images/ic_check_dot@2x.png" style="max-width:34px;" alt=""></a>
-				<a href="#" style="display:inline-block;position:absolute;top:600px;left:200px;"><img src="../assets/images/ic_check_dot@2x.png" style="max-width:34px;" alt=""></a>
+				<a href="#" style="display:inline-block;position:absolute;top:300px;left:500px;"><img src="./assets/images/ic_check_dot@2x.png" style="max-width:34px;" alt=""></a>
+				<a href="#" style="display:inline-block;position:absolute;top:600px;left:200px;"><img src="./assets/images/ic_check_dot@2x.png" style="max-width:34px;" alt=""></a>
 
 			</div>
 		</section>
@@ -118,10 +97,10 @@
 								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_date"><span class="map_clabel_fxtext">날짜선택</span></span></div>
 								<div class="map_control_comp_tdcols">
 									<div class="tui-datepicker-input tui-datetime-input tui-has-focus" value="2023-07-19">
-										<input type="text" id="datepicker-input" aria-label="Date-Time">
+										<input type="text" id="datepicker-input" aria-label="Date-Time" class="input_tui_calendar">
 										<span class="tui-ico-date"></span>
 									</div>
-									<div id="map_date_render" class="ui_picker_render"></div>
+									<div id="map_date_render" class="ui_picker_render reverse_render"></div>
 								</div>
 							</div>
 						</li>
@@ -131,11 +110,53 @@
 								<div class="map_control_comp_tdcols">
 									<ul class="hor_form_list">
 										<li>
-											<div id="timepicker-selectbox" class="time_picker_item"></div>
+											<div class="combo_item reverse_item" id="select_combo_start">
+												<a href="javascript:;" class="combo_target">00:00</a>
+												<div class="combo_option_group reverse_pos">
+													<div class="combo_option_scroll" data-rowCount="10">
+														<ul class="combo_option_list">
+															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
+															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
+															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
+															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
+															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
+															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
+															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
+															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
+															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
+															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
+															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
+															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
+															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
 										</li>
 										<li class="short"><span class="short_else">~</span></li>
 										<li>
-											<div id="timepicker-selectbox2" class="time_picker_item"></div>
+											<div class="combo_item reverse_item" id="select_combo_end">
+												<a href="javascript:;" class="combo_target">11:00</a>
+												<div class="combo_option_group reverse_pos">
+													<div class="combo_option_scroll" data-rowCount="10">
+														<ul class="combo_option_list">
+															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
+															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
+															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
+															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
+															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
+															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
+															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
+															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
+															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
+															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
+															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
+															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
+															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
 										</li>
 									</ul>
 								</div>
@@ -148,6 +169,34 @@
 		</div>
 		<script>
 			menuRock("#one_depth_01");
+
+			//combo callback
+			comboChangeCallback({
+				target: "select_combo_start",
+				callback(value) {
+					console.log(value);
+				}
+			});
+			comboChangeCallback({
+				target: "select_combo_end",
+				callback(value) {
+					console.log(value);
+				}
+			});
+
+
+			var datepicker = new tui.DatePicker('#map_date_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-input',
+					format: 'yyyy-MM-dd'
+				}
+			});
+
+
+			// 자율차 서비스 차로
+			toggleClass(".btn_box_obj");
 
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
