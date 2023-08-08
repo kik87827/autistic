@@ -109,7 +109,7 @@
      font-weight: normal;
      font-style: normal;
      line-height: 1;
-     color: #333;
+     color: #313444;
      cursor: default;
      vertical-align: top
  }
@@ -284,7 +284,8 @@
  }
  
  .tui-datepicker {
-     border: 1px solid #aaa;
+    border-radius: 4px;
+    border: solid 1px #ddd;
      background-color: white;
      position: absolute;
  }
@@ -359,9 +360,13 @@
      vertical-align: top;
  }
  
- .tui-datepicker-selector-button.tui-is-checked .tui-ico-date, .tui-datepicker-input.tui-has-focus .tui-ico-date {
-     background-position: -17px -14px
- }
+.ui_picker_render.reverse_render .tui-datepicker{bottom:45px;}
+
+//  .tui-datepicker-selector-button.tui-is-checked .tui-ico-date, .tui-datepicker-input.tui-has-focus .tui-ico-date {
+//      background-position: -17px -14px
+//  }
+
+ .tui-ico-date{display:inline-block;width:16px;height:16px;background:url("../images/ic_date@2x.png") no-repeat 50% 50%/100% auto;}
  
  .tui-datepicker-selector-button.tui-is-checked .tui-ico-time {
      background-position: 0 -44px
@@ -374,10 +379,14 @@
  .tui-datepicker-input {
      position: relative;
      display: inline-block;
-     width: 120px;
-     height: 28px;
+     box-sizing: border-box;
+     width: 152px;
+     height: 30px;
      vertical-align: top;
-     border: 1px solid #ddd
+     padding: 6px 10px;
+    border-radius: 4px;
+    border: solid 1px #ddd;
+    background-color: #fff;
  }
  
  .tui-datepicker-input * {
@@ -389,19 +398,20 @@
  .tui-datepicker-input > input {
      width: 100%;
      height: 100%;
-     padding: 6px 27px 6px 10px;
+     padding: 6px 27px 6px 0;
      font-size: 12px;
      line-height: 14px;
      vertical-align: top;
      border: 0;
-     color: #333
+     color: #5f637a;
+     line-height:1;
  }
  
  .tui-datepicker-input > .tui-ico-date {
      position: absolute;
      top: 50%;
      right: 8px;
-     margin: -6px 0 0 0
+     transform: translateY(-50%);
  }
  
  .tui-datepicker-input.tui-has-focus {
@@ -422,12 +432,12 @@
  }
  
  .tui-datepicker .tui-is-selectable:hover {
-     background-color: #edf4fc;
+     background-color: rgba(123, 84, 255, 0.1);
      cursor: pointer;
  }
  
  .tui-datepicker .tui-is-selectable.tui-is-selected, .tui-datepicker.tui-rangepicker .tui-is-selectable.tui-is-selected {
-     background-color: #4b96e6;
+     background-color: #7b54ff;
      color: #fff
  }
  

@@ -15,14 +15,14 @@ html:not(.touchmode) {
         }
     }
     &.map_api_body{
-        overflow:hidden;
+       
     }
     .page_wrap{display:flex;flex-direction: column;height:100vh;
         > *{width:100%;box-sizing: border-box;}
     }
 }
 
-.page_wrap{}
+.page_wrap{min-width:1440px;}
 
 
 .header_wrap{flex:0 0 70px;background:#fff;height:70px;display:flex;padding:0 30px;position:relative;z-index:20;
