@@ -96,7 +96,7 @@ input.props_form{
 }
 .map_guide_toggle_group{display:inline-block;position:relative;
     &.active{
-        .btn_map_guide_toggle{background-color:#7b54ff;
+        .btn_map_guide_toggle{background-color:$primary;
             &:after{background-position:0 100%;}
         }
         .content_map_guide_toggle{display:block;}
@@ -107,7 +107,7 @@ input.props_form{
     &:after{display:block;content:'';width:24px;height:24px;background:url("../images/ic_map_guide.png") no-repeat 0 0/100% auto;}
 
     &:hover{
-        background-color:#7b54ff;
+        background-color:$primary;
         &:after{background-position:0 100%;}
     }
 }
@@ -127,17 +127,28 @@ input.props_form{
 .map_render_right_layer{position:absolute;top:20px;right:20px;z-index:5;}
 .map_zoom_item_list{
     > li{
-        &:last-of-type{}
+        margin-bottom:8px;
+        &:last-of-type{margin-bottom:0;}
     }
 }
 .map_zoom_item{
+    display:inline-block;width:40px;height:40px;border-radius: 8px;position:relative;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    &:hover{
+        background-color:$primary;
+        &:before,
+        &:after{background:#fff;}
+    }
+    &:before,
+    &:after{display:block;content:'';width:12px;height:2px;background:#313444;position:absolute;top:50%;left:50%;margin:-1px 0 0 -6px;}
     &.zoomup{
         &:before{}
-        &:after{}
+        &:after{transform: rotate(90deg);}
     }
     &.zoomdown{
         &:before{}
-        &:after{}
+        &:after{display:none;}
     }
 }
 .map_bottom_wrap{}
@@ -178,7 +189,7 @@ input.props_form{
 .time_picker_item{}
 .btn_formbox{
     min-width: 70px;padding: 8px 12px; box-sizing: border-box;border-radius: 4px;display:inline-block; font-size:13px;font-weight:600;text-align:center; line-height:1;
-    &.primary{background-color: #7b54ff;color:#fff;}
+    &.primary{background-color: $primary;color:#fff;}
 }
 .ui_picker_render{margin-top: -1px;}
 .map_summary_box{}

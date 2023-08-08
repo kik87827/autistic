@@ -2142,6 +2142,46 @@ input.props_form:checked {
   z-index: 5;
 }
 
+.map_zoom_item_list > li {
+  margin-bottom: 8px;
+}
+.map_zoom_item_list > li:last-of-type {
+  margin-bottom: 0;
+}
+
+.map_zoom_item {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.map_zoom_item:hover {
+  background-color: #7b54ff;
+}
+.map_zoom_item:hover:before, .map_zoom_item:hover:after {
+  background: #fff;
+}
+.map_zoom_item:before, .map_zoom_item:after {
+  display: block;
+  content: "";
+  width: 12px;
+  height: 2px;
+  background: #313444;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -1px 0 0 -6px;
+}
+.map_zoom_item.zoomup:after {
+  transform: rotate(90deg);
+}
+.map_zoom_item.zoomdown:after {
+  display: none;
+}
+
 .map_control_row {
   background: #252031;
   display: flex;
