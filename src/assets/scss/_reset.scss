@@ -32,11 +32,11 @@ fieldset legend ,
 table caption {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;color:transparent;position:absolute;top:0;left:-99999px;}
 textarea{font-family: 'Pretendard';color:#000;border:1px solid #c8c8c8;-webkit-appearance: none;-moz-appearance: none;-webkit-border-radius: 0;}
 
-::-webkit-input-placeholder{color:#999;font-family: 'Pretendard';}
-::-moz-input-placeholder{color:#999;font-family: 'Pretendard';}
-:-ms-input-placeholder{color:#999;font-family: 'Pretendard';}
-::-ms-input-placeholder{color:#999;font-family: 'Pretendard';}
-::input-placeholder{color:#999;font-family: 'Pretendard';}
+::-webkit-input-placeholder{color:rgba(49, 52, 68, 0.5);;font-family: 'Pretendard';}
+::-moz-input-placeholder{color:rgba(49, 52, 68, 0.5);;font-family: 'Pretendard';}
+:-ms-input-placeholder{color:rgba(49, 52, 68, 0.5);;font-family: 'Pretendard';}
+::-ms-input-placeholder{color:rgba(49, 52, 68, 0.5);;font-family: 'Pretendard';}
+::input-placeholder{color:rgba(49, 52, 68, 0.5);;font-family: 'Pretendard';}
 
 ::-webkit-inner-spin-button {
     display: none;

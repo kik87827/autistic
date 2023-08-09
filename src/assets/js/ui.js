@@ -45,6 +45,8 @@ function layoutFunc(){
   const nav_twoitem_list_wrap = document.querySelectorAll(".nav_twoitem_list_wrap");
   let arrayHeightTwo = [];
 
+  if(!header_wrap){return;}
+
   // init
   initGnb();
 
@@ -70,10 +72,12 @@ function layoutFunc(){
   // function
   function initGnb(){
     arrayHeightTwo = getMaxHeightTwo();
-    header_wrap.classList.add("ready");
-    nav_oneitem.forEach((item)=>{
-      item.style.width = item.getBoundingClientRect().width + 'px';
-    });
+    if(!!header_wrap){
+      header_wrap.classList.add("ready");
+      nav_oneitem.forEach((item)=>{
+        item.style.width = item.getBoundingClientRect().width + 'px';
+      });
+    }
   }
 
   function getMaxHeightTwo(){
