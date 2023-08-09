@@ -4,6 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 window.addEventListener("load", () => {
   layoutFunc();
+  formItemFun();
 });
 
 /**
@@ -324,4 +325,20 @@ function toggleClass(target) {
       })
     })
   }
+}
+
+
+/* input */
+
+function formItemFun() {
+  addDynamicEventListener(document.body, 'focusin', '.input_component_box .input_origin_item', function(e) {
+    const thisTarget = e.target;
+    const thisTargetParent = thisTarget.closest(".input_component_box");
+    thisTargetParent.classList.add("focus");
+  });
+  addDynamicEventListener(document.body, 'focusout', '.input_component_box .input_origin_item', function(e) {
+    const thisTarget = e.target;
+    const thisTargetParent = thisTarget.closest(".input_component_box");
+    thisTargetParent.classList.remove("focus");
+  });
 }

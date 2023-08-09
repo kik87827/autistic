@@ -14,7 +14,7 @@
 							</h1>
 							<div class="cform_field_form">
 								<div class="cform_field_row">
-									<div class="input_component_box">
+									<div class="input_component_box" id="sample_color_focus">
 										<i class="ico_input ico_men"></i>
 										<input type="text" class="input_origin_item" placeholder="아이디">
 										<span class="count_wrap">
@@ -24,7 +24,7 @@
 									</div>
 								</div>
 								<div class="cform_field_row">
-									<div class="input_component_box">
+									<div class="input_component_box" id="sample_color_warn">
 										<i class="ico_input ico_password"></i>
 										<input type="password" class="input_origin_item" placeholder="비밀번호">
 										<span class="count_wrap">
@@ -77,8 +77,18 @@
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
 			let url_2 = url !== undefined ? url.split('#')[0] : null;
-			if(url_2 === "loading"){
-				document.querySelector(".loading_layer").classList.add("active");
+			if(url_2 === "message"){
+				document.querySelectorAll(".warn_message").forEach((item)=>{
+					item.classList.add("active");
+				});
+				// focus
+				document.querySelector("#sample_color_focus").classList.add("color_focus");
+				document.querySelector("#sample_color_focus").classList.add("focus");
+				document.querySelector("#sample_color_focus .input_origin_item").value = 'sample@mqnic.com';
+				// warn
+				document.querySelector("#sample_color_warn").classList.add("focus");
+				document.querySelector("#sample_color_warn").classList.add("warn");
+				document.querySelector("#sample_color_warn .input_origin_item").value = '1234';
 			}
 		</script>
 	</div>

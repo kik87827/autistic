@@ -18,8 +18,8 @@
 									<tr>
 										<th><label for="formitem_01" class="cform_field_label imp">아이디</label></th>
 										<td>
-											<div class="input_component_box">
-												<input type="text" class="input_form" placeholder="4~8자/ 국문, 영문, 숫자" id="formitem_01">
+											<div class="input_component_box" id="sample_00">
+												<input type="text" class="input_origin_item" placeholder="4~8자/ 국문, 영문, 숫자" id="formitem_01">
 												<span class="count_wrap">
 													<span class="count_text">0/0</span>
 												</span>
@@ -33,10 +33,10 @@
 									<tr>
 										<th><label for="formitem_02" class="cform_field_label imp">이메일</label></th>
 										<td>
-											<div class="input_component_box">
-												<input type="text" class="input_form" placeholder="ex) abc@abc.com" id="formitem_02">
+											<div class="input_component_box" id="sample_01">
+												<input type="text" class="input_origin_item" placeholder="ex) abc@abc.com" id="formitem_02">
 												<span class="count_wrap">
-													<span class="count_text">0/0</span>
+													<span class="count_text">111/40</span>
 												</span>
 												<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
 											</div>
@@ -48,27 +48,36 @@
 									<tr>
 										<th><label for="formitem_03" class="cform_field_label imp">이름</label></th>
 										<td>
-											<div class="input_component_box wtype2">
-												<input type="text" class="input_form" placeholder="2~16자 / 국문, 영문" id="formitem_03">
+											<div class="input_component_box wtype2" id="sample_02">
+												<input type="text" class="input_origin_item" placeholder="2~16자 / 국문, 영문" id="formitem_03">
 												<span class="count_wrap">
-													<span class="count_text">0/0</span>
+													<span class="count_text">5/16</span>
 												</span>
 												<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
 											</div>
-											<div class="form_each_message_group">
+											<!-- <div class="form_each_message_group">
 												<p class="form_each_message">이름을 입력해 주세요.</p>
-											</div>
+											</div> -->
 										</td>
 									</tr>
 								</table>
 							</div>
 							<div class="cform_btn_primary_row">
-								<a href="#" class="btn_box primary"><span class="btn_box_text">확인</span></a>
+								<a href="#" class="btn_formbox_submit"><span class="btn_formbox_submit_text">확인</span></a>
 							</div>
 							<ul class="cform_other_list">
 								<li><a href="#" class="btn_cform_other">로그인하기</a></li>
 							</ul>
 						</div>
+					</div>
+					<div class="cform_else_wrap">
+						<ul class="cform_elselogo_list">
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./assets/images/logo_mi@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./assets/images/logo_kaia@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./assets/images/logo_kadif@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./assets/images/logo_koti@2x.png" alt=""></a></li>
+							<li><a href="#" class="cform_elselogo" target="_blank" title="새창"><img src="./assets/images/logo_mqnic@2x.png" alt=""></a></li>
+						</ul>
 					</div>
 				</div>
 				<div class="cform_footer_wrap"><p class="cform_footer_para">본 홈페이지의 모든 콘텐츠 및 정보는 저작권법의 보호를 받는바, 무단 연계, 전재, 복사, 배포 등은 법적제재를 받을 수 있습니다</p></div>
@@ -78,8 +87,21 @@
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
 			let url_2 = url !== undefined ? url.split('#')[0] : null;
-			if(url_2 === "loading"){
-				document.querySelector(".loading_layer").classList.add("active");
+			if(url_2 === "message"){
+				document.querySelectorAll(".form_each_message_group").forEach((item)=>{
+					item.classList.add("active");
+				});
+				// warn
+				
+
+				document.querySelector("#sample_00").classList.add("warn");
+				document.querySelector("#sample_01").classList.add("warn");
+				document.querySelector("#sample_01").classList.add("focus");
+
+				document.querySelector("#sample_01 .input_origin_item").value = 'abc.com';
+				document.querySelector("#sample_02").classList.add("color_focus");
+				document.querySelector("#sample_02").classList.add("focus");
+				document.querySelector("#sample_02 .input_origin_item").value = '김사용자';
 			}
 		</script>
 	</div>
