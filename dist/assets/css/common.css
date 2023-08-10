@@ -1615,6 +1615,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   height: 0;
   transition: 0.4s;
   border-top: 1px solid #ddd;
+  box-shadow: 1px 6px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 .hgroup_sub_cols {
@@ -2014,7 +2015,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   display: none;
   align-items: center;
   justify-content: center;
-  min-width: 280px;
+  min-width: 1440px;
   overflow: hidden;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -2025,6 +2026,17 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 .popup_wrap.motion_end {
   opacity: 1;
+}
+.popup_wrap.widtype2 .popup_item {
+  width: 830px;
+}
+.popup_wrap.skin2 .popup_title_low {
+  border-bottom: 1px solid #ddd;
+  padding: 16px 0 0;
+  margin: 0 40px;
+}
+.popup_wrap.skin2 .popup_content_low {
+  margin-top: 30px;
 }
 
 .popup_item {
@@ -2068,12 +2080,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 
 .popup_title_low {
-  text-align: center;
   flex: 0;
-  padding: 16px 16px 0 40px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
+  padding: 16px 70px 0 40px;
 }
 
 .popup_title {
@@ -2092,6 +2100,9 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   width: 40px;
   height: 40px;
   background: url("../images/ic_popup_close@2x.png") no-repeat 0 0/100% auto;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 
 .popup_content_low {
@@ -2101,6 +2112,41 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   overflow: hidden;
   overflow-y: overlay;
   padding: 0 40px 60px;
+}
+
+.screen_content_both {
+  display: flex;
+  position: relative;
+}
+.screen_content_both:after {
+  display: block;
+  content: "";
+  width: 1px;
+  height: calc(100% + 24px);
+  position: absolute;
+  top: -24px;
+  right: 42%;
+  background: #d9d9d9;
+}
+
+.screen_content_main_cols,
+.screen_content_sub_cols {
+  overflow: hidden;
+  overflow: overlay;
+  position: relative;
+}
+
+.screen_content_main_cols {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 30px 100px;
+}
+
+.screen_content_sub_cols {
+  flex: 0 0 42%;
+  box-sizing: border-box;
+  width: 42%;
+  padding: 26px 30px 100px;
 }
 
 /* contents */
@@ -2133,6 +2179,18 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 .combo_item.color_focus .combo_target {
   border-color: #9747ff;
+}
+.combo_item.medium .combo_target {
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  color: #626888;
+  min-width: 150px;
+}
+.combo_item.medium .combo_target:after {
+  background: url("../images/ic_arrow_dgb@2x.png") no-repeat 0 0/100% auto;
+  width: 16px;
+  height: 16px;
 }
 
 .combo_target {
@@ -2192,6 +2250,9 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border: 1px solid #ccc;
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
+}
+.combo_option_group.medium .combo_option {
+  font-size: 14px;
 }
 
 .combo_option_scroll {
@@ -3257,9 +3318,47 @@ input.props_form:checked {
   flex: 1;
 }
 
+.screen_guide_wrap {
+  position: relative;
+}
+
+.screen_guide_text_wrap {
+  text-align: center;
+  position: absolute;
+  top: 21%;
+  left: 0;
+  width: 100%;
+}
+
+.screen_guide_text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #313444;
+}
+.screen_guide_text:before {
+  display: inline-block;
+  content: "";
+  background: url("../images/ic_exclude@2x.png") no-repeat 0 0/100% auto;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.screen_guide_wrap {
+  margin-top: 50px;
+}
+
 @media (min-height: 1080px) {
   .cform_content_wrap {
     position: static;
+  }
+}
+@media (max-width: 1440px) {
+  .screen_guide_text_wrap {
+    top: 20%;
   }
 }
 .guide_page {

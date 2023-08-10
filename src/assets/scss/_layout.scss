@@ -65,7 +65,10 @@ html:not(.touchmode) {
 .nav_twoitem{color: #5f637a;font-size: 14px;display:block;padding:10px;
     &:hover{color:#313444;font-weight:600;}
 }
-.bg_twonav{position:absolute;top:100%;left:0;background:#fff;width:100%;height:0;transition:.4s;border-top:1px solid #ddd;}
+.bg_twonav{position:absolute;top:100%;left:0;background:#fff;width:100%;height:0;transition:.4s;border-top:1px solid #ddd;
+  box-shadow: 1px 6px 4px -2px rgba(0,0,0,0.1);
+
+}
 
 
 .hgroup_sub_cols{display:flex;align-items: center;position:relative;z-index:5;}
@@ -270,9 +273,18 @@ html:not(.touchmode) {
   /* popup */
   
 /* 공통 popup */
-.popup_wrap {position: fixed;top: 0;left: 0;width: 100%;height: 100%;opacity:0;transition:.4s;z-index: 130;display: none;align-items: center;justify-content: center;min-width: 280px;overflow: hidden;flex-wrap: wrap;box-sizing:border-box;padding:0 20px;
+.popup_wrap {position: fixed;top: 0;left: 0;width: 100%;height: 100%;opacity:0;transition:.4s;z-index: 130;display: none;align-items: center;justify-content: center;min-width:1440px;overflow: hidden;flex-wrap: wrap;box-sizing:border-box;padding:0 20px;
   &.active {display: flex;}
   &.motion_end{opacity:1;}
+  &.widtype2 {
+    .popup_item{width:830px;}
+  }
+  &.skin2{
+    .popup_title_low{
+      border-bottom:1px solid #ddd;padding:16px 0 0;margin:0 40px;
+    }
+    .popup_content_low{margin-top:30px;}
+  }
 }
 
 .popup_item {
@@ -298,8 +310,8 @@ html:not(.touchmode) {
 .bg_dim {display: block;width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 0;background: #222;opacity:.6;
 }
 
-.popup_title_low {text-align: center;flex: 0;padding: 16px 16px 0 40px;position: relative; 
-  display:flex;justify-content: space-between;
+.popup_title_low {flex: 0;padding: 16px 70px 0 40px;
+  
 }
 
 .popup_title {font-size: 18px;color: #2b2b2b;padding: 34px 0 16px;font-weight: 700;
@@ -309,6 +321,15 @@ html:not(.touchmode) {
   color: #313444;
 }
 
-.btn_popup_close{display:block;width:40px;height:40px;background:url("../images/ic_popup_close@2x.png") no-repeat 0 0/100% auto;}
+.btn_popup_close{display:block;width:40px;height:40px;background:url("../images/ic_popup_close@2x.png") no-repeat 0 0/100% auto;position:absolute;top:16px;right:16px;}
 
 .popup_content_low{flex:1;min-height:0;position:relative;overflow:hidden;overflow-y:overlay;padding:0 40px 60px;}
+
+.screen_content_both{display:flex;position:relative;
+  &:after{display:block;content:'';width:1px;height:calc(100% + 24px);position:absolute;top:-24px;right:42%;background:#d9d9d9;}
+}
+.screen_content_main_cols,
+.screen_content_sub_cols{overflow: hidden;overflow:overlay;position:relative;}
+
+.screen_content_main_cols{flex:1;min-width:0;padding:16px 30px 100px;}
+.screen_content_sub_cols{flex: 0 0 42%;box-sizing: border-box;width:42%;padding:26px 30px 100px;}

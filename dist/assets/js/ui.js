@@ -72,6 +72,9 @@ function layoutFunc() {
   header_wrap.addEventListener("mouseleave", () => {
     twodepthInActive();
   });
+  document.querySelector("body").addEventListener("mouseleave", () => {
+    twodepthInActive();
+  });
 
   // function
   function initGnb() {
@@ -395,6 +398,9 @@ function DesignPopup(option) {
   this.bg_design_popup = null;
   this.scrollValue = 0;
 
+  this.btn_closeTrigger = null;
+  this.btn_close = null;
+
   const popupGroupCreate = document.createElement("div");
   popupGroupCreate.classList.add("layer_wrap_parent");
 
@@ -437,7 +443,7 @@ DesignPopup.prototype.popupShow = function() {
   this.selector.classList.add("active");
   setTimeout(() => {
     this.selector.classList.add("motion_end");
-  }, 420);
+  }, 30);
   if ("beforeCallback" in this.option) {
     this.option.beforeCallback();
   }
@@ -479,7 +485,7 @@ DesignPopup.prototype.popupHide = function() {
     setTimeout(() => {
 
       this.selector.classList.remove("active");
-    }, 420)
+    }, 400)
     this.design_popup_wrap_active = document.querySelectorAll(".popup_wrap.active");
     this.dimCheck();
     if ("closeCallback" in this.option) {
@@ -492,13 +498,14 @@ DesignPopup.prototype.popupHide = function() {
 }
 
 DesignPopup.prototype.bindEvent = function() {
-  this.btn_closeTrigger = this.selector.querySelectorAll(".close_trigger,.btn_closeitem");
   this.btn_close = this.selector.querySelectorAll(".btn_popup_close");
   this.bg_design_popup = this.selector.querySelector(".bg_dim");
-
-  var closeItemArray = [...this.btn_closeTrigger, ...this.btn_close];
-
-  if (this.bg_design_popup !== null) {
+  var closeItemArray = [...this.btn_close];
+  if (!!this.btn_closeTrigger) {
+    this.btn_closeTrigger = this.selector.querySelectorAll(".close_trigger");
+    closeItemArray.push(...this.btn_closeTrigger)
+  }
+  if (!!this.bg_design_popup) {
     closeItemArray.push(this.bg_design_popup);
   }
   if (closeItemArray.length) {

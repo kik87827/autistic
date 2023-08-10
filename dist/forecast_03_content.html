@@ -63,263 +63,83 @@
 							<a href="#" class="hgroup_util_item">user</a>
 						</div>
 					</li>
-					<li>
-						<div class="hgroup_util_item_wrap">
-							<a href="#" class="hgroup_util_item  type2">admin</a>
-							<div class="hgroup_util_menu_list_wrap">
-								<ul class="hgroup_util_menu_list">
-									<li>
-										<a href="#" class="hgroup_util_menu">
-											<i class="hgroup_util_ico ico_edit"></i>
-											<span class="hgroup_util_text">정보수정</span>
-										</a>
-									</li>
-									<li>
-										<a href="#" class="hgroup_util_menu">
-											<i class="hgroup_util_ico ico_manage"></i>
-											<span class="hgroup_util_text">사용자 관리</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
 					<li><a href="#" class="util_ico_menu"><span class="hdtext">로그아웃</span></a></li>
 				</ul>
 			</div>
 			<div class="bg_twonav"></div>
 		</header>
-		<section class="map_render_wrap">
-			<div class="map_render_left_layer">
-				<div class="map_guide_toggle_group">
-					<a href="#" class="btn_map_guide_toggle"><span class="hdtext">지도 안내</span></a>
-					<div class="content_map_guide_toggle">
-						<ul class="map_guide_list">
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_01">
-									<label for="map_guide_props_01" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#f24e77"></span>
-										<span class="map_guide_label_text">수요대응 미니셔틀</span>
-									</label>
-								</div>
-							</li>
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_02">
-									<label for="map_guide_props_02" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#65dfc2"></span>
-										<span class="map_guide_label_text">도시 환경 관리</span>
-									</label>
-								</div>
-							</li>
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_03">
-									<label for="map_guide_props_03" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#6eca72"></span>
-										<span class="map_guide_label_text">A 서비스</span>
-									</label>
-								</div>
-							</li>
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_04">
-									<label for="map_guide_props_04" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#f5c351"></span>
-										<span class="map_guide_label_text">B 서비스</span>
-									</label>
-								</div>
-							</li>
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_05">
-									<label for="map_guide_props_05" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#f48b41"></span>
-										<span class="map_guide_label_text">C 서비스</span>
-									</label>
-								</div>
-							</li>
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_06">
-									<label for="map_guide_props_06" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#aa38e0"></span>
-										<span class="map_guide_label_text">D 서비스</span>
-									</label>
-								</div>
-							</li>
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_07">
-									<label for="map_guide_props_07" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#f24e77"></span>
-										<span class="map_guide_label_text">E 서비스</span>
-									</label>
-								</div>
-							</li>
-							<li>
-								<div class="props_form_item">
-									<input type="checkbox" class="props_form" id="map_guide_props_08">
-									<label for="map_guide_props_08" class="props_label map_guide_label">
-										<span class="map_guide_line" style="background-color:#3ecbff"></span>
-										<span class="map_guide_label_text">F 서비스</span>
-									</label>
-								</div>
-							</li>
-						</ul>
+
+		<!-- popup -->
+		<div class="popup_wrap type2" id="user_popup">
+			<div class="bg_dim"></div>
+			<div class="popup_item">
+				<div class="popup_title_low type2">
+					<h2 class="popup_title">사용자 정보</h2>
+					<a href="javascript:;" class="btn_popup_close"><span class="hdtext">팝업 닫기</span></a>
+				</div>
+				<div class="popup_content_low">
+					사용자 정보<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.
+				</div>
+			</div>
+		</div>
+		<div class="popup_wrap type2" id="user_modify_popup">
+			<div class="bg_dim"></div>
+			<div class="popup_item">
+				<div class="popup_title_low type2">
+					<h2 class="popup_title">사용자 정보 수정</h2>
+					<a href="javascript:;" class="btn_popup_close"><span class="hdtext">팝업 닫기</span></a>
+				</div>
+				<div class="popup_content_low">
+					사용자 정보 수정<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.
+				</div>
+			</div>
+		</div>
+		<!-- // popup -->
+		<section class="map_screen_wrap">
+			<div class="map_screen_title_row">
+				<div class="map_screen_title_main_cols">
+					<h2 class="map_screen_title">Use-case 관리</h2>
+					<div class="map_screen_title_sub">
+						혼재기 교통상황 예측
 					</div>
 				</div>
-			</div>
-			<div class="map_render_right_layer">
-				<ul class="map_zoom_item_list">
-					<li><button type="button" class="map_zoom_item zoomup"><span class="hdtext">확대</span></button></li>
-					<li><button type="button" class="map_zoom_item zoomdown"><span class="hdtext">측서</span></button></li>
-				</ul>
-			</div>
-			<div class="map_render">
-				<!-- 퍼블 확인용 -->
-				<!-- <iframe class="map_pub_iframe" src="http://vsm.mqnic.com:7654/CACHE/SEJONG.html#15.31/36.485775/127.251423/20/2" frameborder="0" scrolling="no"></iframe> -->
-				<!-- // 퍼블 확인용 -->
-			</div>
-		</section>
-		<div class="map_bottom_wrap">
-			<div class="map_fold_row">
-				<div class="map_fold_control_row"><a href="javascript:;" class="btn_map_fold_control"><span class="hdtext">열기/닫기</span></span></a></div>
-				<div class="map_fold_content_row">
-					<div class="map_fold_content">
-						내용이 들어갑니다.
-					</div>
-				</div>
-			</div>
-			<div class="map_control_row">
-				<div class="map_control_label_cols">
-					<span class="map_control_label">특정일 시간대 조회</span>
-				</div>
-				<div class="map_control_form_cols">
-					<ul class="map_control_form">
-						<li>
-							<div class="map_control_comp_item">
-								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_date"><span class="map_clabel_fxtext">날짜선택</span></span></div>
-								<div class="map_control_comp_tdcols">
-									<div class="tui-datepicker-input tui-datetime-input tui-has-focus" value="2023-07-19">
-										<input type="text" id="datepicker-input" aria-label="Date-Time" class="input_tui_calendar">
-										<span class="tui-ico-date"></span>
-									</div>
-									<div id="map_date_render" class="ui_picker_render reverse_render"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="map_control_comp_item">
-								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_time"><span class="map_clabel_fxtext">시간선택</span></span></div>
-								<div class="map_control_comp_tdcols">
-									<ul class="hor_form_list">
-										<li>
-											<div class="combo_item reverse_item" id="select_combo_start">
-												<a href="javascript:;" class="combo_target">00:00</a>
-												<div class="combo_option_group reverse_pos">
-													<div class="combo_option_scroll" data-rowCount="10">
-														<ul class="combo_option_list">
-															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
-															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
-															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
-															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
-															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
-															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
-															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
-															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
-															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
-															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
-															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
-															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
-															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</li>
-										<li class="short"><span class="short_else">~</span></li>
-										<li>
-											<div class="combo_item reverse_item" id="select_combo_end">
-												<a href="javascript:;" class="combo_target">11:00</a>
-												<div class="combo_option_group reverse_pos">
-													<div class="combo_option_scroll" data-rowCount="10">
-														<ul class="combo_option_list">
-															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
-															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
-															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
-															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
-															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
-															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
-															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
-															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
-															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
-															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
-															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
-															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
-															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li><a href="#" class="btn_formbox primary">조회</a></li>
+				<div class="map_screen_title_sub_cols">
+					<ul class="btn_map_screen_list">
+						<li><a href="#" class="btn_quad has_ico ico_car"><span class="btn_quad_text">시뮬레이션 실행</span></a></li>
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div class="loading_layer">
-			<div class="loading_item_wrap">
-				<div class="loading_item">
-					<div class="loading_ico">
-						<div class="dot-spinner">
-							<div class="dot-spinner__dot"></div>
-							<div class="dot-spinner__dot"></div>
-							<div class="dot-spinner__dot"></div>
-							<div class="dot-spinner__dot"></div>
-							<div class="dot-spinner__dot"></div>
-							<div class="dot-spinner__dot"></div>
-							<div class="dot-spinner__dot"></div>
-							<div class="dot-spinner__dot"></div>
-						</div>
-					</div>
-					<div class="loading_text">LOADING</div>
+			<div class="map_screen_content_row screen_content_both">
+				<div class="screen_content_main_cols">
+					내용이 들어갑니다.
+				</div>
+				<div class="screen_content_sub_cols">
+					내용이 들어갑니다.
 				</div>
 			</div>
-		</div>
+		</section>
 		<script>
-			menuRock("#one_depth_01");
-
-			//combo callback
-			comboChangeCallback({
-				target: "select_combo_start",
-				callback(value) {
-					console.log(value);
-				}
-			});
-			comboChangeCallback({
-				target: "select_combo_end",
-				callback(value) {
-					console.log(value);
-				}
-			});
-
-
-			var datepicker = new tui.DatePicker('#map_date_render', {
-				date: new Date(),
-				language: 'ko',
-				input: {
-					element: '#datepicker-input',
-					format: 'yyyy-MM-dd'
-				}
-			});
-			// api guide
-			renderApi();
+			menuRock("#one_depth_03");
 
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
