@@ -20,6 +20,13 @@
             background-image:url("../images/ic_sort_arrow_b_reverse.png");
         }
     }
+
+    &.warn{
+        .combo_target{border-color:#e84854;}
+    }
+    &.color_focus{
+        .combo_target{border-color:#9747ff;}
+    }
 }
 .combo_target{
     font-size:12px;box-sizing:border-box;color:#5f637a;padding:0 24px 0 10px;border:1px solid #ccc;border-radius:4px;display:block;position:relative;white-space: nowrap;

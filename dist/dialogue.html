@@ -60,12 +60,12 @@
 				<ul class="hgroup_util_list">
 					<li>
 						<div class="hgroup_util_item_wrap">
-							<a href="#" class="hgroup_util_item">user type</a>
+							<a href="#" class="hgroup_util_item">user</a>
 						</div>
 					</li>
 					<li>
 						<div class="hgroup_util_item_wrap">
-							<a href="#" class="hgroup_util_item">admin</a>
+							<a href="#" class="hgroup_util_item  type2">admin</a>
 							<div class="hgroup_util_menu_list_wrap">
 								<ul class="hgroup_util_menu_list">
 									<li>
@@ -96,20 +96,74 @@
 		<footer class="footer_wrap">
 
 		</footer>
-		<!-- loading -->
-		<!-- <div class="loading_layer">
-			<div class="loading_box_w">
-				<div class="loading_box">
-					<div class="stage">
-						<div class="dot-flashing"></div>
-						<p class="loading_para">Loading</p>
-					</div>
+		<!-- popup -->
+		<div class="popup_wrap" id="samplePopup">
+			<div class="bg_dim"></div>
+			<div class="popup_item">
+				<div class="popup_title_low">
+					<h2 class="popup_title">타이틀</h2>
+					<a href="javascript:;" class="btn_popup_close"><span class="hdtext">팝업 닫기</span></a>
+				</div>
+				<div class="popup_content_low">
+					내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.<br>
+					내용이 들어갑니다.
 				</div>
 			</div>
-		</div> -->
-		<!-- // loading -->
+		</div>
+		<!-- // popup -->
 
 		<script>
+			// 선언
+			var designPopup = new DesignPopup({
+				selector: "#samplePopup",
+				beforeCallback() {
+					console.log('beforeCallback');
+				},
+				callback() {
+					console.log('callback');
+				}
+			});
+			// show 호출
+			designPopup.popupShow();
+
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];
 			let url_2 = url !== undefined ? url.split('#')[0] : null;
