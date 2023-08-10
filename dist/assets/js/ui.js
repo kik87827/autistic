@@ -4,7 +4,8 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 window.addEventListener("load", () => {
   layoutFunc();
-  formItemFun();
+  formItemFunc();
+  bottomFoldFunc();
 });
 
 /**
@@ -330,7 +331,7 @@ function toggleClass(target) {
 
 /* input */
 
-function formItemFun() {
+function formItemFunc() {
   addDynamicEventListener(document.body, 'focusin', '.input_component_box .input_origin_item', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
@@ -340,5 +341,29 @@ function formItemFun() {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
     thisTargetParent.classList.remove("focus");
+  });
+}
+
+
+/* bottom toggle */
+function bottomFoldFunc() {
+  const btn_map_fold_control = document.querySelector(".btn_map_fold_control");
+  const map_fold_content_row = document.querySelector(".map_fold_content_row");
+  const map_fold_content = document.querySelector(".map_fold_content");
+  let map_fold_content_height = 0;
+  let fold_boolean = btn_map_fold_control.classList.contains("fold");
+  btn_map_fold_control.addEventListener("click", (e) => {
+    e.preventDefault();
+    const thisTarget = e.currentTarget;
+    thisTarget.classList.toggle("fold");
+    fold_boolean = !fold_boolean;
+    map_fold_content_height = map_fold_content.getBoundingClientRect().height;
+    if (fold_boolean) {
+      setTimeout(() => {
+        map_fold_content_row.style.height = map_fold_content_height + "px";
+      }, 20);
+    } else {
+      map_fold_content_row.style.height = "2px";
+    }
   });
 }

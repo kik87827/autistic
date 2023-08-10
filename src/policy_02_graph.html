@@ -92,12 +92,11 @@
 					<li><button type="button" class="map_zoom_item zoomdown"><span class="hdtext">측서</span></button></li>
 				</ul>
 			</div>
-			내용이 들어갑니다.
 		</section>
 		<div class="map_bottom_wrap">
 			<div class="map_fold_row">
 				<div class="map_fold_control_row"><a href="javascript:;" class="btn_map_fold_control active"><span class="hdtext">열기/닫기</span></span></a></div>
-				<div class="map_fold_content_row" style="display:block;">
+				<div class="map_fold_content_row">
 					<div class="map_fold_content">
 						<div class="map_fold_title_row">
 							<div class="map_fold_title_cols">
@@ -105,13 +104,53 @@
 							</div>
 							<div class="map_fold_title_cols">
 								<dl class="map_caption_dl">
-									<dd><span clas="map_caption_value">12065</span></dd>
+									<dd><span class="map_caption_value">12065</span></dd>
 								</dl>
 							</div>
 						</div>	
-						<div class="map_fold_content_row">
+						<div class="map_fold_data_render_row">
 							<div class="chart_title_flex_wrap">
-								<div class="chart_title_flex_cols"><p class="chart_map_title">정류소 이용 현황</p></div>
+								<div class="chart_title_flex_cols">
+									<p class="chart_map_title type2">정류소 이용 현황</p>
+									<ul class="chart_dot_guide_list">
+										<li>
+											<div class="chart_dot_guide_item">
+												<span class="chart_dot_guide_box" style="background-color:#8e6cff"></span>
+												<span class="chart_dot_guide_text">승차 인원</span>
+											</div>
+										</li>
+										<li>
+											<div class="chart_dot_guide_item">
+												<span class="chart_dot_guide_box" style="background-color:#758cff"></span>
+												<span class="chart_dot_guide_text">하차 인원</span>
+											</div>
+										</li>
+										<li>
+											<div class="chart_dot_guide_item">
+												<span class="chart_dot_guide_box" style="background-color:#ff4a74"></span>
+												<span class="chart_dot_guide_text">수요대응 미니셔틀</span>
+											</div>
+										</li>
+										<li>
+											<div class="chart_dot_guide_item">
+												<span class="chart_dot_guide_box" style="background-color:#5acb6c"></span>
+												<span class="chart_dot_guide_text">A 서비스</span>
+											</div>
+										</li>
+										<li>
+											<div class="chart_dot_guide_item">
+												<span class="chart_dot_guide_box" style="background-color:#ffca51"></span>
+												<span class="chart_dot_guide_text">B 서비스</span>
+											</div>
+										</li>
+										<li>
+											<div class="chart_dot_guide_item">
+												<span class="chart_dot_guide_box" style="background-color:#ff8a35"></span>
+												<span class="chart_dot_guide_text">C 서비스</span>
+											</div>
+										</li>
+									</ul>
+								</div>
 							</div>
 							<div class="chart_content_flex_wrap">
 								<div class="chart_content_flex_cols">
@@ -135,10 +174,10 @@
 								<div class="map_control_comp_thcols"><span class="map_clabel_fxwrap ico_date"><span class="map_clabel_fxtext">날짜선택</span></span></div>
 								<div class="map_control_comp_tdcols">
 									<div class="tui-datepicker-input tui-datetime-input tui-has-focus" value="2023-07-19">
-										<input type="text" id="datepicker-input" aria-label="Date-Time">
+										<input type="text" id="datepicker-input" aria-label="Date-Time" class="input_tui_calendar">
 										<span class="tui-ico-date"></span>
 									</div>
-									<div id="map_date_render" class="ui_picker_render"></div>
+									<div id="map_date_render" class="ui_picker_render reverse_render"></div>
 								</div>
 							</div>
 						</li>
@@ -148,11 +187,53 @@
 								<div class="map_control_comp_tdcols">
 									<ul class="hor_form_list">
 										<li>
-											<div id="timepicker-selectbox" class="time_picker_item"></div>
+											<div class="combo_item reverse_item" id="select_combo_start">
+												<a href="javascript:;" class="combo_target">00:00</a>
+												<div class="combo_option_group reverse_pos">
+													<div class="combo_option_scroll" data-rowCount="10">
+														<ul class="combo_option_list">
+															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
+															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
+															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
+															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
+															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
+															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
+															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
+															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
+															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
+															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
+															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
+															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
+															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
 										</li>
 										<li class="short"><span class="short_else">~</span></li>
 										<li>
-											<div id="timepicker-selectbox2" class="time_picker_item"></div>
+											<div class="combo_item reverse_item" id="select_combo_end">
+												<a href="javascript:;" class="combo_target">11:00</a>
+												<div class="combo_option_group reverse_pos">
+													<div class="combo_option_scroll" data-rowCount="10">
+														<ul class="combo_option_list">
+															<li><a href="javascript:;" data-value="option_0" class="combo_option">00:00</a></li>
+															<li><a href="javascript:;" data-value="option_1" class="combo_option">01:00</a></li>
+															<li><a href="javascript:;" data-value="option_2" class="combo_option">02:00</a></li>
+															<li><a href="javascript:;" data-value="option_3" class="combo_option">03:00</a></li>
+															<li><a href="javascript:;" data-value="option_4" class="combo_option">04:00</a></li>
+															<li><a href="javascript:;" data-value="option_5" class="combo_option">05:00</a></li>
+															<li><a href="javascript:;" data-value="option_6" class="combo_option">06:00</a></li>
+															<li><a href="javascript:;" data-value="option_7" class="combo_option">07:00</a></li>
+															<li><a href="javascript:;" data-value="option_8" class="combo_option">08:00</a></li>
+															<li><a href="javascript:;" data-value="option_9" class="combo_option">09:00</a></li>
+															<li><a href="javascript:;" data-value="option_10" class="combo_option">10:00</a></li>
+															<li><a href="javascript:;" data-value="option_11" class="combo_option">11:00</a></li>
+															<li><a href="javascript:;" data-value="option_12" class="combo_option">12:00</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
 										</li>
 									</ul>
 								</div>
@@ -166,12 +247,42 @@
 		<script>
 			menuRock("#one_depth_01");
 
-			// 퍼블확인용
-			let url = window.location.href.split('?')[1];
-			let url_2 = url !== undefined ? url.split('#')[0] : null;
-			if(url_2 === "loading"){
-				document.querySelector(".loading_layer").classList.add("active");
-			}
+			
+			//combo callback
+			comboChangeCallback({
+				target: "select_combo_start",
+				callback(value) {
+					console.log(value);
+				}
+			});
+			comboChangeCallback({
+				target: "select_combo_end",
+				callback(value) {
+					console.log(value);
+				}
+			});
+
+
+			var datepicker = new tui.DatePicker('#map_date_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-input',
+					format: 'yyyy-MM-dd'
+				}
+			});
+
+			// api guide
+			renderApi();
+
+			window.addEventListener("load",()=>{
+				let url = window.location.href.split('?')[1];
+				let url_2 = url !== undefined ? url.split('#')[0] : null;
+				if(url_2 === "open"){
+					let event = new Event("click");
+					document.querySelector(".btn_map_fold_control").dispatchEvent(event);
+				}
+			});
 		</script>
 	</div>
 </body>
