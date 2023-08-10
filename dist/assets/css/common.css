@@ -1741,9 +1741,41 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   background: #ddd;
 }
 
+.map_screen_wrap {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .map_bottom_wrap {
   flex: 0 0 60px;
   position: relative;
+}
+
+.map_screen_title_row {
+  flex: 0 0 100px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: url("../images/top_bg@2x.jpg") repeat-y 0 0/100% auto;
+}
+.map_screen_title_row:after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px 15px 0 0;
+  height: 24px;
+}
+
+.map_screen_content_row {
+  flex: 1;
 }
 
 /* loading */

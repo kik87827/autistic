@@ -351,7 +351,10 @@ function bottomFoldFunc() {
   const map_fold_content_row = document.querySelector(".map_fold_content_row");
   const map_fold_content = document.querySelector(".map_fold_content");
   let map_fold_content_height = 0;
-  let fold_boolean = btn_map_fold_control.classList.contains("fold");
+  if (!btn_map_fold_control) {
+    return;
+  }
+  let fold_boolean = !!btn_map_fold_control ? btn_map_fold_control.classList.contains("fold") : false;
   btn_map_fold_control.addEventListener("click", (e) => {
     e.preventDefault();
     const thisTarget = e.currentTarget;
