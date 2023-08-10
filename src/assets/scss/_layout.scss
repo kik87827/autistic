@@ -50,7 +50,7 @@ html:not(.touchmode) {
 
 .nav_oneitem{
     display:flex;height:100%;align-items: center;box-sizing: border-box;padding:25px 30px;position:relative;white-space:nowrap;
-    &:after{display:block;content:'';position:absolute;bottom:0;height:3px;background:#7b54ff;left:0;width:100%;transition:.4s;opacity:0;}
+    &:after{display:block;content:'';position:absolute;bottom:-1px;height:3px;background:#7b54ff;left:0;width:100%;transition:.4s;opacity:0;}
 }
 .nav_oneitem_text{ font-size: 16px; display:inline-block; color:#313444; font-weight: 400;}
 .nav_twoitem_list_wrap{background:#fff;position:absolute;top:100%;left:0;width:100%;text-align: center;transition:.4s;opacity:0; overflow:hidden;border-top:1px solid #ddd;
@@ -126,23 +126,29 @@ html:not(.touchmode) {
 .map_bottom_wrap{flex:0 0 60px; position:relative;}
 
 .map_screen_title_row{
-  flex:0 0 100px; position:relative; display:flex; justify-content: space-between; width:100%;
+  flex:0 0 100px; position:relative; display:flex; justify-content: space-between; width:100%;box-sizing: border-box; padding:0 30px;
   background:url("../images/top_bg@2x.jpg") repeat-y 0 0/100% auto;
   &:after{display:block;content:'';position:absolute;bottom:0;left:0;width:100%;background:#fff;border-radius:15px 15px 0 0;height:24px;}
 }
-.map_screen_title_main_cols{}
-.map_screen_title_sub_cols{}
-.map_screen_title{}
-.map_screen_title_sub{}
-.map_screen_title_sub:before{}
+.map_screen_title_main_cols,
+.map_screen_title_sub_cols{display:flex;align-items: flex-end;}
+.map_screen_title_main_cols{padding-bottom:43px;}
+.map_screen_title_sub_cols{padding-bottom:36px;}
+.map_screen_title{font-size: 22px;font-weight: 700;line-height:1;color: #fff;}
+.map_screen_title_sub{padding-left:21px;position:relative;font-size: 16px;color: #fff;}
+.map_screen_title_sub:before{display:block;content:'';width:1px;height:12px;position:absolute;top:3px;left:11px;background:#fff;}
 
 .btn_map_screen_list{
-    .btn_quad{}
+    display:flex;align-items:center;gap:8px;
+      > li{
+       &:last-of-type{}
+     }
+     .btn_quad{}
 }
-.btn_map_screen_list > li{}
-.btn_map_screen_list > li:last-of-type{}
 
-.map_screen_content_row{flex:1;}
+.map_screen_content_row{flex:1;min-height:0;position:relative;
+  &.full_render_zone{height:100%;display:flex;flex:1;margin:0 24px 24px;}
+}
 
 
 

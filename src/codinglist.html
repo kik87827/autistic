@@ -116,7 +116,7 @@ a:hover {text-decoration:underline;}
 					<td class="no"></td>
 					<td class="link"><a href="layout3.html" target="_blank">레이아웃 샘플 03</a></td>
 					<td class="td_url"></td>
-					<td class="work ing"></td>
+					<td class="work end"></td>
 					<td class="bgo"></td>
 				</tr>
 				<!-- <tr>
@@ -290,7 +290,7 @@ a:hover {text-decoration:underline;}
 					<td class="no"></td>
 					<td class="link"><a href="monitor_01.html" target="_blank">SUB_02교통현황모니터링_01지표표출</a></td>
 					<td class="td_url"></td>
-					<td class="work"></td>
+					<td class="work end"></td>
 					<td class="bgo"></td>
 				</tr>
 				<tr class="depth2">
@@ -300,7 +300,7 @@ a:hover {text-decoration:underline;}
 					<td class="no"></td>
 					<td class="link"><a href="monitor_02.html" target="_blank">SUB_02교통현황모니터링_02모니터링</a></td>
 					<td class="td_url"></td>
-					<td class="work"></td>
+					<td class="work end"></td>
 					<td class="bgo"></td>
 				</tr>
 				<tr class="depth">
@@ -313,7 +313,7 @@ a:hover {text-decoration:underline;}
 					<td class="no"></td>
 					<td class="link"><a href="forecast_01.html" target="_blank">SUB_03혼재기교통상황예측_01지표표출</a></td>
 					<td class="td_url"></td>
-					<td class="work"></td>
+					<td class="work end"></td>
 					<td class="bgo"></td>
 				</tr>
 				<tr class="depth2">
@@ -323,7 +323,7 @@ a:hover {text-decoration:underline;}
 					<td class="no"></td>
 					<td class="link"><a href="forecast_02.html" target="_blank">SUB_03혼재기교통상황예측_02모니터링</a></td>
 					<td class="td_url"></td>
-					<td class="work"></td>
+					<td class="work end"></td>
 					<td class="bgo"></td>
 				</tr>
 			</tbody>
@@ -337,7 +337,7 @@ $(function () {
 });
 
 function chkList(){
-	var tatal_n = $(".codinglist tr").length - $(".depth").length-1;
+	var tatal_n = $(".codinglist tr").length - $(".depth,.depth2").length-1;
 	var curr_n = 0;
 	var $ctd = $(".codinglist td.work"),
 		$ctr = $(".codinglist tr");

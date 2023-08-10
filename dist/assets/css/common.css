@@ -1559,7 +1559,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   display: block;
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   height: 3px;
   background: #7b54ff;
   left: 0;
@@ -1760,6 +1760,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 30px;
   background: url("../images/top_bg@2x.jpg") repeat-y 0 0/100% auto;
 }
 .map_screen_title_row:after {
@@ -1774,8 +1776,60 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   height: 24px;
 }
 
+.map_screen_title_main_cols,
+.map_screen_title_sub_cols {
+  display: flex;
+  align-items: flex-end;
+}
+
+.map_screen_title_main_cols {
+  padding-bottom: 43px;
+}
+
+.map_screen_title_sub_cols {
+  padding-bottom: 36px;
+}
+
+.map_screen_title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+}
+
+.map_screen_title_sub {
+  padding-left: 21px;
+  position: relative;
+  font-size: 16px;
+  color: #fff;
+}
+
+.map_screen_title_sub:before {
+  display: block;
+  content: "";
+  width: 1px;
+  height: 12px;
+  position: absolute;
+  top: 3px;
+  left: 11px;
+  background: #fff;
+}
+
+.btn_map_screen_list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .map_screen_content_row {
   flex: 1;
+  min-height: 0;
+  position: relative;
+}
+.map_screen_content_row.full_render_zone {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  margin: 0 24px 24px;
 }
 
 /* loading */
@@ -2202,6 +2256,55 @@ input.props_form:checked {
 }
 .btn_box_obj.active .btn_box_obj_text, .btn_box_obj:hover .btn_box_obj_text {
   color: #fff;
+}
+
+.btn_quad {
+  display: flex;
+  border-radius: 8px;
+  padding: 6px 12px;
+  align-items: center;
+  box-sizing: border-box;
+  height: 44px;
+  gap: 6px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  border: solid 1px #7b54ff;
+  background-color: #fff;
+}
+.btn_quad.has_ico:before {
+  display: block;
+  content: "";
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  background-position: 0 0;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.btn_quad.ico_car:before {
+  background-image: url("../images/ic_carplay_color@2x.png");
+}
+.btn_quad.ico_down:before {
+  background-image: url("../images/ic_down_color@2x.png");
+}
+.btn_quad.type2 {
+  border-color: #4363ff;
+}
+.btn_quad.type2 .btn_quad_text {
+  color: #4363ff;
+}
+.btn_quad:hover {
+  background-color: #f2efff;
+}
+.btn_quad:hover.type2 {
+  background-color: #f4f6ff;
+}
+
+.btn_quad_text {
+  color: #7b54ff;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 /* map */

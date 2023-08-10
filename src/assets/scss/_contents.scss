@@ -175,12 +175,32 @@ input.props_form{
 
 
 .btn_quad{
-    &[class^='ico_']{}
+    display:flex;border-radius: 8px; padding: 6px 12px;align-items: center;box-sizing: border-box;height:44px;gap:6px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px $primary;
+    background-color: #fff;
+    &.has_ico{
+        &:before{display:block;content:'';width:24px;height:24px;flex:0 0 24px;background-position: 0 0; background-size:100% auto; background-repeat:no-repeat;}
+    }
     &.ico_car{
-        .btn_quad_text{}
+        &:before{background-image:url("../images/ic_carplay_color@2x.png");}
+    }
+    &.ico_down{
+        &:before{background-image:url("../images/ic_down_color@2x.png");}
+    }
+    &.type2{
+        border-color:$second;
+        .btn_quad_text{color:$second;}
+    }
+
+    &:hover{
+        background-color:#f2efff;
+        &.type2{
+            background-color:#f4f6ff;
+        }
     }
 }
-.btn_quad_text{}
+.btn_quad_text{color:$primary;display:inline-block;font-size:14px;font-weight:600;line-height: 1;}
 
 
 
