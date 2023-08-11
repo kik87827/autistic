@@ -339,11 +339,21 @@ function formItemFunc() {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
     thisTargetParent.classList.add("focus");
+    console.log('focus')
   });
   addDynamicEventListener(document.body, 'focusout', '.input_component_box .input_origin_item', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
     thisTargetParent.classList.remove("focus");
+    console.log('input focusout')
+  });
+  addDynamicEventListener(document.body, 'mousedown', '.btn_form_reset', function(e) {
+    const thisTarget = e.target;
+    const thisTargetParent = thisTarget.closest(".input_component_box");
+    const thisTargetInput = thisTargetParent.querySelector(".input_origin_item");
+    thisTargetInput.value = '';
+    thisTargetParent.classList.remove("focus");
+    thisTargetParent.classList.remove("warn");
   });
 }
 
@@ -517,3 +527,167 @@ DesignPopup.prototype.bindEvent = function() {
     });
   }
 };
+
+
+/* 검색 */
+
+/* search  */
+function searchForm() {
+  const auto_word_layer = document.querySelectorAll(".auto_word_layer");
+  const auto_word_item = document.querySelectorAll(".auto_word_item");
+  const searchFieldWrap = document.querySelectorAll(".search_field_wrap");
+  const searchInput = document.querySelectorAll(".search_field_wrap .input_origin_item");
+  let appendLayer = null;
+  const appBody = document.querySelector(".page_wrap");
+  if (searchInput.length) {
+    searchInput.forEach((element, index) => {
+      const eachElement = element;
+      const eachElementParent = element.closest(".search_field_wrap");
+      const eachElementField = element.closest(".search_field");
+      const eachElementLayer = eachElementParent.querySelector(".auto_word_layer");
+
+      eachElement.addEventListener("focus", (e) => {
+        searchFieldWrap.forEach((item) => {
+          resetLayer(item);
+        });
+        if (eachElementLayer !== null) {
+          autoLayerInit(eachElementParent, eachElementLayer, index);
+          autoLayerPos(eachElementParent);
+        }
+        if (eachElementField !== null) {
+          eachElementField.classList.add("active");
+        }
+      });
+      eachElement.addEventListener("input", (e) => {
+        let thisEventObj = e.currentTarget;
+
+
+
+        eachElementField.classList.add("typing");
+        valueCheck(thisEventObj, eachElementParent);
+      });
+      eachElement.addEventListener("focusout", (e) => {
+        let thisEventObj = e.currentTarget;
+        eachElementField.classList.remove("typing");
+        if (!!eachElementField) {
+          eachElementField.classList.remove("active");
+        }
+        //valueCheck(thisEventObj, eachElementParent);
+        //resetLayer(eachElementParent);
+      });
+      // eachElementReset.addEventListener("click", (e) => {
+      //   let thisEventInputObj = eachElementParent.querySelector(".form_input");
+      //   thisEventInputObj.value = "";
+      //   eachElementParent.classList.remove("value_true");
+      //   if (eachElementParent.getAttribute("data-autoLayer") == "true") {
+      //     document.querySelector(`[data-autoLayer='${eachElementParent.getAttribute("id")}']`).classList.remove("auto_mode");
+      //   }
+      // });
+    });
+
+    if (auto_word_item.length) {
+      auto_word_item.forEach((element) => {
+        element.addEventListener("click", (e) => {
+          let thisEventObj = e.currentTarget;
+          let thisEventParentLayer = thisEventObj.closest(".auto_word_layer");
+          let thisEventParentCall = document.querySelector(`[id='${thisEventParentLayer.getAttribute("data-autolayer")}']`);
+          let thisEventParentCallInput = thisEventParentCall.querySelector(".form_input");
+
+          if (thisEventObj.classList.contains("disabled")) {
+            return;
+          }
+          thisEventParentCallInput.value = thisEventObj.textContent;
+          thisEventParentLayer.classList.remove("auto_mode");
+        });
+      });
+    }
+
+    document.body.addEventListener("click", (e) => {
+      if (e.target.closest(".search_field_wrap") !== null || e.target.closest(".auto_word_layer") !== null) {
+        return;
+      }
+      auto_word_layer.forEach((element) => {
+        element.classList.remove("auto_mode");
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      resizePos();
+    });
+
+
+    function autoLayerInit(target, layer, index) {
+      let thisElement = target;
+      let auto_word_layer = layer;
+
+      if (thisElement.getAttribute("id") === null) {
+        thisElement.setAttribute("id", 'search_item_' + index);
+        auto_word_layer.setAttribute("data-autoLayer", 'search_item_' + index);
+      } else {
+        auto_word_layer.setAttribute("data-autoLayer", thisElement.getAttribute("id"));
+      }
+      if (thisElement.closest(".popup_contentlow") !== null) {
+        thisElement.closest(".popup_contentlow").appendChild(auto_word_layer);
+      } else {
+        appBody.appendChild(auto_word_layer);
+      }
+    }
+
+    function autoLayerPos(target) {
+      const thisElement = target;
+      appendLayer = document.querySelector(`[data-autoLayer='${thisElement.getAttribute("id")}']`);
+      if (appendLayer === null) {
+        return;
+      }
+      if (thisElement.closest(".popup_contentlow") !== null) {
+        appendLayer.setAttribute("style", `
+                  top : ${(thisElement.getBoundingClientRect().top - thisElement.closest(".popup_contentlow").getBoundingClientRect().top) + thisElement.getBoundingClientRect().height - 1}px;
+                  left : ${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_contentlow").getBoundingClientRect().left}px;
+                  width : ${thisElement.scrollWidth}px;
+              `)
+      } else {
+        appendLayer.setAttribute("style", `
+                  top : ${window.scrollY + thisElement.getBoundingClientRect().top + thisElement.getBoundingClientRect().height - 1}px;
+                  left : ${thisElement.getBoundingClientRect().left}px;
+                  width : ${thisElement.scrollWidth}px;
+              `)
+      }
+    }
+
+    function resizePos() {
+      searchFieldWrap.forEach((element, index) => {
+        autoLayerPos(element);
+      })
+    }
+  }
+
+  function valueCheck(target, parent) {
+    const thisElement = target;
+    const thisElementParent = parent;
+    if (appendLayer === null) {
+      return;
+    }
+    appendLayer = document.querySelector(`[data-autoLayer='${thisElementParent.getAttribute("id")}']`);
+    let auto_word_list_wrap = appendLayer.querySelector(".auto_word_list_wrap");
+    let autoLayerCountOption = thisElementParent.getAttribute("data-rowCount") !== undefined ? thisElementParent.getAttribute("data-rowCount") : 3;
+    if (thisElement.value.length) {
+      thisElementParent.classList.add("value_true");
+      appendLayer.classList.add("auto_mode");
+      if (!!appendLayer.querySelectorAll("li")[autoLayerCountOption]) {
+        auto_word_list_wrap.style.maxHeight = `${appendLayer.querySelectorAll("li")[autoLayerCountOption].offsetTop}px`;
+      }
+      appendLayer.classList.add("auto_scroll_show");
+    } else {
+      resetLayer(thisElementParent);
+    }
+  }
+
+  function resetLayer(parent) {
+    parent.classList.remove("value_true");
+    parent.classList.remove("typing");
+    if (!!appendLayer) {
+      appendLayer.classList.remove("auto_mode");
+      appendLayer.classList.remove("auto_scroll_show");
+    }
+  }
+}

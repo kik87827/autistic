@@ -25,7 +25,7 @@ html:not(.touchmode) {
 .page_wrap{min-width:1440px;}
 
 
-.header_wrap{flex:0 0 70px;background:#fff;height:70px;display:flex;padding:0 30px;position:relative;z-index:20;
+.header_wrap{flex:0 0 70px;background:#fff;height:70px;display:flex;padding:0 30px;position:relative;z-index:40;
     &.ready{
         .nav_twoitem_list_wrap{display:none;opacity:1;height:0; }
     }
