@@ -1055,9 +1055,9 @@ function tooltipFunc() {
       return;
     }
 
-    console.log(tooltipActive);
+
     const callItem = document.querySelector("[data-tooltip='#" + tooltipActive.getAttribute("id") + "']");
-    tooltipActive.classList.remove("rightend", "bottomend", "leftend");
+    tooltipActive.classList.remove("right_end", "left_end");
     tooltipActive.removeAttribute("style");
 
 
