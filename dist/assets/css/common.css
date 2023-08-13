@@ -3031,8 +3031,9 @@ input.props_form[type=radio]:checked {
   border: solid 1px #7b54ff;
   background-color: #fff;
   position: absolute;
-  z-index: 20;
   opacity: 0;
+  transition: 0.4s opacity;
+  z-index: 20;
 }
 .tooltip_wrap.active {
   display: block;
@@ -3040,7 +3041,14 @@ input.props_form[type=radio]:checked {
 .tooltip_wrap.active.posend {
   opacity: 1;
 }
-
+.tooltip_wrap.right_end {
+  right: 20px !important;
+  left: auto !important;
+}
+.tooltip_wrap.left_end {
+  right: auto !important;
+  left: 20px !important;
+}
 /* toggle */
 /* tree */
 /* map */

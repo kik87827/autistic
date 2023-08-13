@@ -1,12 +1,12 @@
 window.addEventListener("DOMContentLoaded",()=>{
   commonInit();
   comboFunc()
-  uiPickerRender();
 });
 window.addEventListener("load",()=>{
   layoutFunc();
   formItemFunc();
   bottomFoldFunc();
+  uiPickerRender();
 });
 
 /**
@@ -199,7 +199,7 @@ function comboFunc() {
     });
     thisParent.classList.toggle("active");
     appendOption.classList.toggle("active");
-    comboPosAction();
+    comboRePosAction();
     if (appendOption.classList.contains("active")) {
       if (combo_option_scroll.classList.contains("addHeight")) {
         return;
@@ -271,52 +271,52 @@ function comboFunc() {
     });
   }
 
-  function comboPosAction() {
-    const appendOption = document.querySelectorAll(".combo_option_group.active");
+  // function comboPosAction() {
+  //   const appendOption = document.querySelectorAll(".combo_option_group.active");
     
 
 
-    appendOption.forEach((element, index) => {
-      let comboCall = document.querySelector(`[id='${element.getAttribute("data-option")}']`);
-      let comboCallLayerParent = comboCall.closest(".popup_content_low");
-      if (!comboCall) {
-        return;
-      }
+  //   appendOption.forEach((element, index) => {
+  //     let comboCall = document.querySelector(`[id='${element.getAttribute("data-option")}']`);
+  //     let comboCallLayerParent = comboCall.closest(".popup_content_low");
+  //     if (!comboCall) {
+  //       return;
+  //     }
 
-      let combo_top = window.scrollY + comboCall.getBoundingClientRect().top;
-      let combo_layer_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
+  //     let combo_top = window.scrollY + comboCall.getBoundingClientRect().top;
+  //     let combo_layer_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
 
-      let fullpop_contlow_top = 0;
-      let combo_left = comboCall.getBoundingClientRect().left;
-      let fullpop_contlow_left = 0;
+  //     let fullpop_contlow_top = 0;
+  //     let combo_left = comboCall.getBoundingClientRect().left;
+  //     let fullpop_contlow_left = 0;
 
 
-      if (comboCall.closest(".popup_content_low") !== null) {
-        fullpop_contlow_top = comboCall.closest(".popup_content_low").getBoundingClientRect().top;
-        fullpop_contlow_left = comboCall.closest(".popup_content_low").getBoundingClientRect().left;
-        element.setAttribute("style", `
-                    top : ${(combo_layer_top - fullpop_contlow_top) + comboCall.getBoundingClientRect().height - 1}px; 
-                    left : ${combo_left - fullpop_contlow_left}px;
-                    width : ${ comboCall.getBoundingClientRect().width }px;
-                `)
-              } else {
+  //     if (comboCall.closest(".popup_content_low") !== null) {
+  //       fullpop_contlow_top = comboCall.closest(".popup_content_low").getBoundingClientRect().top;
+  //       fullpop_contlow_left = comboCall.closest(".popup_content_low").getBoundingClientRect().left;
+  //       element.setAttribute("style", `
+  //                   top : ${(combo_layer_top - fullpop_contlow_top) + comboCall.getBoundingClientRect().height - 1}px; 
+  //                   left : ${combo_left - fullpop_contlow_left}px;
+  //                   width : ${ comboCall.getBoundingClientRect().width }px;
+  //               `)
+  //             } else {
         
-        if(element.classList.contains("reverse_pos")){
-          element.setAttribute("style", `
-          top : ${combo_top+0.5}px; 
-          left : ${combo_left+window.scrollX}px;
-            width : ${ comboCall.getBoundingClientRect().width }px;
-        `)
-        }else{
-          element.setAttribute("style", `
-            top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
-            left : ${combo_left+window.scrollX}px;
-            width : ${ comboCall.getBoundingClientRect().width }px;
-        `)
-        }
-      }
-    });
-  }
+  //       if(element.classList.contains("reverse_pos")){
+  //         element.setAttribute("style", `
+  //         top : ${combo_top+0.5}px; 
+  //         left : ${combo_left+window.scrollX}px;
+  //           width : ${ comboCall.getBoundingClientRect().width }px;
+  //       `)
+  //       }else{
+  //         element.setAttribute("style", `
+  //           top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
+  //           left : ${combo_left+window.scrollX}px;
+  //           width : ${ comboCall.getBoundingClientRect().width }px;
+  //       `)
+  //       }
+  //     }
+  //   });
+  // }
   function comboRePosAction() {
     const appendOption = document.querySelector(".combo_option_group.active");
     if(!appendOption){return;}
@@ -664,6 +664,7 @@ function uiPickerRender(){
             width : ${ calendarCall.getBoundingClientRect().width }px;
         `)
       } else {
+        console.log();
         render.setAttribute("style", `
             top : ${call_top}px; 
             left : ${calendar_left}px;
@@ -975,17 +976,101 @@ DesignModal.prototype.bindEvent = function (option) {
 function tooltipFunc(){
   const tooltipCall = document.querySelectorAll("[data-tooltip]");
   const tooltipWrap = document.querySelectorAll(".tooltip_wrap");
+  let tooltopMargin = 10;
+  let tooltipActive = null;
+  let barwidth = getScrollBarWidth();
+  
 
   if(!tooltipCall || !tooltipWrap){return}
 
   tooltipCall.forEach((item)=>{
+    let activeBoolean = false;
     item.addEventListener("click",(e)=>{
       e.preventDefault();
       const thisTarget = e.currentTarget;
       const thisTargetLayer = document.querySelector(thisTarget.getAttribute("data-tooltip"));
       if(!!thisTargetLayer){
-        thisTargetLayer.classList.toggle("active");
+        if(tooltipActive && thisTargetLayer !== tooltipActive){
+          tooltipActive.classList.remove("check_active","active");
+        }
+        thisTargetLayer.classList.toggle("check_active");
+        if(thisTargetLayer.classList.contains("check_active")){
+          thisTargetLayer.classList.add("active");
+          tooltipActive = thisTargetLayer;
+          posAction();
+          setTimeout(()=>{
+            thisTargetLayer.classList.add("posend");
+          },30);
+        }else{
+          thisTargetLayer.classList.remove("posend");
+          setTimeout(()=>{
+            thisTargetLayer.classList.remove("active");
+          },430);
+        }
       }
     });
   });
+
+  window.addEventListener("resize",()=>{
+    posAction();
+  });
+  document.addEventListener("click",(e)=>{
+    if(!document.querySelector(e.target.getAttribute("data-tooltip")) && tooltipActive){
+      tooltipActive.classList.remove("check_active","posend");
+      setTimeout(()=>{
+        tooltipActive.classList.remove("active");
+      },430);
+    }
+  });
+
+  function posAction(){
+    
+    let windowInnerWidth = window.innerWidth - barwidth;
+    let windowInnerHeight = window.innerHeight - barwidth;
+
+    let topValue = 0;
+    let leftValue = 0;
+
+    if(!tooltipActive){return;}
+
+    console.log(tooltipActive);
+    const callItem = document.querySelector("[data-tooltip='#"+tooltipActive.getAttribute("id")+"']");
+    tooltipActive.classList.remove("rightend","bottomend","leftend");
+    tooltipActive.removeAttribute("style");
+
+
+    // default
+    topValue = window.scrollY + callItem.getBoundingClientRect().top + callItem.getBoundingClientRect().height + tooltopMargin; 
+    leftValue = callItem.getBoundingClientRect().left - (tooltipActive.getBoundingClientRect().width/2 - callItem.getBoundingClientRect().width/2);
+    tooltipActive.setAttribute("style", `
+        top : ${topValue}px;
+        left : ${leftValue}px;
+    `)
+
+    // else
+    if(tooltipActive.getBoundingClientRect().right >= windowInnerWidth){
+      tooltipActive.classList.add("right_end");
+    }
+    if(tooltipActive.getBoundingClientRect().left < 0){
+      tooltipActive.classList.add("left_end");
+    }
+    if(tooltipActive.getBoundingClientRect().bottom >= windowInnerHeight){
+      topValue = window.scrollY + callItem.getBoundingClientRect().top - tooltipActive.getBoundingClientRect().height - tooltopMargin; 
+    }
+    tooltipActive.setAttribute("style", `
+        top : ${topValue}px;
+        left : ${leftValue}px;
+    `)
+  }
+}
+
+
+/* scroll bar */
+function getScrollBarWidth() {
+  let el = document.createElement("div");
+  el.style.cssText = "overflow:scroll; visibility:hidden; position:absolute;";
+  document.body.appendChild(el);
+  let width = el.offsetWidth - el.clientWidth;
+  el.remove();
+  return width;
 }

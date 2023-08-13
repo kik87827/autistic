@@ -343,10 +343,25 @@ input.props_form {
     border: solid 1px #7b54ff;
     background-color: #fff;
     position:absolute;
-    z-index:20;
     opacity:0;
+    transition:.4s opacity;
+    z-index:20;
     &.active{display:block;
         &.posend{opacity:1;}
+    }
+
+    &.right_end{
+        right:20px !important;
+        left: auto !important;
+    }
+
+    &.left_end{
+        right:auto !important;
+        left: 20px !important;
+    }
+
+    &.bottom_end{
+        
     }
 }
 .caption_detail_list{
