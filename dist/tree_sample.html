@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1440" />
+	<link rel="stylesheet" href="./assets/css/common.css" />
+	<script src="./assets/js/jquery-3.4.1.min.js"></script>
+	<script src="./assets/js/dynamicListener.min.js"></script>
+	<script src="./assets/js/swiper.min.js"></script>
+	<script src="./assets/js/comboTreePlugin.js"></script>
+	<!-- <script src="./assets/js/tui-date-picker.js"></script>
+	<script src="./assets/js/tui-time-picker.js"></script> -->
+	<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.js"></script>
+	<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
+	<script src="./assets/js/ui.js"></script>
+
+	<title></title>
+</head>
+
+<body class="front_body map_api_body">
+
+
+	<div style="padding:100px">
+		<input type="text" id="justAnInputBox1" placeholder="Select" autocomplete="off" />
+	</div>
+
+
+
+
+	<script type="text/javascript">
+		var SampleJSONData2 = [{
+			id: 1,
+			title: 'Four Wheels',
+			subs: [{
+				id: 10,
+				title: 'Car'
+			}, {
+				id: 11,
+				title: 'Truck'
+			}, {
+				id: 12,
+				title: 'Transporter'
+			}, {
+				id: 13,
+				title: 'Dozer'
+			}]
+		}, {
+			id: 2,
+			title: 'Two Wheels',
+			subs: [{
+				id: 20,
+				title: 'Cycle'
+			}, {
+				id: 21,
+				title: 'Motorbike'
+			}, {
+				id: 22,
+				title: 'Scooter'
+			}]
+		}, {
+			id: 2,
+			title: 'Van'
+		}, {
+			id: 3,
+			title: 'Bus'
+		}];
+
+
+		var comboTree3;
+
+		jQuery(document).ready(function($) {
+			comboTree3 = $('#justAnInputBox1').comboTree({
+				source: SampleJSONData2,
+				isMultiple: true,
+				cascadeSelect: true,
+				collapse: false
+			});
+		});
+	</script>
+</body>
+
+</html>

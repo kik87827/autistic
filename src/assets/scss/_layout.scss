@@ -6,6 +6,7 @@ html:not(.touchmode) {
 }
 
 .front_body{
+  min-width:1440px;
     &.center_form_body{
         background:#f5f5f5 url("../images/background@2x.jpg") no-repeat 0 0/100% auto;
         .page_wrap{
@@ -18,7 +19,10 @@ html:not(.touchmode) {
        
     }
     .page_wrap{display:flex;flex-direction: column;min-height:100vh;
-        > *{width:100%;box-sizing: border-box;}
+        > div:not(.tooltip_wrap),
+        > section,
+        > header,
+        > footer{width:100%;box-sizing: border-box;}
     }
 }
 
@@ -154,7 +158,9 @@ html:not(.touchmode) {
 .map_screen_content_row{flex:1;min-height:0;position:relative;
   &.full_render_zone{height:100%;display:flex;flex:1;margin:0 24px 24px;}
 }
-
+@media  (max-width:1440px){
+  body{background-size:1440px auto !important;}
+}
 
 
 /* loading */
@@ -333,3 +339,63 @@ html:not(.touchmode) {
 
 .screen_content_main_cols{flex:1;min-width:0;padding:16px 30px 100px;}
 .screen_content_sub_cols{flex: 0 0 42%;box-sizing: border-box;width:42%;padding:26px 30px 100px;}
+
+
+
+
+/* 공통 alert confirm */
+.btn_guide {display: inline-block;font-size: 16px;padding: 15px 30px;border: rem(1) solid #ddd;}
+
+.design_modal_wrap {
+    position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 100;min-width: 240px;overflow: hidden;display: none;
+    &.active {display: block;
+        &.motion .bg_design_modal {background: rgba(0, 0, 0, .3);}
+        &.motion .design_modal {opacity: 1;}
+    }
+}
+
+.btn_dmsm_wrap{
+    display: flex;
+    justify-content: space-between;
+    position:relative;overflow:hidden;
+    border-radius: 0 0 16px 16px;
+
+    height: 52px;
+}
+.btn_dmsm{
+    flex:1;display: flex;align-items:center;width: 100%;font-weight:500;height:100%;justify-content:center;text-align: center;font-size: rem(18);color: #fff;transition:background .5s;
+    &.btn_dmsmclose{
+        background:#98979d;
+    }
+    &.btn_dmsmidentify{
+        background:$primary;
+    }
+}
+.bg_design_modal {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0);z-index: 0;transition: .5s;}
+
+.design_modal_tb {position:absolute;top:0;left:0;display: table;width: 100%;height: 100%;table-layout: fixed;z-index: 5;position: absolute;top: 0;left: 0;}
+
+.design_modal_td {display: table-cell;vertical-align: middle;padding: 20px;}
+
+.design_modal_w {display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;}
+
+.design_modal {background: #fff;position: relative;transition: .5s opacity;opacity: 0;max-width:rem(400);margin:0 auto; text-align: center;
+    border-radius: 20px 20px 50px 50px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.design_modal_tit{padding: 25px 20px 0 20px;display: flex;box-sizing: border-box;font-size: 16px;font-weight: 700; color: #222;}
+.design_modal_cont_w {padding:70px 20px 40px;box-sizing: border-box;font-size: 16px;font-weight: 500; color: #666;}
+
+.design_modal_maintext{font-size:22px;color:#000000;word-break: keep-all;font-weight:350;}
+.design_modal_subtext{font-size:16px;margin-top:5px;color:#000000;word-break: keep-all;font-weight:300;}
+
+.design_bottom_popup_w {position: absolute;bottom: 0;left: 0;width: 100%;background: #fff;}
+
+
+.design_modal_maintext{}
+
+.btn_modal_close {display: block;width: 24px;height: 24px;position: absolute;top:20px;right:20px;font-size: 0;line-height: 0; 
+    &:before,
+    &:after {width: 14px;height: 1px;display: block;content: '';position: absolute;top: 50%;left: 50%;background: #666666;margin:-0.5px 0 0 -0.7px;transform: translateZ(0);-webkit-transform: translateZ(0);-ms-transform: translateZ(0);-moz-transform: translateZ(0);}
+    &:before {transform: rotate(45deg);-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);}
+    &:after {transform: rotate(-45deg);-ms-transform: rotate(-45deg);-webkit-transform: rotate(-45deg);}
+}

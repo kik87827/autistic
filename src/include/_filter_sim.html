@@ -1,0 +1,277 @@
+<div class="local_layer" id="filter_layer">
+    <div class="local_layer_inner">
+        <table class="form_group_tb">
+            <colgroup>
+                <col style="width:20%;" />
+                <col />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th><span class="form_group_label">기간</span></th>
+                    <td>
+                        <div class="fgroup_item_wrap">
+                            <div class="fgroup_cols">
+                                <div class="tui-datepicker-input" value="2023-07-19 15:00">
+                                    <input type="text" id="datepicker-startinput" class="input_tui_calendar">
+                                    <span class="tui-ico-date"></span>
+                                </div>
+                                <div id="form_date_start_render" class="ui_picker_render" data-parent="#filter_layer"></div>
+                            </div>
+                            <div class="fgroup_cols else"></div>
+                            <div class="fgroup_cols">
+                                <div class="tui-datepicker-input" value="2023-07-19 15:00">
+                                    <input type="text" id="datepicker-endinput" class="input_tui_calendar">
+                                    <span class="tui-ico-date"></span>
+                                </div>
+                                <div id="form_date_end_render" class="ui_picker_render" data-parent="#filter_layer"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="form_group_label">Type</span></th>
+                    <td>
+                        <ul class="props_form_item_list gap_type2">
+                            <li>
+                                <div class="props_form_item">
+                                    <input type="checkbox" class="props_form" id="type_check_01" checked>
+                                    <label for="type_check_01" class="props_label">All</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="props_form_item">
+                                    <input type="checkbox" class="props_form" id="type_check_02">
+                                    <label for="type_check_02" class="props_label">일반적 상황</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="props_form_item">
+                                    <input type="checkbox" class="props_form" id="type_check_03">
+                                    <label for="type_check_03" class="props_label">이벤트 상황</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span class="form_group_label">파라미터</span></th>
+                    <td>
+                        <div class="toggle_component_wrap">
+                            <a href="#" class="toggle_component_target">
+                                @@toggleText
+                            </a>
+                            <div class="toggle_component_content active">
+                                <div class="field_search_wrap">
+                                    <a href="#" class="ico_field_search"><span class="hdtext">검색</span></a>
+                                    <input type="text" class="field_search_input" placeholder="검색어 입력">
+                                </div>
+                                <div class="field_tree_wrap">
+                                    <ul class="field_tree_list">
+                                        <li>
+                                            <div class="field_tree_item_wrap">
+                                                <div class="field_tree_item">
+                                                    <button type="button" class="btn_field_toggle"></button>
+                                                    <div class="field_tree_form_wrap">
+                                                        <div class="field_tree_form_row">
+                                                            <div class="props_form_item">
+                                                                <input type="checkbox" class="props_form">
+                                                                <label class="props_label">Logical scenario</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field_tree_depth_row">
+                                                            <div class="field_tree_item">
+                                                                <button type="button" class="btn_field_toggle"></button>
+                                                                <div class="field_tree_form_wrap">
+                                                                    <div class="field_tree_form_row">
+                                                                        <div class="props_form_item">
+                                                                            <input type="checkbox" class="props_form">
+                                                                            <label class="props_label">시험지역</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="field_tree_depth_row">
+                                                                        <ul class="field_tree_value_list">
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">옵션 01</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">옵션 02</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">옵션 03</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="field_tree_item">
+                                                                <button type="button" class="btn_field_toggle"></button>
+                                                                <div class="field_tree_form_wrap">
+                                                                    <div class="field_tree_form_row">
+                                                                        <div class="props_form_item">
+                                                                            <input type="checkbox" class="props_form">
+                                                                            <label class="props_label">Ego 종류</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="field_tree_depth_row">
+                                                                        <ul class="field_tree_value_list">
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">옵션 01</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">옵션 02</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">옵션 03</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="field_tree_item">
+                                                                <button type="button" class="btn_field_toggle"></button>
+                                                                <div class="field_tree_form_wrap">
+                                                                    <div class="field_tree_form_row">
+                                                                        <div class="props_form_item">
+                                                                            <input type="checkbox" class="props_form">
+                                                                            <label class="props_label">장애물 종류</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="field_tree_depth_row">
+                                                                        <ul class="field_tree_value_list">
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">차량</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">사람</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">철조망</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">바위</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">낙석</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="field_tree_item_wrap">
+                                                <div class="field_tree_item">
+                                                    <button type="button" class="btn_field_toggle"></button>
+                                                    <div class="field_tree_form_wrap">
+                                                        <div class="field_tree_form_row">
+                                                            <div class="props_form_item">
+                                                                <input type="checkbox" class="props_form">
+                                                                <label class="props_label">Parameter distribution</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field_tree_depth_row">
+                                                            <div class="field_tree_item">
+                                                                <button type="button" class="btn_field_toggle"></button>
+                                                                <div class="field_tree_form_wrap">
+                                                                    <div class="field_tree_form_row">
+                                                                        <div class="props_form_item">
+                                                                            <input type="checkbox" class="props_form">
+                                                                            <label class="props_label">날씨</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="field_tree_depth_row">
+                                                                        <ul class="field_tree_value_list">
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">눈</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">비</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">안개</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">맑음</label>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="props_form_item">
+                                                                                    <input type="checkbox" class="props_form">
+                                                                                    <label class="props_label">흐림</label>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="scroll_subfooter_row">
+            <a href="#" class="btn_field_formbox small cloudy">
+                <span class="btn_field_formbox_text">초기화</span>
+            </a>
+            <a href="#" class="btn_field_formbox small primary">
+                <span class="btn_field_formbox_text">적용</span>
+            </a>
+        </div>
+    </div>
+</div>

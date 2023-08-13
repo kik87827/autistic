@@ -21,7 +21,7 @@
 			<div class="map_screen_content_row screen_content_both">
 				<div class="screen_content_main_cols">
 					<!-- search -->
-					<div class="search_field_wrap">
+					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
 								<a href="#" class="btn_field_box">
@@ -85,6 +85,11 @@
 						</div>
 					</div>
 					<!-- // search -->
+					<!-- filter -->
+					@@include('./include/_filter.html', { 
+						toggleText : "카테고리 선택"
+					}))
+					<!-- // filter -->
 					<!-- listdata_render_wrap -->
 					<div class="listdata_render_wrap">
 						<div class="listdata_render_data_cols">
@@ -145,7 +150,7 @@
 							<div class="list_sort_cols">
 								<!-- Pagination -->
 								<div class="pagination_wrap">
-									<a href="javascript:;" class="btn_pagination_control prev_go"><span class="hdtext">이전</span></a>
+									<a href="javascript:;" class="btn_pagination_control prev_go disabled"><span class="hdtext">이전</span></a>
 									<ul class="pagination_number_list">
 										<li><a href="#" class="page_number active">1</a></li>
 										<li><a href="#" class="page_number">2</a></li>
@@ -164,7 +169,7 @@
 							</div>
 						</div>
 						<div class="list_table_row">
-							<table>
+							<table class="list_table">
 								<thead>
 									<tr>
 										<th scope="col" class="has_check"></th>
@@ -196,10 +201,15 @@
 										<td>
 											<span class="tdtext">s_0000019</span>
 											<div class="data_count_box_wrap">
-												<span class="data_count_box"></span>
+												<span class="data_count_box">+20</span>
 											</div>
 										</td>
-										<td><span class="tdtext">testS2</span></td>
+										<td>
+											<span class="tdtext">testS2</span>
+											<div class="data_count_box_wrap">
+												<span class="data_count_box">+2</span>
+											</div>
+										</td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
@@ -211,7 +221,7 @@
 										<td>
 											<span class="tdtext">s_0000019</span>
 											<div class="data_count_box_wrap">
-												<span class="data_count_box"></span>
+												<span class="data_count_box">+2</span>
 											</div>
 										</td>
 										<td><span class="tdtext">testS2</span></td>
@@ -337,6 +347,26 @@
 
 			
   			searchForm();
+
+			  var datepicker_start = new tui.DatePicker('#form_date_start_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-startinput',
+					format: 'yyyy-MM-dd HH:mm A'
+				},
+				timePicker: true
+			});
+		
+			var datepicker_end = new tui.DatePicker('#form_date_end_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-endinput',
+					format: 'yyyy-MM-dd HH:mm A'
+				},
+				timePicker: true
+			});
 
 			comboChangeCallback({
 				target: "filter_combo",

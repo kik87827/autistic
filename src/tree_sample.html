@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+    @@include('./include/_head.html')
+    <body class="front_body map_api_body">
+
+
+    <div style="padding:100px">
+        <input type="text" id="justAnInputBox1" placeholder="Select" autocomplete="off"/>
+    </div>
+
+
+
+
+<script type="text/javascript">
+
+var SampleJSONData2 = [
+    {
+        id: 1,
+        title: 'Four Wheels',
+		subs: [
+			{
+				id: 10,
+				title: 'Car'
+			}, {
+				id: 11,
+				title: 'Truck'
+			}, {
+				id: 12,
+				title: 'Transporter'
+			}, {
+				id: 13,
+				title: 'Dozer'
+			}
+		]
+    }, {
+        id: 2,
+        title: 'Two Wheels',
+        subs: [
+            {
+                id: 20,
+                title: 'Cycle'
+            }, {
+                id: 21,
+                title: 'Motorbike'
+            }, {
+                id: 22,
+                title: 'Scooter'
+            }
+        ]
+    }, {
+        id: 2,
+        title: 'Van'
+    }, {
+        id: 3,
+        title: 'Bus'
+    }
+];
+
+
+var comboTree3;
+
+jQuery(document).ready(function($) {
+		comboTree3 = $('#justAnInputBox1').comboTree({
+			source : SampleJSONData2,
+			isMultiple: true,
+			cascadeSelect: true,
+			collapse: false
+		});
+});
+
+
+</script>
+</body>
+</html>

@@ -2161,7 +2161,7 @@ var END_NUMBER_OF_HOUR_WITH_MERIDIEM = 12;
 var mergeDefaultOptions = function(options) {
   return extend(
     {
-      language: 'ko',
+      language: 'en',
       initialHour: 0,
       initialMinute: 0,
       showMeridiem: true,

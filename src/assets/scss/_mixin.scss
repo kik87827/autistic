@@ -7,6 +7,8 @@ $primary_hover : #6243cc;
 $second : #4363ff;
 $primary_hover : #6243cc;
 
+$warn : #e84854;
+
 
 @function rem($value) {
     $remValue: math.div($value, 16) + rem;	

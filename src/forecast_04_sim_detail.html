@@ -7,7 +7,7 @@
 		<section class="map_screen_wrap">
 			<div class="map_screen_title_row">
 				<div class="map_screen_title_main_cols">
-					<h2 class="map_screen_title">Use-case 관리</h2>
+					<h2 class="map_screen_title">Simulation 목록 관리</h2>
 					<div class="map_screen_title_sub">
 						혼재기 교통상황 예측
 					</div>
@@ -20,130 +20,624 @@
 			</div>
 			<div class="map_screen_content_row screen_content_both">
 				<div class="screen_content_main_cols">
-					내용이 들어갑니다.
+					<!-- search -->
+					<div class="search_field_container">
+						<div class="search_field_row">
+							<div class="search_field_cols">
+								<a href="#" class="btn_field_box">
+									<i class="ico_field ico_filter"></i>
+									<span class="field_box_text">필터</span>
+								</a>
+							</div>
+							<div class="search_field_cols">
+								<div class="combo_item medium" id="filter_combo">
+									<a href="javascript:;" class="combo_target">전체</a>
+									<div class="combo_option_group medium">
+										<div class="combo_option_scroll" data-rowCount="3">
+											<ul class="combo_option_list">
+												<li><a href="javascript:;" data-value="option_0" class="combo_option">옵션 01</a></li>
+												<li><a href="javascript:;" data-value="option_1" class="combo_option">옵션 02</a></li>
+												<li><a href="javascript:;" data-value="option_2" class="combo_option">옵션 03</a></li>
+												<li><a href="javascript:;" data-value="option_3" class="combo_option">옵션 04</a></li>
+												<li><a href="javascript:;" data-value="option_4" class="combo_option">옵션 05</a></li>
+												<li><a href="javascript:;" data-value="option_5" class="combo_option">옵션 06</a></li>
+												<li><a href="javascript:;" data-value="option_6" class="combo_option">옵션 07</a></li>
+												<li><a href="javascript:;" data-value="option_7" class="combo_option">옵션 08</a></li>
+												<li><a href="javascript:;" data-value="option_8" class="combo_option">옵션 09</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="search_field_cols long_type">
+								<div class="search_field_wrap" name="search_form" data-rowCount="3">
+									<div class="input_component_box search_field" data-name="value_check">
+										<input type="text" class="input_origin_item" placeholder="검색어 입력">
+										<button type="button" class="btn_form_reset"><span class="hdtext">리셋</span></button>
+									</div>
+									<!-- layer -->
+									<div class="auto_word_layer">
+										<div class="auto_word_list_wrap">
+											<ul class="auto_word_list">
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 01</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 02</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 03</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 04</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 05</a></li>
+											</ul>
+										</div>
+									</div>
+									<!-- // layer -->
+								</div>
+							</div>
+							<div class="search_field_cols">
+								<a href="#" class="btn_field_formbox">
+									<i class="ico_field_formbox ico_search"></i>
+									<span class="btn_field_formbox_text">검색</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- // search -->
+					<!-- filter -->
+					@@include('./include/_filter.html', { 
+						toggleText : "카테고리 선택"
+					}))
+					<!-- // filter -->
+					<!-- list_table_render_wrap -->
+					<div class="list_table_render_wrap">
+						<div class="list_sort_row">
+							<div class="list_sort_cols">
+								<span class="list_count_wrap">
+									<span class="list_count_current">999</span>
+									<span class="list_count_length">건</span>
+								</span>
+								<ul class="list_sortcase_item_list">
+									<li>
+										<div class="combo_item" id="sort_type01">
+											<a href="javascript:;" class="combo_target">수정일자</a>
+											<div class="combo_option_group">
+												<div class="combo_option_scroll" data-rowCount="3">
+													<ul class="combo_option_list">
+														<li><a href="javascript:;" data-value="option_0" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_1" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_2" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_3" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_4" class="combo_option">2023.00.00</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="combo_item" id="sort_type02">
+											<a href="javascript:;" class="combo_target">내림차순</a>
+											<div class="combo_option_group">
+												<div class="combo_option_scroll" data-rowCount="3">
+													<ul class="combo_option_list">
+														<li><a href="javascript:;" data-value="option_0" class="combo_option">올림차순</a></li>
+														<li><a href="javascript:;" data-value="option_1" class="combo_option">내림차순</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="list_sort_cols">
+								<!-- Pagination -->
+								<div class="pagination_wrap">
+									<a href="javascript:;" class="btn_pagination_control prev_go disabled"><span class="hdtext">이전</span></a>
+									<ul class="pagination_number_list">
+										<li><a href="#" class="page_number active">1</a></li>
+										<li><a href="#" class="page_number">2</a></li>
+										<li><a href="#" class="page_number">3</a></li>
+										<li><a href="#" class="page_number">4</a></li>
+										<li><a href="#" class="page_number">5</a></li>
+										<li><a href="#" class="page_number">6</a></li>
+										<li><a href="#" class="page_number">7</a></li>
+										<li><a href="#" class="page_number">8</a></li>
+										<li><a href="#" class="page_number">9</a></li>
+										<li><a href="#" class="page_number">10</a></li>
+									</ul>
+									<a href="javascript:;" class="btn_pagination_control next_go"><span class="hdtext">다음</span></a>
+								</div>
+								<!-- // Pagination -->
+							</div>
+						</div>
+						<div class="list_table_row">
+							<table class="list_table">
+								<thead>
+									<tr>
+										<th scope="col"><span class="thtext">ID</span></th>
+										<th scope="col"><span class="thtext">명칭</span></th>
+										<th scope="col"><span class="thtext">Type</span></th>
+										<th scope="col"><span class="thtext">Use-case ID</span></th>
+										<th scope="col"><span class="thtext">Use-case 명칭</span></th>
+										<th scope="col"><span class="thtext">수정 일자</span></th>
+										<th scope="col"><span class="thtext">생성자</span></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td>
+											<span class="tdtext">s_0000019</span>
+											<div class="data_count_box_wrap">
+												<span class="data_count_box">+20</span>
+											</div>
+										</td>
+										<td>
+											<span class="tdtext">testS2</span>
+											<div class="data_count_box_wrap">
+												<span class="data_count_box">+2</span>
+											</div>
+										</td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td>
+											<span class="tdtext">s_0000019</span>
+											<div class="data_count_box_wrap">
+												<span class="data_count_box">+20</span>
+											</div>
+										</td>
+										<td>
+											<span class="tdtext">testS2</span>
+											<div class="data_count_box_wrap">
+												<span class="data_count_box">+2</span>
+											</div>
+										</td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">타입 A</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- // list_table_render_wrap -->
 				</div>
 				<div class="screen_content_sub_cols">
-					내용이 들어갑니다.
+					<div class="data_detail_primary_wrap">
+						<div class="data_detail_title_row">
+							<h3 class="data_detail_title">s_0000020</h3>
+						</div>
+						<div class="data_detail_summary_row">
+							<ul class="detail_summary_box">
+								<li>
+									<div class="detail_summary_label_cols"><span class="data_summary_label">Use-case 명칭</span></div>
+									<div class="detail_summary_data_cols"><span class="detail_summary_data">testID1</span></div>
+								</li>
+								<li>
+									<div class="detail_summary_label_cols"><span class="data_summary_label">Type</span></div>
+									<div class="detail_summary_data_cols"><span class="detail_summary_data">일반적 상황</span></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="data_detail_vitem_wrap">
+						<div class="data_detail_item">
+							<div class="detail_vitem_title_row">
+								<p class="data_detail_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">Use-case 목록</span></p>
+								<div class="data_detail_title_else">
+									<a href="#" class="btn_field_formbox small disabled">
+										<span class="btn_field_formbox_text">매핑 해제</span>
+									</a>
+									<a href="#" class="btn_field_formbox small primary">
+										<i class="ico_field_formbox ico_add"></i>
+										<span class="btn_field_formbox_text">매핑 추가</span>
+									</a>
+								</div>
+							</div>
+							<div class="data_detail_content_row">
+								<!-- 내용이 들어갑니다. -->
+								<div class="list_table_render_wrap">
+									<div class="list_sort_row">
+										<div class="list_sort_cols">
+											<span class="list_count_wrap">
+												<span class="list_count_current">999</span>
+												<span class="list_count_length">건</span>
+											</span>
+											<ul class="list_sortcase_item_list">
+												<li>
+													<div class="combo_item">
+														<a href="javascript:;" class="combo_target">수정일자</a>
+														<div class="combo_option_group">
+															<div class="combo_option_scroll" data-rowCount="3">
+																<ul class="combo_option_list">
+																	<li><a href="javascript:;" data-value="option_0" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_1" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_2" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_3" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_4" class="combo_option">2023.00.00</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="combo_item">
+														<a href="javascript:;" class="combo_target">내림차순</a>
+														<div class="combo_option_group">
+															<div class="combo_option_scroll" data-rowCount="3">
+																<ul class="combo_option_list">
+																	<li><a href="javascript:;" data-value="option_0" class="combo_option">올림차순</a></li>
+																	<li><a href="javascript:;" data-value="option_1" class="combo_option">내림차순</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="list_sort_cols">
+											<!-- Pagination -->
+											<div class="pagination_wrap">
+												<a href="javascript:;" class="btn_pagination_control prev_go disabled"><span class="hdtext">이전</span></a>
+												<ul class="pagination_number_list">
+													<li><a href="#" class="page_number active">1</a></li>
+													<li><a href="#" class="page_number">2</a></li>
+													<li><a href="#" class="page_number">3</a></li>
+													<li><a href="#" class="page_number">4</a></li>
+													<li><a href="#" class="page_number">5</a></li>
+													<li><a href="#" class="page_number">6</a></li>
+													<li><a href="#" class="page_number">7</a></li>
+													<li><a href="#" class="page_number">8</a></li>
+													<li><a href="#" class="page_number">9</a></li>
+													<li><a href="#" class="page_number">10</a></li>
+												</ul>
+												<a href="javascript:;" class="btn_pagination_control next_go"><span class="hdtext">다음</span></a>
+											</div>
+											<!-- // Pagination -->
+										</div>
+									</div>
+									<div class="list_table_row">
+										<table class="list_table">
+											<thead>
+												<tr>
+													<th scope="col" class="has_check"></th>
+													<th scope="col"><span class="thtext">ID</span></th>
+													<th scope="col"><span class="thtext">명칭</span></th>
+													<th scope="col"><span class="thtext">Type</span></th>
+													<th scope="col"><span class="thtext">수정 일자</span></th>
+													<th scope="col"><span class="thtext">생성자</span></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="has_check"><input type="checkbox" class="props_form"></td>
+													<td><span class="tdtext">uc_0000019</span></td>
+													<td><span class="tdtext">testS1</span></td>
+													<td><span class="tdtext">타입 A</span></td>
+													<td><span class="tdtext">2023/06/28 06:11</span></td>
+													<td><span class="tdtext">User1</span></td>
+												</tr>
+												<tr>
+													<td class="has_check"><input type="checkbox" class="props_form"></td>
+													<td><span class="tdtext">uc_0000019</span></td>
+													<td><span class="tdtext">testS1</span></td>
+													<td><span class="tdtext">타입 A</span></td>
+													<td><span class="tdtext">2023/06/28 06:11</span></td>
+													<td><span class="tdtext">User1</span></td>
+												</tr>
+												<tr>
+													<td class="has_check"><input type="checkbox" class="props_form"></td>
+													<td><span class="tdtext">uc_0000019</span></td>
+													<td><span class="tdtext">testS1</span></td>
+													<td><span class="tdtext">타입 A</span></td>
+													<td><span class="tdtext">2023/06/28 06:11</span></td>
+													<td><span class="tdtext">User1</span></td>
+												</tr>
+												<tr>
+													<td class="has_check"><input type="checkbox" class="props_form"></td>
+													<td><span class="tdtext">uc_0000019</span></td>
+													<td><span class="tdtext">testS1</span></td>
+													<td><span class="tdtext">타입 A</span></td>
+													<td><span class="tdtext">2023/06/28 06:11</span></td>
+													<td><span class="tdtext">User1</span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- // 내용이 들어갑니다. -->
+							</div>
+						</div>
+						<div class="data_detail_item">
+							<div class="detail_vitem_title_row">
+								<p class="data_detail_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">파라미터 목록</span></p>
+							</div>
+							<div class="data_detail_content_row">
+								<!-- 내용이 들어갑니다. -->
+								<div class="list_combosort_wrap">
+									<div class="combo_item medium full_wid" id="parameter_combo">
+										<a href="javascript:;" class="combo_target">파라미터 선택</a>
+										<div class="combo_option_group medium">
+											<div class="combo_option_scroll" data-rowCount="3">
+												<ul class="combo_option_list">
+													<li><a href="javascript:;" data-value="option_0" class="combo_option">옵션 01</a></li>
+													<li><a href="javascript:;" data-value="option_1" class="combo_option">옵션 02</a></li>
+													<li><a href="javascript:;" data-value="option_2" class="combo_option">옵션 03</a></li>
+													<li><a href="javascript:;" data-value="option_3" class="combo_option">옵션 04</a></li>
+													<li><a href="javascript:;" data-value="option_4" class="combo_option">옵션 05</a></li>
+													<li><a href="javascript:;" data-value="option_5" class="combo_option">옵션 06</a></li>
+													<li><a href="javascript:;" data-value="option_6" class="combo_option">옵션 07</a></li>
+													<li><a href="javascript:;" data-value="option_7" class="combo_option">옵션 08</a></li>
+													<li><a href="javascript:;" data-value="option_8" class="combo_option">옵션 09</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="list_table_render_wrap">
+									<div class="list_sort_row">
+										<div class="list_sort_cols">
+											<span class="list_count_wrap">
+												<span class="list_count_current">999</span>
+												<span class="list_count_length">건</span>
+											</span>
+											<ul class="list_sortcase_item_list">
+												<li>
+													<div class="combo_item">
+														<a href="javascript:;" class="combo_target">수정일자</a>
+														<div class="combo_option_group">
+															<div class="combo_option_scroll" data-rowCount="3">
+																<ul class="combo_option_list">
+																	<li><a href="javascript:;" data-value="option_0" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_1" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_2" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_3" class="combo_option">2023.00.00</a></li>
+																	<li><a href="javascript:;" data-value="option_4" class="combo_option">2023.00.00</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="combo_item">
+														<a href="javascript:;" class="combo_target">내림차순</a>
+														<div class="combo_option_group">
+															<div class="combo_option_scroll" data-rowCount="3">
+																<ul class="combo_option_list">
+																	<li><a href="javascript:;" data-value="option_0" class="combo_option">올림차순</a></li>
+																	<li><a href="javascript:;" data-value="option_1" class="combo_option">내림차순</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="list_sort_cols">
+											<!-- Pagination -->
+											<div class="pagination_wrap">
+												<a href="javascript:;" class="btn_pagination_control prev_go disabled"><span class="hdtext">이전</span></a>
+												<ul class="pagination_number_list">
+													<li><a href="#" class="page_number active">1</a></li>
+													<li><a href="#" class="page_number">2</a></li>
+													<li><a href="#" class="page_number">3</a></li>
+													<li><a href="#" class="page_number">4</a></li>
+													<li><a href="#" class="page_number">5</a></li>
+													<li><a href="#" class="page_number">6</a></li>
+													<li><a href="#" class="page_number">7</a></li>
+													<li><a href="#" class="page_number">8</a></li>
+													<li><a href="#" class="page_number">9</a></li>
+													<li><a href="#" class="page_number">10</a></li>
+												</ul>
+												<a href="javascript:;" class="btn_pagination_control next_go"><span class="hdtext">다음</span></a>
+											</div>
+											<!-- // Pagination -->
+										</div>
+									</div>
+									<div class="list_table_row">
+										<table class="list_table">
+											<thead>
+												<tr>
+													<th scope="col"><span class="thtext">주행 제어</span></th>
+													<th scope="col"><span class="thtext">경로점 주행</span></th>
+													<th scope="col"><span class="thtext">입력값</span></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><span class="tdtext">Logical scenario</span></td>
+													<td><span class="tdtext">Ego 종류</span></td>
+													<td>
+														<div class="tditem_group">
+															<span class="tdtext">2015_Kia_K5</span>
+															<button type="button" class="btn_imp_item" data-tooltip="#tooltip_layer01"></button>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td><span class="tdtext">Logical scenario</span></td>
+													<td><span class="tdtext">Ego 종류</span></td>
+													<td>
+														<div class="tditem_group">
+															<span class="tdtext">2015_Kia_K5</span>
+															<button type="button" class="btn_imp_item" data-tooltip="#tooltip_layer02"></button>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td><span class="tdtext">Logical scenario</span></td>
+													<td><span class="tdtext">장애물 종류</span></td>
+													<td>
+														<div class="tditem_group">
+															<span class="tdtext">차량</span>
+															<button type="button" class="btn_imp_item" data-tooltip="#tooltip_layer03"></button>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- // 내용이 들어갑니다. -->
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
+		<!-- tooltip -->
+		<div class="tooltip_wrap" id="tooltip_layer01">
+			<ul class="caption_detail_list">
+				<li>
+					<div class="caption_detail_thcols"><span class="caption_detail_label">위치</span></div>
+					<div class="caption_detail_tdcols">
+						<div class="caption_detail_value">
+							X : 201.07080078125<br>
+							Y : 201.07080078125<br>
+							Z : 201.07080078125
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="caption_detail_thcols"><span class="caption_detail_label">속도</span></div>
+					<div class="caption_detail_tdcols">
+						<div class="caption_detail_value">
+							Ve0
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="tooltip_wrap" id="tooltip_layer02">
+			<ul class="caption_detail_list">
+				<li>
+					<div class="caption_detail_thcols"><span class="caption_detail_label">위치</span></div>
+					<div class="caption_detail_tdcols">
+						<div class="caption_detail_value">
+							X : 202.07080078125<br>
+							Y : 201.07080078125<br>
+							Z : 201.07080078125
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="caption_detail_thcols"><span class="caption_detail_label">속도</span></div>
+					<div class="caption_detail_tdcols">
+						<div class="caption_detail_value">
+							Ve0
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="tooltip_wrap" id="tooltip_layer03">
+			<ul class="caption_detail_list">
+				<li>
+					<div class="caption_detail_thcols"><span class="caption_detail_label">위치</span></div>
+					<div class="caption_detail_tdcols">
+						<div class="caption_detail_value">
+							X : 203.07080078125<br>
+							Y : 201.07080078125<br>
+							Z : 201.07080078125
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="caption_detail_thcols"><span class="caption_detail_label">속도</span></div>
+					<div class="caption_detail_tdcols">
+						<div class="caption_detail_value">
+							Ve0
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- // tooltip -->
 		<!-- popup -->
-		<div class="popup_wrap" id="mapping_data_popup">
-			<div class="bg_dim"></div>
-			<div class="popup_item">
-				<div class="popup_title_low">
-					<h2 class="popup_title">Use-case 매핑</h2>
-					<a href="javascript:;" class="btn_popup_close"><span class="hdtext">팝업 닫기</span></a>
-				</div>
-				<div class="popup_content_low">
-					매핑<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.
-				</div>
-			</div>
-		</div>
-		<div class="popup_wrap" id="mapping_nodata_popup">
-			<div class="bg_dim"></div>
-			<div class="popup_item">
-				<div class="popup_title_low">
-					<h2 class="popup_title">Use-case 매핑</h2>
-					<a href="javascript:;" class="btn_popup_close"><span class="hdtext">팝업 닫기</span></a>
-				</div>
-				<div class="popup_content_low">
-					매핑_결과없음<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.
-				</div>
-			</div>
-		</div>
+		@@include('./include/_popup_map_data.html')
+		@@include('./include/_popup_map_nodata.html')
 		<!-- // popup -->
 		<script>
 			menuRock("#one_depth_03");
 
-			// 선언
-			var mapping_data_popup = new DesignPopup({
-				selector: "#mapping_data_popup",
-				beforeCallback(){
-					console.log('beforeCallback');
+			searchForm();
+
+			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-startinput',
+					format: 'yyyy-MM-dd HH:mm A'
 				},
-				callback(){
-					console.log('callback');
-				}
+				timePicker: true
 			});
+		
+			var datepicker_end = new tui.DatePicker('#form_date_end_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-endinput',
+					format: 'yyyy-MM-dd HH:mm A'
+				},
+				timePicker: true
+			});
+
+			// 선언
 			var mapping_nodata_popup = new DesignPopup({
 				selector: "#mapping_nodata_popup",
 				beforeCallback(){
@@ -153,6 +647,21 @@
 					console.log('callback');
 				}
 			});
+
+			comboChangeCallback({
+				target: "parameter_combo",
+				callback(value) {
+					console.log(value);
+				}
+			});
+
+			comboChangeCallback({
+				target: "filter_combo",
+				callback(value) {
+					console.log(value);
+				}
+			});
+
 
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];

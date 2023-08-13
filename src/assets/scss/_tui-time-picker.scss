@@ -32,8 +32,10 @@
      -moz-appearance: none;
      -o-appearance: none;
      appearance: none;
-     border-radius: 0;
-     background:#fff;
+     border-radius: 4px;
+     background: #fff url(../images/ico_select_arrow.png) no-repeat 100% 0/19px auto;
+
+     &:focus{border-color:$primary;}
  }
  
  .tui-timepicker .tui-timepicker-select::-ms-expand {
@@ -64,6 +66,9 @@
  .tui-timepicker-row {
      width: 100%;
      font-size: 0;
+     display: flex;
+    align-items: center;
+    justify-content: center;
  }
  
  .tui-timepicker-column {
@@ -132,7 +137,7 @@
  }
  
  .tui-timepicker-body .tui-timepicker-colon, .tui-timepicker-footer .tui-timepicker-colon {
-     width: 18px;
+     width: 18px;text-align: center;
  }
  
  .tui-ico-colon {
@@ -142,14 +147,26 @@
  }
  
  .tui-timepicker-select {
-     width: 52px;
-     height: 28px;
+     width:55px;
      padding: 5px 0 5px 9px;
      font-size: 12px;
-     border: 1px solid #ddd;
-     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAECAYAAACHtL/sAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Mzk1NDA2RTVCREIxMTFFNjhENTJFMjdDNDQ3RDJCMTEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Mzk1NDA2RTZCREIxMTFFNjhENTJFMjdDNDQ3RDJCMTEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozOTU0MDZFM0JEQjExMUU2OEQ1MkUyN0M0NDdEMkIxMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozOTU0MDZFNEJEQjExMUU2OEQ1MkUyN0M0NDdEMkIxMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpZ5HPgAAAAxSURBVHjaYjQ2Nv7PgBswgogzZ87gVMAEU4RLMyHABKUFyNGMbMBHJEOI1gwCAAEGAPSlBRrNcMApAAAAAElFTkSuQmCC) no-repeat;
-     background-position: 100% 50%;
+     border: 1px solid #ccc;
      cursor: pointer;
+
+
+     
+    border-radius:4px;
+     text-align: left;
+     color: #5f637a;
+     padding: 0 26px 0 10px;
+     display: block;
+     position: relative;
+     box-sizing: border-box;
+     height: 30px;
+     color: #5f637a;
+     line-height: 28px;
+     background: #fff;
+     word-break: break-all;
  }
  
  .tui-timepicker-check-lst {

@@ -10,8 +10,11 @@
 	<script src="./assets/js/jquery-3.4.1.min.js"></script>
 	<script src="./assets/js/dynamicListener.min.js"></script>
 	<script src="./assets/js/swiper.min.js"></script>
-	<script src="./assets/js/tui-date-picker.js"></script>
-	<!-- <script src="./assets/js/tui-time-picker.js"></script> -->
+	<script src="./assets/js/comboTreePlugin.js"></script>
+	<!-- <script src="./assets/js/tui-date-picker.js"></script>
+	<script src="./assets/js/tui-time-picker.js"></script> -->
+	<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.js"></script>
+	<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
 	<script src="./assets/js/ui.js"></script>
 
 	<title></title>
@@ -70,47 +73,159 @@
 		</header>
 
 		<!-- popup -->
-		<div class="popup_wrap type2" id="user_popup">
+		<div class="popup_wrap skin2 widtype2" id="user_popup">
 			<div class="bg_dim"></div>
 			<div class="popup_item">
-				<div class="popup_title_low type2">
+				<div class="popup_title_low">
 					<h2 class="popup_title">사용자 정보</h2>
 					<a href="javascript:;" class="btn_popup_close"><span class="hdtext">팝업 닫기</span></a>
 				</div>
 				<div class="popup_content_low">
-					사용자 정보<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.
+					<div class="user_ui_wrap">
+						<div class="user_ui_header">
+							<div class="user_ui_header_img"><img src="./assets/images/userinfo@2x.png" alt=""></div>
+							<div class="user_ui_header_spec_group">
+								<div class="user_spec_main">user id sample</div>
+								<div class="user_spec_sub"><span class="ing_box_user">김사용자</span></div>
+							</div>
+						</div>
+						<div class="user_ui_databox">
+							<table class="getdata_render_tb">
+								<tbody>
+									<tr>
+										<th><span class="getdata_label_item"><i class="ico_gd ico_email"></i><span class="getdata_label_text">이메일</span></span></th>
+										<td><span class="getdata_value_text">abc@abc.com</span></td>
+									</tr>
+									<tr>
+										<th><span class="getdata_label_item"><i class="ico_gd ico_call"></i><span class="getdata_label_text">전화번호</span></span></th>
+										<td><span class="getdata_value_text">01012341234</span></td>
+									</tr>
+									<tr>
+										<th><span class="getdata_label_item"><i class="ico_gd ico_group"></i><span class="getdata_label_text">소속</span></span></th>
+										<td><span class="getdata_value_text">엠큐닉</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="btn_bottom_pos_wrap">
+							<a href="#" class="btn_field_formbox big">
+								<span class="btn_field_formbox_text">로그아웃</span>
+							</a>
+							<a href="#" class="btn_field_formbox big primary">
+								<span class="btn_field_formbox_text">수정</span>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="popup_wrap type2" id="user_modify_popup">
+		<div class="popup_wrap skin2 widtype2" id="user_modify_popup">
 			<div class="bg_dim"></div>
 			<div class="popup_item">
-				<div class="popup_title_low type2">
+				<div class="popup_title_low">
 					<h2 class="popup_title">사용자 정보 수정</h2>
 					<a href="javascript:;" class="btn_popup_close"><span class="hdtext">팝업 닫기</span></a>
 				</div>
 				<div class="popup_content_low">
-					사용자 정보 수정<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.<br>
-					내용이 들어갑니다.
+					<div class="cform_field_tb_wrap">
+						<table class="cform_field_tb">
+							<tr>
+								<th><label for="cform_01" class="cform_field_label">아이디</label></th>
+								<td>
+									<div class="cform_data">User</div>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="formitem_02" class="cform_field_label">이메일</label></th>
+								<td>
+									<div class="cform_data">abc@abc.com</div>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="cformitem_03" class="cform_field_label imp">이름</label></th>
+								<td>
+									<div class="input_component_box filled">
+										<input type="text" class="input_origin_item" value="김사용자" placeholder="2~16자 / 국문, 영문" id="cformitem_03">
+										<span class="count_wrap">
+											<span class="count_text">0/0</span>
+										</span>
+										<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+									</div>
+									<div class="form_each_message_group">
+										<p class="form_each_message">이름을 입력해 주세요.</p>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="formitem_04" class="cform_field_label imp">전화번호</label></th>
+								<td>
+									<div class="input_component_box filled">
+										<input type="text" class="input_origin_item" value="01012341234" placeholder="9~11자 / ‘-’없이 입력" id="formitem_04">
+										<span class="count_wrap">
+											<span class="count_text">0/0</span>
+										</span>
+										<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+									</div>
+									<div class="form_each_message_group">
+										<p class="form_each_message">전화번호를 입력해 주세요.</p>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="formitem_05" class="cform_field_label imp">소속</label></th>
+								<td>
+									<div class="input_component_box filled">
+										<input type="text" class="input_origin_item" value="엠큐닉" placeholder="소속업체명" id="formitem_05">
+										<span class="count_wrap">
+											<span class="count_text">0/0</span>
+										</span>
+										<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+									</div>
+									<div class="form_each_message_group">
+										<p class="form_each_message">소속을 입력해 주세요.</p>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="formitem_06" class="cform_field_label imp">비밀번호</label></th>
+								<td>
+									<div class="td_blockitem">
+										<div class="input_component_box">
+											<input type="password" class="input_origin_item" placeholder="8~16자 / 영문+숫자+특수기호 조합" id="formitem_06">
+											<span class="count_wrap">
+												<span class="count_text">0/0</span>
+											</span>
+											<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+										</div>
+										<div class="form_each_message_group">
+											<p class="form_each_message">8~16자로 영문, 숫자, 특수기호를 조합해서 입력해 주세요.</p>
+										</div>
+									</div>
+									<div class="td_blockitem">
+										<div class="input_component_box">
+											<input type="password" class="input_origin_item" placeholder="비밀번호 확인">
+											<span class="count_wrap">
+												<span class="count_text">0/0</span>
+											</span>
+											<button class="btn_form_reset"><span class="hdtext">리셋</span></button>
+										</div>
+										<div class="form_each_message_group">
+											<p class="form_each_message">비밀번호를 입력해 주세요.</p>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="btn_bottom_pos_wrap">
+						<a href="#" class="btn_field_formbox big cloudy">
+							<span class="btn_field_formbox_text">취소</span>
+						</a>
+						<a href="#" class="btn_field_formbox big primary">
+							<span class="btn_field_formbox_text">저장</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -132,7 +247,7 @@
 			<div class="map_screen_content_row screen_content_both">
 				<div class="screen_content_main_cols">
 					<!-- search -->
-					<div class="search_field_wrap">
+					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
 								<a href="#" class="btn_field_box">
@@ -196,6 +311,162 @@
 						</div>
 					</div>
 					<!-- // search -->
+					<!-- filter -->
+					<div class="local_layer" id="filter_layer">
+						<div class="local_layer_inner">
+							<table class="form_group_tb">
+								<colgroup>
+									<col style="width:20%;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><span class="form_group_label">기간</span></th>
+										<td>
+											<div class="fgroup_item_wrap">
+												<div class="fgroup_cols">
+													<div class="tui-datepicker-input" value="2023-07-19 15:00">
+														<input type="text" id="datepicker-startinput" class="input_tui_calendar">
+														<span class="tui-ico-date"></span>
+													</div>
+													<div id="form_date_start_render" class="ui_picker_render" data-parent="#filter_layer"></div>
+												</div>
+												<div class="fgroup_cols else"></div>
+												<div class="fgroup_cols">
+													<div class="tui-datepicker-input" value="2023-07-19 15:00">
+														<input type="text" id="datepicker-endinput" class="input_tui_calendar">
+														<span class="tui-ico-date"></span>
+													</div>
+													<div id="form_date_end_render" class="ui_picker_render" data-parent="#filter_layer"></div>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th><span class="form_group_label">Type</span></th>
+										<td>
+											<ul class="props_form_item_list gap_type2">
+												<li>
+													<div class="props_form_item">
+														<input type="checkbox" class="props_form" id="type_check_01">
+														<label for="type_check_01" class="props_label">All</label>
+													</div>
+												</li>
+												<li>
+													<div class="props_form_item">
+														<input type="checkbox" class="props_form" id="type_check_02">
+														<label for="type_check_02" class="props_label">일반적 상황</label>
+													</div>
+												</li>
+												<li>
+													<div class="props_form_item">
+														<input type="checkbox" class="props_form" id="type_check_03">
+														<label for="type_check_03" class="props_label">이벤트 상황</label>
+													</div>
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<th><span class="form_group_label">카테고리</span></th>
+										<td>
+											<input type="text" id="treeInput" placeholder="Select" autocomplete="off" />
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="scroll_subfooter_row">
+								<a href="#" class="btn_field_formbox small cloudy">
+									<span class="btn_field_formbox_text">초기화</span>
+								</a>
+								<a href="#" class="btn_field_formbox small primary">
+									<span class="btn_field_formbox_text">적용</span>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+						var SampleJSONData = [{
+							id: '01',
+							title: '일반적 상황',
+							subs: [{
+									id: '01_01',
+									title: '기하구조적 특징',
+									subs: [{
+										id: '01_01_01',
+										title: '특징 A',
+										subs: [{
+												id: '01_01_01_01',
+												title: '10'
+											},
+											{
+												id: '01_01_01_02',
+												title: '20'
+											},
+											{
+												id: '01_01_01_03',
+												title: '30'
+											},
+											{
+												id: '01_01_01_04',
+												title: '40'
+											},
+										]
+									}, ]
+								},
+								{
+									id: '01_02',
+									title: '교통류 특징'
+								},
+								{
+									id: '01_03',
+									title: '자동차 혼재율'
+								}
+							]
+						}, {
+							id: '02',
+							title: '이벤트 상황',
+							subs: [{
+								id: '02_01',
+								title: '공사/사고',
+								subs: [{
+									id: '02_01_01',
+									title: '특징 A',
+									subs: [{
+											id: '02_01_01_01',
+											title: '10'
+										},
+										{
+											id: '02_01_01_02',
+											title: '20'
+										},
+										{
+											id: '02_01_01_03',
+											title: '30'
+										},
+										{
+											id: '02_01_01_04',
+											title: '40'
+										},
+									]
+								}, ]
+							}, ]
+						}];
+
+
+						var comboTree3;
+
+						$(function() {
+							comboTree3 = $('#treeInput').comboTree({
+								source: SampleJSONData,
+								isMultiple: true,
+								cascadeSelect: true,
+								collapse: false
+							});
+						});
+					</script>)
+					<!-- // filter -->
 					<!-- listdata_render_wrap -->
 					<div class="listdata_render_wrap">
 						<div class="listdata_render_data_cols">
@@ -256,7 +527,7 @@
 							<div class="list_sort_cols">
 								<!-- Pagination -->
 								<div class="pagination_wrap">
-									<a href="javascript:;" class="btn_pagination_control prev_go"><span class="hdtext">이전</span></a>
+									<a href="javascript:;" class="btn_pagination_control prev_go disabled"><span class="hdtext">이전</span></a>
 									<ul class="pagination_number_list">
 										<li><a href="#" class="page_number active">1</a></li>
 										<li><a href="#" class="page_number">2</a></li>
@@ -275,7 +546,7 @@
 							</div>
 						</div>
 						<div class="list_table_row">
-							<table>
+							<table class="list_table">
 								<thead>
 									<tr>
 										<th scope="col" class="has_check"></th>
@@ -307,10 +578,15 @@
 										<td>
 											<span class="tdtext">s_0000019</span>
 											<div class="data_count_box_wrap">
-												<span class="data_count_box"></span>
+												<span class="data_count_box">+20</span>
 											</div>
 										</td>
-										<td><span class="tdtext">testS2</span></td>
+										<td>
+											<span class="tdtext">testS2</span>
+											<div class="data_count_box_wrap">
+												<span class="data_count_box">+2</span>
+											</div>
+										</td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
@@ -322,7 +598,7 @@
 										<td>
 											<span class="tdtext">s_0000019</span>
 											<div class="data_count_box_wrap">
-												<span class="data_count_box"></span>
+												<span class="data_count_box">+2</span>
 											</div>
 										</td>
 										<td><span class="tdtext">testS2</span></td>
@@ -450,6 +726,26 @@
 
 
 			searchForm();
+
+			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-startinput',
+					format: 'yyyy-MM-dd HH:mm A'
+				},
+				timePicker: true
+			});
+
+			var datepicker_end = new tui.DatePicker('#form_date_end_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-endinput',
+					format: 'yyyy-MM-dd HH:mm A'
+				},
+				timePicker: true
+			});
 
 			comboChangeCallback({
 				target: "filter_combo",

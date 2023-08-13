@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded",()=>{
   commonInit();
-  comboFunc();
+  comboFunc()
+  uiPickerRender();
 });
 window.addEventListener("load",()=>{
   layoutFunc();
@@ -44,6 +45,7 @@ function layoutFunc(){
   const bg_twonav = document.querySelector(".bg_twonav");
   const nav_oneitem = document.querySelectorAll(".nav_oneitem");
   const nav_list_li = document.querySelectorAll(".nav_list > li");
+  const map_screen_wrap = document.querySelector(".map_screen_wrap");
   const nav_twoitem_list_wrap = document.querySelectorAll(".nav_twoitem_list_wrap");
   let arrayHeightTwo = [];
 
@@ -73,6 +75,11 @@ function layoutFunc(){
   document.querySelector("body").addEventListener("mouseleave",()=>{
     twodepthInActive();
   });
+  if(!!map_screen_wrap){
+    document.querySelector(".map_screen_wrap").addEventListener("mouseover",()=>{
+      twodepthInActive();
+    });
+  }
 
   // function
   function initGnb(){
@@ -176,7 +183,6 @@ function comboFunc() {
     if (thisOptionGroup !== null) {
       comboInit(thisParent);
     }
-    comboPosAction();
     // not
     combo_item.forEach((element) => {
       if (element !== thisParent) {
@@ -193,6 +199,7 @@ function comboFunc() {
     });
     thisParent.classList.toggle("active");
     appendOption.classList.toggle("active");
+    comboPosAction();
     if (appendOption.classList.contains("active")) {
       if (combo_option_scroll.classList.contains("addHeight")) {
         return;
@@ -224,12 +231,9 @@ function comboFunc() {
     comtoReset();
   });
 
-  let currentWid = window.innerWidth;
   window.addEventListener("resize", () => {
-    if (currentWid !== window.innerWidth) {
-      comboPosAction();
-    }
-    currentWid = window.innerWidth;
+    comboRePosAction();
+    //comtoReset();
   })
 
   function comtoReset() {
@@ -247,6 +251,8 @@ function comboFunc() {
   function comboInit() {
     const combo_item = document.querySelectorAll(".combo_item");
     const appBody = document.querySelector(".page_wrap");
+
+    comtoReset();
 
     combo_item.forEach((element, index) => {
       let thisElement = element;
@@ -266,40 +272,92 @@ function comboFunc() {
   }
 
   function comboPosAction() {
-    const appendOption = document.querySelectorAll(".combo_option_group");
+    const appendOption = document.querySelectorAll(".combo_option_group.active");
+    
+
+
     appendOption.forEach((element, index) => {
       let comboCall = document.querySelector(`[id='${element.getAttribute("data-option")}']`);
+      let comboCallLayerParent = comboCall.closest(".popup_content_low");
       if (!comboCall) {
         return;
       }
+
       let combo_top = window.scrollY + comboCall.getBoundingClientRect().top;
+      let combo_layer_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
+
       let fullpop_contlow_top = 0;
       let combo_left = comboCall.getBoundingClientRect().left;
       let fullpop_contlow_left = 0;
 
-      if (comboCall.closest(".fullpop_contlow") !== null) {
-        fullpop_contlow_top = comboCall.closest(".fullpop_contlow").getBoundingClientRect().top;
-        fullpop_contlow_left = comboCall.closest(".fullpop_contlow").getBoundingClientRect().left;
+
+      if (comboCall.closest(".popup_content_low") !== null) {
+        fullpop_contlow_top = comboCall.closest(".popup_content_low").getBoundingClientRect().top;
+        fullpop_contlow_left = comboCall.closest(".popup_content_low").getBoundingClientRect().left;
         element.setAttribute("style", `
-                    top : ${(combo_top - fullpop_contlow_top) + comboCall.getBoundingClientRect().height - 1}px; 
+                    top : ${(combo_layer_top - fullpop_contlow_top) + comboCall.getBoundingClientRect().height - 1}px; 
                     left : ${combo_left - fullpop_contlow_left}px;
                     width : ${ comboCall.getBoundingClientRect().width }px;
                 `)
               } else {
-        element.setAttribute("style", `
-            top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
-            left : ${combo_left}px;
-            width : ${ comboCall.getBoundingClientRect().width }px;
-        `)
+        
         if(element.classList.contains("reverse_pos")){
           element.setAttribute("style", `
-          top : ${combo_top - (element.getBoundingClientRect().height -2)}px; 
-          left : ${combo_left}px;
+          top : ${combo_top+0.5}px; 
+          left : ${combo_left+window.scrollX}px;
+            width : ${ comboCall.getBoundingClientRect().width }px;
+        `)
+        }else{
+          element.setAttribute("style", `
+            top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
+            left : ${combo_left+window.scrollX}px;
             width : ${ comboCall.getBoundingClientRect().width }px;
         `)
         }
       }
     });
+  }
+  function comboRePosAction() {
+    const appendOption = document.querySelector(".combo_option_group.active");
+    if(!appendOption){return;}
+    const comboCall = document.querySelector(".combo_item.active");
+    let comboCallLayerParent = !!comboCall.closest(".popup_content_low") ? comboCall.closest(".popup_content_low") : null;
+
+    if(!comboCall || !appendOption){return;}
+    appendOption.removeAttribute("style");
+
+    let combo_top = window.scrollY + comboCall.getBoundingClientRect().top;
+    let combo_layer_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
+
+    let fullpop_contlow_top = 0;
+    let combo_left = comboCall.getBoundingClientRect().left;
+    let fullpop_contlow_left = 0;
+
+
+    if (comboCall.closest(".popup_content_low") !== null) {
+        fullpop_contlow_top = comboCall.closest(".popup_content_low").getBoundingClientRect().top;
+        fullpop_contlow_left = comboCall.closest(".popup_content_low").getBoundingClientRect().left;
+        appendOption.setAttribute("style", `
+            top : ${(combo_layer_top - fullpop_contlow_top) + comboCall.getBoundingClientRect().height - 1}px; 
+            left : ${combo_left - fullpop_contlow_left}px;
+            width : ${ comboCall.getBoundingClientRect().width }px;
+        `)
+      } else {
+       
+      if(appendOption.classList.contains("reverse_pos")){
+        appendOption.setAttribute("style", `
+        top : ${combo_top+0.5}px; 
+        left : ${combo_left}px;
+          width : ${ comboCall.getBoundingClientRect().width }px;
+      `)
+      }else{
+        appendOption.setAttribute("style", `
+          top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
+          left : ${combo_left}px;
+          width : ${ comboCall.getBoundingClientRect().width }px;
+      `)
+      }
+    }
   }
 }
 
@@ -335,22 +393,40 @@ function formItemFunc(){
   addDynamicEventListener(document.body, 'focusin', '.input_component_box .input_origin_item', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
-    thisTargetParent.classList.add("focus");
-    console.log('focus')
+    if(thisTargetParent.classList.contains("filled")){
+      thisTargetParent.classList.add("focus");
+    }
+  });
+  addDynamicEventListener(document.body, 'input', '.input_component_box .input_origin_item', function(e) {
+    const thisTarget = e.target;
+    const thisTargetParent = thisTarget.closest(".input_component_box");
+    console.log('input',thisTarget.value.length)
+    if(thisTarget.value.length){
+      thisTargetParent.classList.add("filled");
+    }
   });
   addDynamicEventListener(document.body, 'focusout', '.input_component_box .input_origin_item', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
     thisTargetParent.classList.remove("focus");
-    console.log('input focusout')
+    if(thisTarget.value.length ===0){
+      thisTargetParent.classList.remove("filled");
+    }
+   
   });
   addDynamicEventListener(document.body, 'mousedown','.btn_form_reset', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
     const thisTargetInput = thisTargetParent.querySelector(".input_origin_item");
+    const thisTargetSearchParent = thisTarget.closest(".search_field_wrap");
     thisTargetInput.value = '';
     thisTargetParent.classList.remove("focus");
     thisTargetParent.classList.remove("warn");
+
+    if(!!thisTargetSearchParent){
+      thisTargetSearchParent.classList.remove("value_true");
+      document.querySelector(`[data-autoLayer='${thisTargetSearchParent.getAttribute("id")}']`).classList.remove("auto_mode");
+    }
   });
 }
 
@@ -443,7 +519,7 @@ DesignPopup.prototype.popupShow = function () {
   if (this.selector == null) {
     return;
   }
-  this.domHtml.classList.add("touchDis");
+  // this.domHtml.classList.add("touchDis");
   
   this.selector.classList.add("active");
   setTimeout(()=>{
@@ -496,9 +572,9 @@ DesignPopup.prototype.popupHide = function () {
      if ("closeCallback" in this.option) {
        this.option.closeCallback();
      }
-     if (this.design_popup_wrap_active.length == 0) {
-       this.domHtml.classList.remove("touchDis");
-     }
+    //  if (this.design_popup_wrap_active.length == 0) {
+    //    this.domHtml.classList.remove("touchDis");
+    //  }
   }
 }
 
@@ -506,6 +582,11 @@ DesignPopup.prototype.bindEvent = function () {
   this.btn_close = this.selector.querySelectorAll(".btn_popup_close");
   this.bg_design_popup = this.selector.querySelector(".bg_dim");
   var closeItemArray = [...this.btn_close];
+
+  // this.selector.querySelector(".popup_content_low").addEventListener("scroll",(e)=>{
+  //   console.log(this.selector.querySelector(".popup_content_low").scrollTop)
+  // });
+
   if(!!this.btn_closeTrigger){
     this.btn_closeTrigger = this.selector.querySelectorAll(".close_trigger");
     closeItemArray.push(...this.btn_closeTrigger)
@@ -524,6 +605,75 @@ DesignPopup.prototype.bindEvent = function () {
 };
 
 
+/* ui_picker_render */
+function uiPickerRender(){
+  const ui_picker_render = document.querySelectorAll(".ui_picker_render");
+  const appBody = document.querySelector(".page_wrap");
+  if(!ui_picker_render){return}
+
+  init();
+
+  actionPos();
+  window.addEventListener("resize",()=>{
+    actionPos()
+  });
+
+  function init(){
+    ui_picker_render.forEach((render)=>{
+      if(render.classList.contains("reverse_render")){
+        return;
+      }
+      const thisSiblings = siblings(render);
+      if(!render.classList.contains("reverse_render")){
+        thisSiblings.forEach((callItem)=>{
+          if(callItem.classList.contains("tui-datepicker-input")){
+            callItem.setAttribute("data-calendarcall",render.getAttribute("id"));
+          }
+        });
+      }
+      if (render.closest(".popup_content_low") !== null) {
+        render.closest(".popup_content_low").appendChild(render);
+      } else {
+        appBody.appendChild(render);
+      }
+    });
+  }
+
+  function actionPos(){
+    ui_picker_render.forEach((render)=>{
+      if(render.classList.contains("reverse_render")){
+        return;
+      }
+      const renderLayerParent = render.closest(".popup_content_low");
+      const calendarCall = document.querySelector(`[data-calendarcall='${render.getAttribute("id")}']`);
+      let calendarCallLayerParentScrollTop = !!renderLayerParent ? renderLayerParent.scrollTop : 0;
+
+      let call_top = window.scrollY + calendarCall.getBoundingClientRect().top + calendarCall.getBoundingClientRect().height;
+      let calendar_layer_top = calendarCallLayerParentScrollTop + calendarCall.getBoundingClientRect().top;
+      
+      let fullpop_contlow_top = 0;
+      let calendar_left = calendarCall.getBoundingClientRect().left;
+      let fullpop_contlow_left = 0;
+
+      if (!!render.closest(".popup_content_low")) {
+        fullpop_contlow_top = renderLayerParent.getBoundingClientRect().top;
+        fullpop_contlow_left = renderLayerParent.getBoundingClientRect().left;
+        render.setAttribute("style", `
+            top : ${(calendar_layer_top - fullpop_contlow_top) + calendarCall.getBoundingClientRect().height - 1}px; 
+            left : ${calendar_left - fullpop_contlow_left}px;
+            width : ${ calendarCall.getBoundingClientRect().width }px;
+        `)
+      } else {
+        render.setAttribute("style", `
+            top : ${call_top}px; 
+            left : ${calendar_left}px;
+              width : ${ calendarCall.getBoundingClientRect().width }px;
+        `)
+      }
+     
+    });
+  }
+}
 /* 검색 */
 
 /* search  */
@@ -538,6 +688,7 @@ function searchForm() {
     searchInput.forEach((element, index) => {
       const eachElement = element;
       const eachElementParent = element.closest(".search_field_wrap");
+      const eachElementReset = eachElementParent.querySelector(".btn_form_reset");
       const eachElementField = element.closest(".search_field");
       const eachElementLayer = eachElementParent.querySelector(".auto_word_layer");
 
@@ -570,13 +721,12 @@ function searchForm() {
         //valueCheck(thisEventObj, eachElementParent);
         //resetLayer(eachElementParent);
       });
+
       // eachElementReset.addEventListener("click", (e) => {
-      //   let thisEventInputObj = eachElementParent.querySelector(".form_input");
+      //   let thisEventInputObj = eachElementParent.querySelector(".input_origin_item");
       //   thisEventInputObj.value = "";
       //   eachElementParent.classList.remove("value_true");
-      //   if (eachElementParent.getAttribute("data-autoLayer") == "true") {
-      //     document.querySelector(`[data-autoLayer='${eachElementParent.getAttribute("id")}']`).classList.remove("auto_mode");
-      //   }
+      //   document.querySelector(`[data-autoLayer='${eachElementParent.getAttribute("id")}']`).classList.remove("auto_mode");
       // });
     });
 
@@ -586,7 +736,7 @@ function searchForm() {
           let thisEventObj = e.currentTarget;
           let thisEventParentLayer = thisEventObj.closest(".auto_word_layer");
           let thisEventParentCall = document.querySelector(`[id='${thisEventParentLayer.getAttribute("data-autolayer")}']`);
-          let thisEventParentCallInput = thisEventParentCall.querySelector(".form_input");
+          let thisEventParentCallInput = thisEventParentCall.querySelector(".input_origin_item");
           
           if (thisEventObj.classList.contains("disabled")) { return; }
           thisEventParentCallInput.value = thisEventObj.textContent;
@@ -619,8 +769,8 @@ function searchForm() {
       } else {
         auto_word_layer.setAttribute("data-autoLayer", thisElement.getAttribute("id"));
       }
-      if (thisElement.closest(".popup_contentlow") !== null) {
-        thisElement.closest(".popup_contentlow").appendChild(auto_word_layer);
+      if (thisElement.closest(".popup_content_low") !== null) {
+        thisElement.closest(".popup_content_low").appendChild(auto_word_layer);
       } else {
         appBody.appendChild(auto_word_layer);
       }
@@ -630,18 +780,26 @@ function searchForm() {
       const thisElement = target;
       appendLayer = document.querySelector(`[data-autoLayer='${thisElement.getAttribute("id")}']`);
       if (appendLayer === null) { return; }
-      if (thisElement.closest(".popup_contentlow") !== null) {
+      if (thisElement.closest(".popup_content_low") !== null) {
+        // appendLayer.setAttribute("style", `
+        //           top : ${(thisElement.getBoundingClientRect().top - thisElement.closest(".popup_content_low").getBoundingClientRect().top) + thisElement.getBoundingClientRect().height - 1}px;
+        //           left : ${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_content_low").getBoundingClientRect().left}px;
+        //           width : ${thisElement.scrollWidth}px;
+        // `)
+        const popupContentLow = thisElement.closest(".popup_content_low");
+        const popupContentLowTop = popupContentLow.getBoundingClientRect().top;
+        const autolayerInTop = popupContentLow.scrollTop + thisElement.getBoundingClientRect().top;
         appendLayer.setAttribute("style", `
-                  top : ${(thisElement.getBoundingClientRect().top - thisElement.closest(".popup_contentlow").getBoundingClientRect().top) + thisElement.getBoundingClientRect().height - 1}px;
-                  left : ${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_contentlow").getBoundingClientRect().left}px;
-                  width : ${thisElement.scrollWidth}px;
-              `)
+          top : ${(autolayerInTop - popupContentLowTop) + thisElement.getBoundingClientRect().height - 1}px;
+          left : ${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_content_low").getBoundingClientRect().left}px;
+          width : ${thisElement.scrollWidth}px;
+        `)
       } else {
         appendLayer.setAttribute("style", `
-                  top : ${window.scrollY + thisElement.getBoundingClientRect().top + thisElement.getBoundingClientRect().height - 1}px;
-                  left : ${thisElement.getBoundingClientRect().left}px;
-                  width : ${thisElement.scrollWidth}px;
-              `)
+            top : ${window.scrollY + thisElement.getBoundingClientRect().top + thisElement.getBoundingClientRect().height - 1}px;
+            left : ${thisElement.getBoundingClientRect().left}px;
+            width : ${thisElement.scrollWidth}px;
+        `)
       }
     }
 
@@ -678,4 +836,156 @@ function searchForm() {
       appendLayer.classList.remove("auto_scroll_show");
     }
   }
+}
+
+
+/**
+ * 디자인 모달
+ * @param {*} option 
+ */
+ function DesignModal(option) {
+  this.title = option.title;
+  this.message = option.message;
+  this.domHtml = document.querySelector("html");
+  this.domBody = document.querySelector("body");
+  this.pagewrap = document.querySelector(".page_wrap");
+  this.design_modal_wrap = null;
+  this.btn_dmsmidentify = null;
+  this.btn_dmsmcancel = null;
+  this.duration = option.duration !== undefined ? option.duration : 400;
+  this.initShow(option);
+}
+  
+DesignModal.prototype.initShow = function (option) {
+  var innerPublish = '';
+  var objThis = this;
+  let confirmPublish = option.type === "confirm" ? `<a href='javascript:;' class='btn_dmsm close_dmtrigger btn_dmsmcancel'>취소</a>` : ``;
+  /* 
+  innerPublish += "<div class='design_modal_wrap'>";
+  innerPublish += "  <div class='bg_design_modal'></div>";
+  innerPublish += "  <div class='design_modal_w'>";
+  innerPublish += "          <div class='design_modal'>";
+
+  innerPublish += "              <div class='design_modal_cont_w'><div class='design_modal_text'></div></div>";
+  innerPublish += "              <div class='btn_dmsm_wrap'>";
+  if (option.type === "confirm") {
+    innerPublish += "              <a href='javascript:;' class='btn_dmsm close_dmtrigger btn_dmsmcancel'>취소</a>";
+  }
+  innerPublish += "                  <a href='javascript:;' class='btn_dmsm close_dmtrigger btn_dmsmidentify'>확인</a>";
+  innerPublish += "              </div>";
+  innerPublish += "          </div>";
+  innerPublish += "  </div>";
+  innerPublish += "</div>";
+ */
+  innerPublish = `
+  <div class='design_modal_wrap'>
+    <div class='design_modal_tb'>
+      <div class='design_modal_td'>
+        <div class='bg_design_modal'></div>
+        <div class='design_modal'>
+          <div class='design_modal_cont_w'>
+            <div class='design_modal_maintext'></div>
+            <div class='design_modal_subtext'></div>
+          </div>
+          <div class='btn_dmsm_wrap'>
+          <a href='javascript:;' class='btn_dmsm close_dmtrigger btn_dmsmclose'>닫기</a>
+          ${confirmPublish}
+          <a href='javascript:;' class='btn_dmsm close_dmtrigger btn_dmsmidentify'>확인</a>
+          </div>
+          <a href='javascript:;' class='btn_modal_close'><span class='hdtext'>닫기</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+
+  
+  this.modalparent = document.createElement('div');
+  this.pagewrap.appendChild(this.modalparent);
+  this.modalparent.classList.add("design_modal_insert_wrap");
+  this.modalparent.innerHTML = innerPublish;
+  this.closetrigger = document.querySelectorAll(".close_dmtrigger");
+  this.design_modal_wrap = document.querySelector(".design_modal_wrap");
+  this.btn_modal_close = document.querySelector(".btn_modal_close");
+
+  if (option.type === "confirm" || option.type === "alert") {
+    this.design_modal_tit = document.querySelector(".design_modal_tit");
+    this.design_modal_text = document.querySelector(".design_modal_maintext");
+    this.design_modal_subtext = document.querySelector(".design_modal_subtext");
+    this.btn_dmsmidentify = document.querySelector(".btn_dmsmidentify");
+    this.design_modal_text.innerHTML = option.main_message;
+    this.design_modal_subtext.innerHTML = option.sub_message;
+    
+  }
+  if (option.type === "confirm") {
+    this.btn_dmsmcancel = document.querySelector(".btn_dmsmcancel");
+  }
+  if (option.type === "title") {
+    this.design_modal_tit.innerHTML = option.title;
+  }
+  
+  this.bindEvent(option);
+}
+DesignModal.prototype.show = function () {
+  this.pagewrap.style.zIndex = 0;
+  this.domHtml.classList.add("touchDis");
+  
+  
+  this.design_modal_wrap.classList.add("active");
+  setTimeout(()=>{
+    this.design_modal_wrap.classList.add("motion");
+  }, 30);
+}
+DesignModal.prototype.hide = function () {
+  var objThis = this;
+  this.design_modal_wrap.classList.remove("motion");
+  setTimeout(function () {
+    objThis.design_modal_wrap.classList.remove("active");
+    document.querySelector(".design_modal_insert_wrap").remove();
+    objThis.design_modal_wrap.remove();
+    objThis.domHtml.classList.remove("touchDis");
+  }, 530);
+}
+DesignModal.prototype.bindEvent = function (option) {
+  var objThis = this;
+  let btn_close_item = [this.btn_modal_close, ...this.closetrigger];
+  btn_close_item.forEach((element,index)=>{
+    element.addEventListener("click", function () {
+      objThis.hide();
+    }, false);
+  })
+  if (this.btn_dmsmidentify !== null) {
+    this.btn_dmsmidentify.addEventListener("click", function () {
+      if (option.identify_callback !== undefined) {
+        option.identify_callback();
+      }
+    }, false);
+  }
+  if (this.btn_dmsmcancel !== null) {
+    this.btn_dmsmcancel.addEventListener("click", function () {
+      if (option.cancel_callback !== undefined) {
+        option.cancel_callback();
+      }
+    }, false);
+  }
+}
+
+
+/* tooltip */
+function tooltipFunc(){
+  const tooltipCall = document.querySelectorAll("[data-tooltip]");
+  const tooltipWrap = document.querySelectorAll(".tooltip_wrap");
+
+  if(!tooltipCall || !tooltipWrap){return}
+
+  tooltipCall.forEach((item)=>{
+    item.addEventListener("click",(e)=>{
+      e.preventDefault();
+      const thisTarget = e.currentTarget;
+      const thisTargetLayer = document.querySelector(thisTarget.getAttribute("data-tooltip"));
+      if(!!thisTargetLayer){
+        thisTargetLayer.classList.toggle("active");
+      }
+    });
+  });
 }

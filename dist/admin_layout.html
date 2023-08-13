@@ -10,8 +10,11 @@
 	<script src="./assets/js/jquery-3.4.1.min.js"></script>
 	<script src="./assets/js/dynamicListener.min.js"></script>
 	<script src="./assets/js/swiper.min.js"></script>
-	<script src="./assets/js/tui-date-picker.js"></script>
-	<!-- <script src="./assets/js/tui-time-picker.js"></script> -->
+	<script src="./assets/js/comboTreePlugin.js"></script>
+	<!-- <script src="./assets/js/tui-date-picker.js"></script>
+	<script src="./assets/js/tui-time-picker.js"></script> -->
+	<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.js"></script>
+	<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
 	<script src="./assets/js/ui.js"></script>
 
 	<title></title>
@@ -93,7 +96,155 @@
 			</div>
 			<div class="map_screen_content_row screen_content_both">
 				<div class="screen_content_main_cols">
-					내용이 들어갑니다.
+					<!-- search -->
+					<div class="search_field_container">
+						<div class="search_field_row">
+							<div class="search_field_cols">
+								<div class="combo_item medium" id="filter_combo">
+									<a href="javascript:;" class="combo_target">전체</a>
+									<div class="combo_option_group medium">
+										<div class="combo_option_scroll" data-rowCount="3">
+											<ul class="combo_option_list">
+												<li><a href="javascript:;" data-value="option_0" class="combo_option">옵션 01</a></li>
+												<li><a href="javascript:;" data-value="option_1" class="combo_option">옵션 02</a></li>
+												<li><a href="javascript:;" data-value="option_2" class="combo_option">옵션 03</a></li>
+												<li><a href="javascript:;" data-value="option_3" class="combo_option">옵션 04</a></li>
+												<li><a href="javascript:;" data-value="option_4" class="combo_option">옵션 05</a></li>
+												<li><a href="javascript:;" data-value="option_5" class="combo_option">옵션 06</a></li>
+												<li><a href="javascript:;" data-value="option_6" class="combo_option">옵션 07</a></li>
+												<li><a href="javascript:;" data-value="option_7" class="combo_option">옵션 08</a></li>
+												<li><a href="javascript:;" data-value="option_8" class="combo_option">옵션 09</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="search_field_cols long_type">
+								<div class="search_field_wrap" name="search_form" data-rowCount="3">
+									<div class="input_component_box search_field" data-name="value_check">
+										<input type="text" class="input_origin_item" placeholder="검색어 입력">
+										<button type="button" class="btn_form_reset"><span class="hdtext">리셋</span></button>
+									</div>
+									<!-- layer -->
+									<div class="auto_word_layer">
+										<div class="auto_word_list_wrap">
+											<ul class="auto_word_list">
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 01</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 02</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 03</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 04</a></li>
+												<li><a href="javascript:;" class="auto_word_item">자동완성옵션 05</a></li>
+											</ul>
+										</div>
+									</div>
+									<!-- // layer -->
+								</div>
+							</div>
+							<div class="search_field_cols">
+								<a href="#" class="btn_field_formbox">
+									<i class="ico_field_formbox ico_search"></i>
+									<span class="btn_field_formbox_text">검색</span>
+								</a>
+							</div>
+							<div class="search_field_cols">
+								<a href="#" class="btn_field_formbox primary">
+									<i class="ico_field_formbox ico_write"></i>
+									<span class="btn_field_formbox_text">등록</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- // search -->
+					<!-- list_table_render_wrap -->
+					<div class="list_table_render_wrap">
+						<div class="list_sort_row">
+							<div class="list_sort_cols">
+								<span class="list_count_wrap">
+									<span class="list_count_current">999</span>
+									<span class="list_count_length">건</span>
+								</span>
+								<ul class="list_sortcase_item_list">
+									<li>
+										<div class="combo_item" id="sort_type01">
+											<a href="javascript:;" class="combo_target">수정일자</a>
+											<div class="combo_option_group">
+												<div class="combo_option_scroll" data-rowCount="3">
+													<ul class="combo_option_list">
+														<li><a href="javascript:;" data-value="option_0" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_1" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_2" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_3" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_4" class="combo_option">2023.00.00</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="combo_item" id="sort_type02">
+											<a href="javascript:;" class="combo_target">내림차순</a>
+											<div class="combo_option_group">
+												<div class="combo_option_scroll" data-rowCount="3">
+													<ul class="combo_option_list">
+														<li><a href="javascript:;" data-value="option_0" class="combo_option">올림차순</a></li>
+														<li><a href="javascript:;" data-value="option_1" class="combo_option">내림차순</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="list_sort_cols">
+								<!-- Pagination -->
+								<div class="pagination_wrap">
+									<a href="javascript:;" class="btn_pagination_control prev_go disabled"><span class="hdtext">이전</span></a>
+									<ul class="pagination_number_list">
+										<li><a href="#" class="page_number active">1</a></li>
+										<li><a href="#" class="page_number">2</a></li>
+										<li><a href="#" class="page_number">3</a></li>
+										<li><a href="#" class="page_number">4</a></li>
+										<li><a href="#" class="page_number">5</a></li>
+										<li><a href="#" class="page_number">6</a></li>
+										<li><a href="#" class="page_number">7</a></li>
+										<li><a href="#" class="page_number">8</a></li>
+										<li><a href="#" class="page_number">9</a></li>
+										<li><a href="#" class="page_number">10</a></li>
+									</ul>
+									<a href="javascript:;" class="btn_pagination_control next_go"><span class="hdtext">다음</span></a>
+								</div>
+								<!-- // Pagination -->
+							</div>
+						</div>
+						<div class="list_table_row">
+							<table class="list_table">
+								<thead>
+									<tr>
+										<th scope="col"><span class="thtext">아이디</span></th>
+										<th scope="col"><span class="thtext">이메일</span></th>
+										<th scope="col"><span class="thtext">소속</span></th>
+										<th scope="col"><span class="thtext">권한</span></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="4" class="nodata_td">
+											<div class="nodata_para_wrap">
+												<p class="nodata_para">조회 결과가 없습니다.</p>
+											</div>
+										</td>
+									</tr>
+									<!-- <tr>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">test@naver.com</span></td>
+										<td><span class="tdtext">소속 데이터</span></td>
+										<td><span class="tdtext">최고 관리</span></td>
+									</tr> -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- // list_table_render_wrap -->
 				</div>
 				<div class="screen_content_sub_cols">
 					<div class="screen_guide_wrap">
@@ -106,6 +257,27 @@
 			</div>
 		</section>
 	</div>
+
+	<script>
+		comboChangeCallback({
+			target: "filter_combo",
+			callback(value) {
+				console.log(value);
+			}
+		});
+		comboChangeCallback({
+			target: "sort_type01",
+			callback(value) {
+				console.log(value);
+			}
+		});
+		comboChangeCallback({
+			target: "sort_type02",
+			callback(value) {
+				console.log(value);
+			}
+		});
+	</script>
 </body>
 
 </html>
