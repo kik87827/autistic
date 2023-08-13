@@ -11,10 +11,8 @@
 	<script src="./assets/js/dynamicListener.min.js"></script>
 	<script src="./assets/js/swiper.min.js"></script>
 	<script src="./assets/js/comboTreePlugin.js"></script>
-	<!-- <script src="./assets/js/tui-date-picker.js"></script>
-	<script src="./assets/js/tui-time-picker.js"></script> -->
-	<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.js"></script>
-	<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
+	<script src="./assets/js/tui-time-picker.js"></script>
+	<script src="./assets/js/tui-date-picker.js"></script>
 	<script src="./assets/js/ui.js"></script>
 
 	<title></title>
@@ -259,7 +257,7 @@
 								<div class="combo_item medium" id="filter_combo">
 									<a href="javascript:;" class="combo_target">전체</a>
 									<div class="combo_option_group medium">
-										<div class="combo_option_scroll" data-rowCount="3">
+										<div class="combo_option_scroll" data-rowCount="5">
 											<ul class="combo_option_list">
 												<li><a href="javascript:;" data-value="option_0" class="combo_option">옵션 01</a></li>
 												<li><a href="javascript:;" data-value="option_1" class="combo_option">옵션 02</a></li>
@@ -276,7 +274,7 @@
 								</div>
 							</div>
 							<div class="search_field_cols long_type">
-								<div class="search_field_wrap" name="search_form" data-rowCount="3">
+								<div class="search_field_wrap" name="search_form" data-rowCount="5">
 									<div class="input_component_box search_field" data-name="value_check">
 										<input type="text" class="input_origin_item" placeholder="검색어 입력">
 										<button type="button" class="btn_form_reset"><span class="hdtext">리셋</span></button>
@@ -316,7 +314,7 @@
 						<div class="local_layer_inner">
 							<table class="form_group_tb">
 								<colgroup>
-									<col style="width:20%;" />
+									<col style="width:100px;" />
 									<col />
 								</colgroup>
 								<tbody>
@@ -331,7 +329,6 @@
 													</div>
 													<div id="form_date_start_render" class="ui_picker_render" data-parent="#filter_layer"></div>
 												</div>
-												<div class="fgroup_cols else"></div>
 												<div class="fgroup_cols">
 													<div class="tui-datepicker-input" value="2023-07-19 15:00">
 														<input type="text" id="datepicker-endinput" class="input_tui_calendar">
@@ -368,218 +365,14 @@
 										</td>
 									</tr>
 									<tr>
-										<th><span class="form_group_label">파라미터</span></th>
+										<th class="align_type2"><span class="form_group_label">파라미터</span></th>
 										<td>
-											<div class="toggle_component_wrap">
-												<a href="#" class="toggle_component_target">
-													파라미터 선택
-												</a>
-												<div class="toggle_component_content active">
-													<div class="field_search_wrap">
-														<a href="#" class="ico_field_search"><span class="hdtext">검색</span></a>
-														<input type="text" class="field_search_input" placeholder="검색어 입력">
-													</div>
-													<div class="field_tree_wrap">
-														<ul class="field_tree_list">
-															<li>
-																<div class="field_tree_item_wrap">
-																	<div class="field_tree_item">
-																		<button type="button" class="btn_field_toggle"></button>
-																		<div class="field_tree_form_wrap">
-																			<div class="field_tree_form_row">
-																				<div class="props_form_item">
-																					<input type="checkbox" class="props_form">
-																					<label class="props_label">Logical scenario</label>
-																				</div>
-																			</div>
-																			<div class="field_tree_depth_row">
-																				<div class="field_tree_item">
-																					<button type="button" class="btn_field_toggle"></button>
-																					<div class="field_tree_form_wrap">
-																						<div class="field_tree_form_row">
-																							<div class="props_form_item">
-																								<input type="checkbox" class="props_form">
-																								<label class="props_label">시험지역</label>
-																							</div>
-																						</div>
-																						<div class="field_tree_depth_row">
-																							<ul class="field_tree_value_list">
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">옵션 01</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">옵션 02</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">옵션 03</label>
-																									</div>
-																								</li>
-																							</ul>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="field_tree_item">
-																					<button type="button" class="btn_field_toggle"></button>
-																					<div class="field_tree_form_wrap">
-																						<div class="field_tree_form_row">
-																							<div class="props_form_item">
-																								<input type="checkbox" class="props_form">
-																								<label class="props_label">Ego 종류</label>
-																							</div>
-																						</div>
-																						<div class="field_tree_depth_row">
-																							<ul class="field_tree_value_list">
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">옵션 01</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">옵션 02</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">옵션 03</label>
-																									</div>
-																								</li>
-																							</ul>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="field_tree_item">
-																					<button type="button" class="btn_field_toggle"></button>
-																					<div class="field_tree_form_wrap">
-																						<div class="field_tree_form_row">
-																							<div class="props_form_item">
-																								<input type="checkbox" class="props_form">
-																								<label class="props_label">장애물 종류</label>
-																							</div>
-																						</div>
-																						<div class="field_tree_depth_row">
-																							<ul class="field_tree_value_list">
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">차량</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">사람</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">철조망</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">바위</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">낙석</label>
-																									</div>
-																								</li>
-																							</ul>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li>
-																<div class="field_tree_item_wrap">
-																	<div class="field_tree_item">
-																		<button type="button" class="btn_field_toggle"></button>
-																		<div class="field_tree_form_wrap">
-																			<div class="field_tree_form_row">
-																				<div class="props_form_item">
-																					<input type="checkbox" class="props_form">
-																					<label class="props_label">Parameter distribution</label>
-																				</div>
-																			</div>
-																			<div class="field_tree_depth_row">
-																				<div class="field_tree_item">
-																					<button type="button" class="btn_field_toggle"></button>
-																					<div class="field_tree_form_wrap">
-																						<div class="field_tree_form_row">
-																							<div class="props_form_item">
-																								<input type="checkbox" class="props_form">
-																								<label class="props_label">날씨</label>
-																							</div>
-																						</div>
-																						<div class="field_tree_depth_row">
-																							<ul class="field_tree_value_list">
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">눈</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">비</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">안개</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">맑음</label>
-																									</div>
-																								</li>
-																								<li>
-																									<div class="props_form_item">
-																										<input type="checkbox" class="props_form">
-																										<label class="props_label">흐림</label>
-																									</div>
-																								</li>
-																							</ul>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</div>
+											<input type="text" id="treeInput" placeholder="파라미터 선택" class="input_tree" autocomplete="off" />
 										</td>
 									</tr>
 								</tbody>
 							</table>
-							<div class="scroll_subfooter_row">
+							<div class="field_footer_row">
 								<a href="#" class="btn_field_formbox small cloudy">
 									<span class="btn_field_formbox_text">초기화</span>
 								</a>
@@ -588,7 +381,157 @@
 								</a>
 							</div>
 						</div>
-					</div>)
+					</div>
+
+					<script type="text/javascript">
+						var SampleJSONData = [{
+							id: '01',
+							title: 'Logical scenario',
+							subs: [{
+									id: '01_01',
+									title: '시험 지역',
+									subs: [{
+										id: '01_01_01',
+										title: '...'
+									}]
+								},
+								{
+									id: '01_02',
+									title: 'Ego 종류',
+									subs: [{
+											id: '01_02_01',
+											title: '...'
+										},
+										{
+											id: '01_01_02',
+											title: '...'
+										}
+									]
+								},
+								{
+									id: '01_03',
+									title: '장애물 종류',
+									subs: [{
+											id: '01_03_01',
+											title: '차량'
+										},
+										{
+											id: '01_03_02',
+											title: '사람'
+										},
+										{
+											id: '01_03_03',
+											title: '철조망'
+										},
+										{
+											id: '01_03_04',
+											title: '바위'
+										},
+										{
+											id: '01_03_05',
+											title: '낙석'
+										}
+									]
+								}
+							]
+						}, {
+							id: '02',
+							title: 'Parameter distribution',
+							subs: [{
+									id: '02_01',
+									title: '날씨',
+									subs: [{
+											id: '02_01_01',
+											title: '눈'
+										},
+										{
+											id: '02_01_02',
+											title: '비'
+										},
+										{
+											id: '02_01_03',
+											title: '안개'
+										},
+										{
+											id: '02_01_04',
+											title: '맑음'
+										},
+										{
+											id: '02_01_05',
+											title: '흐림'
+										},
+									]
+								},
+								{
+									id: '02_02',
+									title: '계절',
+									subs: [{
+											id: '02_02_01',
+											title: '봄'
+										},
+										{
+											id: '02_02_02',
+											title: '여름'
+										},
+										{
+											id: '02_02_03',
+											title: '가을'
+										},
+										{
+											id: '02_02_04',
+											title: '겨울'
+										}
+									]
+								},
+								{
+									id: '02_03',
+									title: '시간',
+									subs: [{
+											id: '02_03_01',
+											title: '주간'
+										},
+										{
+											id: '02_03_02',
+											title: '야간'
+										}
+									]
+								},
+								{
+									id: '02_04',
+									title: '이벤트',
+									subs: [{
+											id: '02_04_01',
+											title: 'None'
+										},
+										{
+											id: '02_04_02',
+											title: 'Ego 차량 펑크'
+										},
+										{
+											id: '02_04_03',
+											title: '장애물 이상 동작'
+										},
+										{
+											id: '02_04_04',
+											title: '웅덩이 주행'
+										}
+									]
+								},
+							]
+						}];
+
+
+						var comboTree3;
+
+						$(function() {
+							comboTree3 = $('#treeInput').comboTree({
+								source: SampleJSONData,
+								isMultiple: true,
+								cascadeSelect: true,
+								collapse: false
+							});
+						});
+					</script>)
 					<!-- // filter -->
 					<!-- listdata_render_wrap -->
 					<!-- <div class="listdata_render_wrap">
@@ -620,13 +563,13 @@
 										<div class="combo_item" id="sort_type01">
 											<a href="javascript:;" class="combo_target">수정일자</a>
 											<div class="combo_option_group">
-												<div class="combo_option_scroll" data-rowCount="3">
+												<div class="combo_option_scroll" data-rowCount="5">
 													<ul class="combo_option_list">
-														<li><a href="javascript:;" data-value="option_0" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_1" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_2" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_3" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_4" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_0" class="combo_option">ID</a></li>
+														<li><a href="javascript:;" data-value="option_1" class="combo_option">명칭</a></li>
+														<li><a href="javascript:;" data-value="option_2" class="combo_option">Type</a></li>
+														<li><a href="javascript:;" data-value="option_3" class="combo_option">수정 일자</a></li>
+														<li><a href="javascript:;" data-value="option_4" class="combo_option">생성자</a></li>
 													</ul>
 												</div>
 											</div>
@@ -636,7 +579,7 @@
 										<div class="combo_item" id="sort_type02">
 											<a href="javascript:;" class="combo_target">내림차순</a>
 											<div class="combo_option_group">
-												<div class="combo_option_scroll" data-rowCount="3">
+												<div class="combo_option_scroll" data-rowCount="5">
 													<ul class="combo_option_list">
 														<li><a href="javascript:;" data-value="option_0" class="combo_option">올림차순</a></li>
 														<li><a href="javascript:;" data-value="option_1" class="combo_option">내림차순</a></li>

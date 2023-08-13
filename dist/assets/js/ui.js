@@ -675,7 +675,6 @@ function uiPickerRender() {
             width : ${ calendarCall.getBoundingClientRect().width }px;
         `)
       } else {
-        console.log();
         render.setAttribute("style", `
             top : ${call_top}px; 
             left : ${calendar_left}px;
@@ -806,13 +805,13 @@ function searchForm() {
         const popupContentLowTop = popupContentLow.getBoundingClientRect().top;
         const autolayerInTop = popupContentLow.scrollTop + thisElement.getBoundingClientRect().top;
         appendLayer.setAttribute("style", `
-          top : ${(autolayerInTop - popupContentLowTop) + thisElement.getBoundingClientRect().height - 1}px;
+          top : ${(autolayerInTop - popupContentLowTop) + thisElement.getBoundingClientRect().height}px;
           left : ${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_content_low").getBoundingClientRect().left}px;
           width : ${thisElement.scrollWidth}px;
         `)
       } else {
         appendLayer.setAttribute("style", `
-            top : ${window.scrollY + thisElement.getBoundingClientRect().top + thisElement.getBoundingClientRect().height - 1}px;
+            top : ${window.scrollY + thisElement.getBoundingClientRect().top + thisElement.getBoundingClientRect().height}px;
             left : ${thisElement.getBoundingClientRect().left}px;
             width : ${thisElement.scrollWidth}px;
         `)
@@ -1095,4 +1094,44 @@ function getScrollBarWidth() {
   let width = el.offsetWidth - el.clientWidth;
   el.remove();
   return width;
+}
+
+
+/* local layer */
+
+function localLayer(callback) {
+  const localTarget = document.querySelectorAll("[data-localpopup]");
+  let activeLayer = document.querySelector(".local_layer.active");
+
+  console.log(localTarget);
+  if (!!localTarget) {
+    localTarget.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        const thisCall = e.currentTarget;
+        const thisTarget = document.querySelector(thisCall.getAttribute("data-localpopup")) ?? null;
+        const thisTargetParent = document.querySelector(thisCall.getAttribute("data-localParent")) ?? null;
+        if (!!thisTarget) {
+          console.log(thisCall.getBoundingClientRect().top, thisTargetParent.getBoundingClientRect().top);
+          thisTarget.style.top = (thisCall.getBoundingClientRect().top - thisTargetParent.getBoundingClientRect().top) + thisCall.getBoundingClientRect().height + 4 + 'px';
+          thisTarget.classList.toggle("active");
+          if (thisTarget.classList.contains("active")) {
+            window.dispatchEvent(new Event('resize'));
+            activeLayer = thisTarget;
+            if (callback) {
+              callback();
+            }
+          }
+        }
+      });
+    });
+    document.querySelector("body").addEventListener("click", (e) => {
+      if (e.target.closest(".local_layer") || e.target.getAttribute("data-localpopup") || e.target.closest("[data-localpopup]") || e.target.closest(".ui_picker_render")) {
+        return;
+      }
+      if (!!activeLayer) {
+        activeLayer.classList.remove("active");
+      }
+    });
+  }
 }

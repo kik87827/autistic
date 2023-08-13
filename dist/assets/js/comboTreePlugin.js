@@ -115,7 +115,7 @@
   };
 
   ComboTree.prototype.createFilterHTMLForMultiSelect = function (){
-    return '<input id="' + this.comboTreeId + 'MultiFilter" type="text" class="multiplesFilter" placeholder="Type to filter"/>';
+    return '<input id="' + this.comboTreeId + 'MultiFilter" type="text" class="multiplesFilter" placeholder="검색어 입력"/>';
   }
 
   ComboTree.prototype.createSelectAllHTMLForMultiSelect = function () {
@@ -148,7 +148,7 @@
       itemHtml += '<span class="comboTreeParentPlus">' + (this.options.collapse || collapse ? '<span class="mdi mdi-chevron-right-circle-outline"></span>' : '<span class="mdi mdi-chevron-down-circle-outline"></span>') + '</span>'; // itemHtml += '<span class="comboTreeParentPlus">' + (this.options.collapse ? '+' : '&minus;') + '</span>';
 
     if (this.options.isMultiple)
-      itemHtml += '<span data-id="' + sourceItem.id + '" data-selectable="' + isSelectable + '" class="comboTreeItemTitle ' + selectableClass + '">' + (!selectableLastNode && isSelectable ? '<input type="checkbox" />' : '') + sourceItem.title + '</span>';
+      itemHtml += '<span data-id="' + sourceItem.id + '" data-selectable="' + isSelectable + '" class="comboTreeItemTitle ' + selectableClass + '">' + (!selectableLastNode && isSelectable ? '<input type="checkbox" />' : '') + '<span class="checkbox_tree_label">' +sourceItem.title + '</span>' + '</span>';
     else
       itemHtml += '<span data-id="' + sourceItem.id + '" data-selectable="' + isSelectable + '" class="comboTreeItemTitle ' + selectableClass + '">' + sourceItem.title + '</span>';
 
@@ -173,6 +173,7 @@
     this._elemArrowBtn.on('click', function(e){
       e.stopPropagation();
       _this.toggleDropDown();
+      
     });
     this._elemInput.on('click', function(e){
       e.stopPropagation();
@@ -301,14 +302,16 @@
   // DropDown Menu Open/Close
   ComboTree.prototype.toggleDropDown = function () {
     let _this = this;
+    $(this._elemDropDownContainer).parents(".comboTreeWrapper").toggleClass("active");
     $(this._elemDropDownContainer).slideToggle(100, function () {
-      if (_this._elemDropDownContainer.is(':visible'))
-        $(_this._elemInput).focus();
+      // if (_this._elemDropDownContainer.is(':visible'))
+      //   $(_this._elemInput).focus();
     });
   };
 
   ComboTree.prototype.closeDropDownMenu = function () {
     $(this._elemDropDownContainer).slideUp(100);
+    $(this._elemDropDownContainer).parents(".comboTreeWrapper").removeClass("active");
   };
 
   // Selection Tree Open/Close

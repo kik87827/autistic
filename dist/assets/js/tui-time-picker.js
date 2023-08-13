@@ -4223,8 +4223,8 @@ module.exports = {
     pm: 'PM'
   },
   ko: {
-    am: '�ㅼ쟾',
-    pm: '�ㅽ썑'
+    am: '오전',
+    pm: '오후'
   }
 };
 

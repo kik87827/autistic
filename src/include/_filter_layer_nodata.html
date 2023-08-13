@@ -1,8 +1,8 @@
-<div class="local_layer" id="filter_local_layer">
+<div class="local_layer" id="filter_local_layer_nodata">
     <div class="local_layer_inner">
         <table class="form_group_tb">
             <colgroup>
-                <col style="width:20%;" />
+                <col style="width:100px;" />
                 <col />
             </colgroup>
             <tbody>
@@ -17,7 +17,6 @@
                                 </div>
                                 <div id="form_date_layer_start_render_no" class="ui_picker_render"></div>
                             </div>
-                            <div class="fgroup_cols else"></div>
                             <div class="fgroup_cols">
                                 <div class="tui-datepicker-input" value="2023-07-19 15:00">
                                     <input type="text" id="datepicker-layer-endinput-no" class="input_tui_calendar">
@@ -34,34 +33,34 @@
                         <ul class="props_form_item_list gap_type2">
                             <li>
                                 <div class="props_form_item">
-                                    <input type="checkbox" class="props_form" id="type_check_01">
-                                    <label for="type_check_01" class="props_label">All</label>
+                                    <input type="checkbox" class="props_form" id="type_check_01_no">
+                                    <label for="type_check_01_no" class="props_label">All</label>
                                 </div>
                             </li>
                             <li>
                                 <div class="props_form_item">
-                                    <input type="checkbox" class="props_form" id="type_check_02">
-                                    <label for="type_check_02" class="props_label">일반적 상황</label>
+                                    <input type="checkbox" class="props_form" id="type_check_02_no">
+                                    <label for="type_check_02_no" class="props_label">일반적 상황</label>
                                 </div>
                             </li>
                             <li>
                                 <div class="props_form_item">
-                                    <input type="checkbox" class="props_form" id="type_check_03">
-                                    <label for="type_check_03" class="props_label">이벤트 상황</label>
+                                    <input type="checkbox" class="props_form" id="type_check_03_no">
+                                    <label for="type_check_03_no" class="props_label">이벤트 상황</label>
                                 </div>
                             </li>
                         </ul>
                     </td>
                 </tr>
                 <tr>
-                    <th><span class="form_group_label">카테고리</span></th>
+                    <th class="align_type2"><span class="form_group_label">카테고리</span></th>
                     <td>
-                        <input type="text" id="treeInputLayerNo" placeholder="Select" autocomplete="off"/>
+                        <input type="text" id="treeInputLayerNo" placeholder="카테고리 선택" class="input_tree" autocomplete="off"/>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div class="scroll_subfooter_row">
+        <div class="field_footer_row">
             <a href="#" class="btn_field_formbox small cloudy">
                 <span class="btn_field_formbox_text">초기화</span>
             </a>

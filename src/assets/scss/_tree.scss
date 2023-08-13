@@ -11,11 +11,11 @@
     --ct-bg: #fff;
     --ct-btn-hover: #e8e8e8;
     --ct-btn-active: #ddd;
-    --ct-btn-color: #555;
+    --ct-btn-color: #5f637a;
     --ct-border-color: #e1e1e1;
     --ct-border-radius: 5px;
-    --ct-tree-hover: #efefef;
-    --ct-selection: #418EFF;
+    --ct-tree-hover: transparent;
+    --ct-selection: #f7f5ff;
     --ct-padding: 8px;
 }
 
@@ -23,39 +23,46 @@
 .comboTreeWrapper{
 	position: relative;
 	text-align: left !important;
+    font-size:13px;
+    &.active{
+        .comboTreeArrowBtn{
+            background-position:100% 100%;
+        }
+        input.input_tree{border-bottom-color:transparent;border-radius:4px 4px 0 0;}
+    }
 }
 
 .comboTreeInputWrapper{
 	position: relative;
 }
 
-.comboTreeArrowBtn {
-	position: absolute;
-    right: 0px;
-    bottom: 0px;
-    top: 0px;
-    box-sizing: border-box;
-    border: 1px solid var(--ct-border-color);
-    border-radius: 0 var(--ct-border-radius) var(--ct-border-radius) 0;
-    background: var(--ct-border-color);
-    cursor: pointer;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-}
-.comboTreeArrowBtn:hover {
-    background: var(--ct-btn-hover);
-}
-.comboTreeArrowBtn:active {
-    background: var(--ct-btn-active);
-}
-.comboTreeInputBox:focus + .comboTreeArrowBtn {
-    color: var(--ct-btn-color);
-    border-top: 1px solid var(--ct-selection);
-    border-right: 1px solid var(--ct-selection);
-    border-bottom: 1px solid var(--ct-selection);
-}
+// .comboTreeArrowBtn {
+// 	position: absolute;
+//     right: 0px;
+//     bottom: 0px;
+//     top: 0px;
+//     box-sizing: border-box;
+//     border: 1px solid var(--ct-border-color);
+//     border-radius: 0 var(--ct-border-radius) var(--ct-border-radius) 0;
+//     background: var(--ct-border-color);
+//     cursor: pointer;
+//     -webkit-user-select: none; /* Safari */
+//     -moz-user-select: none; /* Firefox */
+//     -ms-user-select: none; /* IE10+/Edge */
+//     user-select: none; /* Standard */
+// }
+// .comboTreeArrowBtn:hover {
+//     background: var(--ct-btn-hover);
+// }
+// .comboTreeArrowBtn:active {
+//     background: var(--ct-btn-active);
+// }
+// .comboTreeInputBox:focus + .comboTreeArrowBtn {
+//     color: var(--ct-btn-color);
+//     border-top: 1px solid var(--ct-selection);
+//     border-right: 1px solid var(--ct-selection);
+//     border-bottom: 1px solid var(--ct-selection);
+// }
 
 .comboTreeArrowBtnImg{
     font-size: 1.25rem;
@@ -65,11 +72,11 @@
 	display: none;
 	background: var(--ct-bg);
 	border: 1px solid var(--ct-border-color);
-	position: absolute;
-  width: 100%;
-  box-sizing: border-box;
+// 	position: absolute;
+//   width: 100%;
+//   box-sizing: border-box;
   z-index: 999;
-	max-height: 250px;
+	max-height: 220px;
 	overflow-y: auto;
 }
 
@@ -80,7 +87,7 @@
 
 .comboTreeDropDownContainer li{
 	list-style-type: none;
-	padding-left: 15px;
+	padding-left: 17px;
 }
 
 .comboTreeDropDownContainer li .selectable{
@@ -99,20 +106,43 @@
 .comboTreeDropDownContainer li span.comboTreeItemTitle.comboTreeItemHover,
 .comboTreeDropDownContainer label.comboTreeItemHover
 {
-	background-color: var(--ct-selection);
-	color: var(--ct-bg);
+	/* background-color: var(--ct-selection); */
+	/* color: #5f637a; */
     border-radius: 2px;
+}
+
+.comboTreeItemTitle{
+    &.comboTreeItemHover{
+
+        &:before{
+            background:#f7f5ff !important;
+        }
+    }
 }
 
 span.comboTreeItemTitle, .comboTreeDropDownContainer .selectAll{
 	display: block;
-    padding: 3px var(--ct-padding);
+    padding: 5px 10px 5px 15px;
+    color:#5f637a;
 }
+.comboTreeParentPlus{position:relative;z-index:2;}
+.comboTreeItemTitle{
+    position:relative;
+    > *{position:relative;}
+
+    &:before{
+        display:block; content:''; width:100vw;height:100%;position:absolute;top:0;right:0; background:#fff;
+    }
+}
+
 .comboTreeDropDownContainer label{
     cursor: pointer;
 	width: 100%;
     display: block;
 }
+
+.checkbox_tree_label{font-size:13px;color:#5f637a;line-height:1;display:inline-block;position:relative;top:1px;}
+
 .comboTreeDropDownContainer .comboTreeItemTitle input,
 .comboTreeDropDownContainer .selectAll input {
 	box-sizing: content-box;
@@ -125,6 +155,7 @@ span.comboTreeItemTitle, .comboTreeDropDownContainer .selectAll{
        -moz-appearance: none;
             appearance: none;
     vertical-align: middle;
+    margin-right:4px;
     cursor: pointer;
     &:focus{border-color:$primary}
 
@@ -138,11 +169,21 @@ span.comboTreeItemTitle, .comboTreeDropDownContainer .selectAll{
 
 .comboTreeParentPlus{
     position: relative;
-    left: -12px;
-    top: 4px;
-    width: 4px;
+    left: -3px;
+    top: 8px;
+    width: 10px;
+    height:10px;
     float: left;
-		cursor: pointer;
+    &:after{display:block;content:'';width:100%;height:100%;position:absolute;opacity: 0;transform: scale(1.5);top:0;left:0;}
+	cursor: pointer;
+
+    .mdi-chevron-down-circle-outline{
+
+        display:block;width:10px;height:10px;background:url("../images/ic_sort_arrow_tree.png") no-repeat 0 0/10px auto;
+    }
+    .mdi-chevron-right-circle-outline{
+        display:block;width:10px;height:10px;background:url("../images/ic_sort_arrow_tree.png") no-repeat 0 100%/10px auto;
+    }
 }
 
 
@@ -155,17 +196,60 @@ span.comboTreeItemTitle, .comboTreeDropDownContainer .selectAll{
     padding-right: 24px;
 }
 .comboTreeInputBox:focus {
-    border: 1px solid var(--ct-selection);
+    // border: 1px solid var(--ct-selection);
     outline-width: 0;
 }
 
 
-.multiplesFilter{
+input.multiplesFilter{
 	width: 100%;
-	padding: 5px;
+    font-size:13px;
+	padding: 5px 0 5px 32px;;
+    height:32px;
+    background:#f5f5f5 url("../images/ic_search_ss@2x.png") no-repeat 12px 50%/12px auto;
 	box-sizing: border-box;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-bottom: 1px solid var(--ct-border-color);
+    border:0;
+	border-bottom: 1px solid #ddd;
 }
+
+
+/* tree */
+input.input_tree{color:#5f637a;font-size:13px;padding: 5px 27px 5px 10px;
+    border-radius: 4px;
+    border: solid 1px #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    height: 30px;
+}
+.comboTreeWrapper{
+
+}
+.comboTreeArrowBtn{display:block;position:absolute;top:0;left:0;width:100%;height:30px;cursor: pointer;background:url("../images/bg_tree_toggle.png") no-repeat 100% 0/17px auto;}
+.field_tree_wrap{}
+.field_tree_list{
+    > li{
+        &:last-of-type{}
+    }
+}
+.field_tree_item_wrap{}
+.field_tree_item{
+    &:last-of-type{}
+    &:before{}
+    &.active{
+        .btn_field_toggle{}
+        &:before{}
+    }
+}
+.btn_field_toggle{}
+.field_tree_form_wrap{}
+.field_tree_form_row{
+    .props_form_item{}
+}
+.field_tree_depth_row{}
+.field_tree_value_list{
+    > li{
+        &:last-of-type{}
+    }
+    .props_form_item{}
+}
+// #treeInput{display:none;}

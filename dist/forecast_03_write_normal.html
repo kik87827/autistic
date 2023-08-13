@@ -11,10 +11,8 @@
 	<script src="./assets/js/dynamicListener.min.js"></script>
 	<script src="./assets/js/swiper.min.js"></script>
 	<script src="./assets/js/comboTreePlugin.js"></script>
-	<!-- <script src="./assets/js/tui-date-picker.js"></script>
-	<script src="./assets/js/tui-time-picker.js"></script> -->
-	<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.js"></script>
-	<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
+	<script src="./assets/js/tui-time-picker.js"></script>
+	<script src="./assets/js/tui-date-picker.js"></script>
 	<script src="./assets/js/ui.js"></script>
 
 	<title></title>
@@ -259,7 +257,7 @@
 								<div class="combo_item medium" id="filter_combo">
 									<a href="javascript:;" class="combo_target">전체</a>
 									<div class="combo_option_group medium">
-										<div class="combo_option_scroll" data-rowCount="3">
+										<div class="combo_option_scroll" data-rowCount="5">
 											<ul class="combo_option_list">
 												<li><a href="javascript:;" data-value="option_0" class="combo_option">옵션 01</a></li>
 												<li><a href="javascript:;" data-value="option_1" class="combo_option">옵션 02</a></li>
@@ -276,7 +274,7 @@
 								</div>
 							</div>
 							<div class="search_field_cols long_type">
-								<div class="search_field_wrap" name="search_form" data-rowCount="3">
+								<div class="search_field_wrap" name="search_form" data-rowCount="5">
 									<div class="input_component_box search_field" data-name="value_check">
 										<input type="text" class="input_origin_item" placeholder="검색어 입력">
 										<button type="button" class="btn_form_reset"><span class="hdtext">리셋</span></button>
@@ -316,7 +314,7 @@
 						<div class="local_layer_inner">
 							<table class="form_group_tb">
 								<colgroup>
-									<col style="width:20%;" />
+									<col style="width:100px;" />
 									<col />
 								</colgroup>
 								<tbody>
@@ -331,7 +329,6 @@
 													</div>
 													<div id="form_date_start_render" class="ui_picker_render" data-parent="#filter_layer"></div>
 												</div>
-												<div class="fgroup_cols else"></div>
 												<div class="fgroup_cols">
 													<div class="tui-datepicker-input" value="2023-07-19 15:00">
 														<input type="text" id="datepicker-endinput" class="input_tui_calendar">
@@ -348,7 +345,7 @@
 											<ul class="props_form_item_list gap_type2">
 												<li>
 													<div class="props_form_item">
-														<input type="checkbox" class="props_form" id="type_check_01">
+														<input type="checkbox" class="props_form" id="type_check_01" checked>
 														<label for="type_check_01" class="props_label">All</label>
 													</div>
 												</li>
@@ -368,14 +365,14 @@
 										</td>
 									</tr>
 									<tr>
-										<th><span class="form_group_label">카테고리</span></th>
+										<th class="align_type2"><span class="form_group_label">카테고리</span></th>
 										<td>
-											<input type="text" id="treeInput" placeholder="Select" autocomplete="off" />
+											<input type="text" id="treeInput" placeholder="카테고리 선택" class="input_tree" autocomplete="off" />
 										</td>
 									</tr>
 								</tbody>
 							</table>
-							<div class="scroll_subfooter_row">
+							<div class="field_footer_row">
 								<a href="#" class="btn_field_formbox small cloudy">
 									<span class="btn_field_formbox_text">초기화</span>
 								</a>
@@ -465,7 +462,7 @@
 								collapse: false
 							});
 						});
-					</script>)
+					</script>
 					<!-- // filter -->
 					<!-- listdata_render_wrap -->
 					<div class="listdata_render_wrap">
@@ -502,13 +499,13 @@
 										<div class="combo_item" id="sort_type01">
 											<a href="javascript:;" class="combo_target">수정일자</a>
 											<div class="combo_option_group">
-												<div class="combo_option_scroll" data-rowCount="3">
+												<div class="combo_option_scroll" data-rowCount="5">
 													<ul class="combo_option_list">
-														<li><a href="javascript:;" data-value="option_0" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_1" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_2" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_3" class="combo_option">2023.00.00</a></li>
-														<li><a href="javascript:;" data-value="option_4" class="combo_option">2023.00.00</a></li>
+														<li><a href="javascript:;" data-value="option_0" class="combo_option">ID</a></li>
+														<li><a href="javascript:;" data-value="option_1" class="combo_option">명칭</a></li>
+														<li><a href="javascript:;" data-value="option_2" class="combo_option">Type</a></li>
+														<li><a href="javascript:;" data-value="option_3" class="combo_option">수정 일자</a></li>
+														<li><a href="javascript:;" data-value="option_4" class="combo_option">생성자</a></li>
 													</ul>
 												</div>
 											</div>
@@ -518,7 +515,7 @@
 										<div class="combo_item" id="sort_type02">
 											<a href="javascript:;" class="combo_target">내림차순</a>
 											<div class="combo_option_group">
-												<div class="combo_option_scroll" data-rowCount="3">
+												<div class="combo_option_scroll" data-rowCount="5">
 													<ul class="combo_option_list">
 														<li><a href="javascript:;" data-value="option_0" class="combo_option">올림차순</a></li>
 														<li><a href="javascript:;" data-value="option_1" class="combo_option">내림차순</a></li>
@@ -825,7 +822,7 @@
 														<div class="combo_item">
 															<a href="javascript:;" class="combo_target">항목 선택</a>
 															<div class="combo_option_group">
-																<div class="combo_option_scroll" data-rowCount="3">
+																<div class="combo_option_scroll" data-rowCount="5">
 																	<ul class="combo_option_list">
 																		<li><a href="javascript:;" data-value="option_0" class="combo_option">항목 선택 01</a></li>
 																		<li><a href="javascript:;" data-value="option_1" class="combo_option">항목 선택 02</a></li>
@@ -842,7 +839,7 @@
 														<div class="combo_item">
 															<a href="javascript:;" class="combo_target">입력값 선택</a>
 															<div class="combo_option_group">
-																<div class="combo_option_scroll" data-rowCount="3">
+																<div class="combo_option_scroll" data-rowCount="5">
 																	<ul class="combo_option_list">
 																		<li><a href="javascript:;" data-value="option_0" class="combo_option">항목 선택 01</a></li>
 																		<li><a href="javascript:;" data-value="option_1" class="combo_option">항목 선택 02</a></li>
@@ -862,7 +859,7 @@
 														<div class="combo_item">
 															<a href="javascript:;" class="combo_target">특징 B</a>
 															<div class="combo_option_group">
-																<div class="combo_option_scroll" data-rowCount="3">
+																<div class="combo_option_scroll" data-rowCount="5">
 																	<ul class="combo_option_list">
 																		<li><a href="javascript:;" data-value="option_0" class="combo_option">항목 선택 01</a></li>
 																		<li><a href="javascript:;" data-value="option_1" class="combo_option">항목 선택 02</a></li>
@@ -879,7 +876,7 @@
 														<div class="combo_item">
 															<a href="javascript:;" class="combo_target">10</a>
 															<div class="combo_option_group">
-																<div class="combo_option_scroll" data-rowCount="3">
+																<div class="combo_option_scroll" data-rowCount="5">
 																	<ul class="combo_option_list">
 																		<li><a href="javascript:;" data-value="option_0" class="combo_option">항목 선택 01</a></li>
 																		<li><a href="javascript:;" data-value="option_1" class="combo_option">항목 선택 02</a></li>

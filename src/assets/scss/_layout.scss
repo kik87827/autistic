@@ -18,7 +18,7 @@ html:not(.touchmode) {
     &.map_api_body{
        
     }
-    .page_wrap{display:flex;flex-direction: column;min-height:100vh;
+    .page_wrap{display:flex;flex-direction: column;height:100vh;
         > div:not(.tooltip_wrap),
         > section,
         > header,
@@ -335,7 +335,7 @@ html:not(.touchmode) {
   &:after{display:block;content:'';width:1px;height:calc(100% + 24px);position:absolute;top:-24px;right:42%;background:#d9d9d9;}
 }
 .screen_content_main_cols,
-.screen_content_sub_cols{overflow: hidden;overflow:overlay;position:relative;}
+.screen_content_sub_cols{overflow: hidden;overflow-y:auto;position:relative;}
 
 .screen_content_main_cols{flex:1;min-width:0;padding:16px 30px 100px;}
 .screen_content_sub_cols{flex: 0 0 42%;box-sizing: border-box;width:42%;padding:26px 30px 100px;}
