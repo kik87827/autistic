@@ -174,7 +174,8 @@ function renderApi(){
 function comboFunc() {
   const combo_item = document.querySelectorAll(".combo_item");
   const combo_option_group = document.querySelectorAll(".combo_option_group");
-  const innerScrollDom = [".popup_content_low"];
+  // const innerScrollDom = [".popup_content_low",".screen_content_main_cols",".screen_content_sub_cols"];
+  const appBody = document.querySelector(".page_wrap");
 
   addDynamicEventListener(document.body, 'click', '.combo_target', function(e) {
     let thisTarget = e.target;
@@ -201,7 +202,7 @@ function comboFunc() {
     });
     thisParent.classList.toggle("active");
     appendOption.classList.toggle("active");
-    comboRePosAction();
+    comboPosAction();
     if (appendOption.classList.contains("active")) {
       if (combo_option_scroll.classList.contains("addHeight")) {
         return;
@@ -234,8 +235,7 @@ function comboFunc() {
   });
 
   window.addEventListener("resize", () => {
-    // comboRePosAction();
-    comboReset();
+   comboPosAction();
   })
 
   function comboReset() {
@@ -268,98 +268,55 @@ function comboFunc() {
       
       if (!!element.closest(".popup_content_low")) {
         element.closest(".popup_content_low").appendChild(option_group);
+      } else if(!!element.closest(".screen_content_main_cols")){
+        element.closest(".screen_content_main_cols").appendChild(option_group);
+      } else if(!!element.closest(".screen_content_sub_cols")){
+        element.closest(".screen_content_sub_cols").appendChild(option_group);
       } else {
         appBody.appendChild(option_group);
       }
     });
   }
 
-  // function comboPosAction() {
-  //   const appendOption = document.querySelectorAll(".combo_option_group.active");
-    
-
-
-  //   appendOption.forEach((element, index) => {
-  //     let comboCall = document.querySelector(`[id='${element.getAttribute("data-option")}']`);
-  //     let comboCallLayerParent = comboCall.closest(".popup_content_low");
-  //     if (!comboCall) {
-  //       return;
-  //     }
-
-  //     let combo_top = window.scrollY + comboCall.getBoundingClientRect().top;
-  //     let combo_layer_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
-
-  //     let fullpop_contlow_top = 0;
-  //     let combo_left = comboCall.getBoundingClientRect().left;
-  //     let fullpop_contlow_left = 0;
-
-
-  //     if (comboCall.closest(".popup_content_low") !== null) {
-  //       fullpop_contlow_top = comboCall.closest(".popup_content_low").getBoundingClientRect().top;
-  //       fullpop_contlow_left = comboCall.closest(".popup_content_low").getBoundingClientRect().left;
-  //       element.setAttribute("style", `
-  //                   top : ${(combo_layer_top - fullpop_contlow_top) + comboCall.getBoundingClientRect().height - 1}px; 
-  //                   left : ${combo_left - fullpop_contlow_left}px;
-  //                   width : ${ comboCall.getBoundingClientRect().width }px;
-  //               `)
-  //             } else {
-        
-  //       if(element.classList.contains("reverse_pos")){
-  //         element.setAttribute("style", `
-  //         top : ${combo_top+0.5}px; 
-  //         left : ${combo_left+window.scrollX}px;
-  //           width : ${ comboCall.getBoundingClientRect().width }px;
-  //       `)
-  //       }else{
-  //         element.setAttribute("style", `
-  //           top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
-  //           left : ${combo_left+window.scrollX}px;
-  //           width : ${ comboCall.getBoundingClientRect().width }px;
-  //       `)
-  //       }
-  //     }
-  //   });
-  // }
-  function comboRePosAction() {
+  function comboPosAction() {
     const appendOption = document.querySelector(".combo_option_group.active");
     if(!appendOption){return;}
     const comboCall = document.querySelector(".combo_item.active");
-    let comboCallLayerParent = !!comboCall.closest(".popup_content_low") ? comboCall.closest(".popup_content_low") : null;
 
     if(!comboCall || !appendOption){return;}
     appendOption.removeAttribute("style");
 
     let combo_top = window.scrollY + comboCall.getBoundingClientRect().top;
-    let combo_layer_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
 
-    let fullpop_contlow_top = 0;
     let combo_left = comboCall.getBoundingClientRect().left;
-    let fullpop_contlow_left = 0;
 
-
-    if (comboCall.closest(".popup_content_low") !== null) {
-        fullpop_contlow_top = comboCall.closest(".popup_content_low").getBoundingClientRect().top;
-        fullpop_contlow_left = comboCall.closest(".popup_content_low").getBoundingClientRect().left;
-        appendOption.setAttribute("style", `
-            top : ${(combo_layer_top - fullpop_contlow_top) + comboCall.getBoundingClientRect().height - 1}px; 
-            left : ${combo_left - fullpop_contlow_left}px;
-            width : ${ comboCall.getBoundingClientRect().width }px;
-        `)
-      } else {
-       
+    if (!!comboCall.closest(".popup_content_low")) {
+      posItem(".popup_content_low");
+    }else if(!!comboCall.closest(".screen_content_main_cols")){
+      posItem(".screen_content_main_cols");
+    }else if(!!comboCall.closest(".screen_content_sub_cols")){
+      posItem(".screen_content_sub_cols");
+    } else {
       if(appendOption.classList.contains("reverse_pos")){
-        appendOption.setAttribute("style", `
-        top : ${combo_top+0.5}px; 
-        left : ${combo_left+window.scrollX}px;
-          width : ${ comboCall.getBoundingClientRect().width }px;
-      `)
+        appendOption.style.top = `${combo_top+0.5}px`;
+        appendOption.style.left = `${combo_left+window.scrollX}px`;
+        appendOption.style.width = `${ comboCall.getBoundingClientRect().width }px`;
       }else{
-        appendOption.setAttribute("style", `
-          top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
-          left : ${combo_left+window.scrollX}px;
-          width : ${ comboCall.getBoundingClientRect().width }px;
-      `)
+        appendOption.style.top = `${combo_top + comboCall.getBoundingClientRect().height - 1}px`;
+        appendOption.style.left = `${combo_left+window.scrollX}px`;
+        appendOption.style.width = `${ comboCall.getBoundingClientRect().width }px`;
       }
+    }
+
+    function posItem(item){
+      let parent_contlow_top = comboCall.closest(item).getBoundingClientRect().top;
+      let parent_contlow_left = comboCall.closest(item).getBoundingClientRect().left;
+      let comboCallLayerParent = !!comboCall.closest(item) ? comboCall.closest(item) : null;
+      let child_combo_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
+
+      appendOption.style.top = `${(child_combo_top - parent_contlow_top) + comboCall.getBoundingClientRect().height - 1}px`;
+      appendOption.style.left = `${combo_left - parent_contlow_left}px`;
+      appendOption.style.width = `${ comboCall.getBoundingClientRect().width }px`;
     }
   }
 }
@@ -403,7 +360,6 @@ function formItemFunc(){
   addDynamicEventListener(document.body, 'input', '.input_component_box .input_origin_item', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
-    console.log('input',thisTarget.value.length)
     if(thisTarget.value.length){
       thisTargetParent.classList.add("filled");
     }
@@ -489,7 +445,7 @@ function DesignPopup(option) {
   popupGroupCreate.classList.add("layer_wrap_parent");
 
   if(!this.layer_wrap_parent && !document.querySelector(".layer_wrap_parent")){
-    this.domBody.append(popupGroupCreate);
+    this.pagewrap.append(popupGroupCreate);
   }
 
   this.layer_wrap_parent = document.querySelector(".layer_wrap_parent");
@@ -634,11 +590,22 @@ function uiPickerRender(){
           }
         });
       }
-      if (render.closest(".popup_content_low") !== null) {
+
+      if (!!render.closest(".popup_content_low")) {
         render.closest(".popup_content_low").appendChild(render);
+      } else if(!!render.closest(".screen_content_main_cols")){
+        render.closest(".screen_content_main_cols").appendChild(render);
+      } else if(!!render.closest(".screen_content_sub_cols")){
+        render.closest(".screen_content_sub_cols").appendChild(render);
       } else {
         appBody.appendChild(render);
       }
+
+      // if (render.closest(".popup_content_low") !== null) {
+      //   render.closest(".popup_content_low").appendChild(render);
+      // } else {
+      //   appBody.appendChild(render);
+      // }
     });
   }
 
@@ -654,27 +621,39 @@ function uiPickerRender(){
       let call_top = window.scrollY + calendarCall.getBoundingClientRect().top + calendarCall.getBoundingClientRect().height;
       let calendar_layer_top = calendarCallLayerParentScrollTop + calendarCall.getBoundingClientRect().top;
       
-      let fullpop_contlow_top = 0;
       let calendar_left = calendarCall.getBoundingClientRect().left;
-      let fullpop_contlow_left = 0;
 
       if (!!render.closest(".popup_content_low")) {
-        fullpop_contlow_top = renderLayerParent.getBoundingClientRect().top;
-        fullpop_contlow_left = renderLayerParent.getBoundingClientRect().left;
-        render.setAttribute("style", `
-            top : ${(calendar_layer_top - fullpop_contlow_top) + calendarCall.getBoundingClientRect().height - 1}px; 
-            left : ${calendar_left - fullpop_contlow_left}px;
-            width : ${ calendarCall.getBoundingClientRect().width }px;
-        `)
+        // let fullpop_contlow_top = renderLayerParent.getBoundingClientRect().top;
+        // let fullpop_contlow_left = renderLayerParent.getBoundingClientRect().left;
+        // render.style.top = `${(calendar_layer_top - fullpop_contlow_top) + calendarCall.getBoundingClientRect().height - 1}px`;
+        // render.style.left = `${calendar_left - fullpop_contlow_left}px`;
+        // render.style.width = `${calendarCall.getBoundingClientRect().width }px`;
+        posItem(render,calendarCall,".popup_content_low");
+      }else if(!!render.closest(".screen_content_main_cols")){
+        posItem(render,calendarCall,".screen_content_main_cols");
+      }else if(!!render.closest(".screen_content_sub_cols")){
+        posItem(render,calendarCall,".screen_content_sub_cols");
       } else {
-        render.setAttribute("style", `
-            top : ${call_top}px; 
-            left : ${calendar_left}px;
-              width : ${ calendarCall.getBoundingClientRect().width }px;
-        `)
+        render.style.top = `${call_top}px`;
+        render.style.left = `${calendar_left}px`;
+        render.style.width = `${calendarCall.getBoundingClientRect().width}px`;
       }
      
     });
+
+
+    function posItem(render,caller,parent){
+      let renderLayerParent = !!render.closest(parent) ? render.closest(parent) : null;
+      let parent_contlow_top = renderLayerParent.getBoundingClientRect().top;
+      let parent_contlow_left = renderLayerParent.getBoundingClientRect().left;
+      let child_caller_top = !!renderLayerParent ? renderLayerParent.scrollTop + caller.getBoundingClientRect().top : 0;
+      let child_caller_left = caller.getBoundingClientRect().left;
+
+      render.style.top = `${(child_caller_top - parent_contlow_top) + caller.getBoundingClientRect().height - 1}px`;
+      render.style.left = `${child_caller_left - parent_contlow_left}px`;
+      render.style.width = `${ caller.getBoundingClientRect().width }px`;
+    }
   }
 }
 /* 검색 */
@@ -772,8 +751,18 @@ function searchForm() {
       } else {
         auto_word_layer.setAttribute("data-autoLayer", thisElement.getAttribute("id"));
       }
-      if (thisElement.closest(".popup_content_low") !== null) {
+      // if (thisElement.closest(".popup_content_low") !== null) {
+      //   thisElement.closest(".popup_content_low").appendChild(auto_word_layer);
+      // } else {
+      //   appBody.appendChild(auto_word_layer);
+      // }
+
+      if (!!thisElement.closest(".popup_content_low")) {
         thisElement.closest(".popup_content_low").appendChild(auto_word_layer);
+      } else if(!!thisElement.closest(".screen_content_main_cols")){
+        thisElement.closest(".screen_content_main_cols").appendChild(auto_word_layer);
+      } else if(!!thisElement.closest(".screen_content_sub_cols")){
+        thisElement.closest(".screen_content_sub_cols").appendChild(auto_word_layer);
       } else {
         appBody.appendChild(auto_word_layer);
       }
@@ -784,33 +773,42 @@ function searchForm() {
       appendLayer = document.querySelector(`[data-autoLayer='${thisElement.getAttribute("id")}']`);
       if (appendLayer === null) { return; }
       if (thisElement.closest(".popup_content_low") !== null) {
-        // appendLayer.setAttribute("style", `
-        //           top : ${(thisElement.getBoundingClientRect().top - thisElement.closest(".popup_content_low").getBoundingClientRect().top) + thisElement.getBoundingClientRect().height - 1}px;
-        //           left : ${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_content_low").getBoundingClientRect().left}px;
-        //           width : ${thisElement.scrollWidth}px;
-        // `)
-        const popupContentLow = thisElement.closest(".popup_content_low");
-        const popupContentLowTop = popupContentLow.getBoundingClientRect().top;
-        const autolayerInTop = popupContentLow.scrollTop + thisElement.getBoundingClientRect().top;
-        appendLayer.setAttribute("style", `
-          top : ${(autolayerInTop - popupContentLowTop) + thisElement.getBoundingClientRect().height}px;
-          left : ${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_content_low").getBoundingClientRect().left}px;
-          width : ${thisElement.scrollWidth}px;
-        `)
+        // const popupContentLow = thisElement.closest(".popup_content_low");
+        // const popupContentLowTop = popupContentLow.getBoundingClientRect().top;
+        // const autolayerInTop = popupContentLow.scrollTop + thisElement.getBoundingClientRect().top;
+        // appendLayer.style.top = `${(autolayerInTop - popupContentLowTop) + thisElement.getBoundingClientRect().height}px`;
+        // appendLayer.style.left = `${thisElement.getBoundingClientRect().left - thisElement.closest(".popup_content_low").getBoundingClientRect().left}px`;
+        // appendLayer.style.width = `${thisElement.scrollWidth}px`;
+        posItem(".popup_content_low");
+      }else if(!!thisElement.closest(".screen_content_main_cols")){
+        posItem(".screen_content_main_cols");
+      }else if(!!thisElement.closest(".screen_content_sub_cols")){
+        posItem(".screen_content_sub_cols");
       } else {
-        appendLayer.setAttribute("style", `
-            top : ${window.scrollY + thisElement.getBoundingClientRect().top + thisElement.getBoundingClientRect().height}px;
-            left : ${thisElement.getBoundingClientRect().left}px;
-            width : ${thisElement.scrollWidth}px;
-        `)
+        appendLayer.style.top = `${window.scrollY + thisElement.getBoundingClientRect().top + thisElement.getBoundingClientRect().height}px`;
+        appendLayer.style.left = `${thisElement.getBoundingClientRect().left}px`;
+        appendLayer.style.width = `${thisElement.scrollWidth}px`;
+      }
+
+      function posItem(item){
+        const parentContentLow = thisElement.closest(item);
+        const parentContentLowTop = parentContentLow.getBoundingClientRect().top;
+        const parentInTop = parentContentLow.scrollTop + thisElement.getBoundingClientRect().top;
+        appendLayer.style.top = `${(parentInTop - parentContentLowTop) + thisElement.getBoundingClientRect().height}px`;
+        appendLayer.style.left = `${thisElement.getBoundingClientRect().left - parentContentLow.getBoundingClientRect().left}px`;
+        appendLayer.style.width = `${thisElement.scrollWidth}px`;
       }
     }
+
 
     function resizePos() {
       searchFieldWrap.forEach((element, index) => {
         autoLayerPos(element);
       })
     }
+
+
+
   }
   function valueCheck(target, parent) {
     const thisElement = target;
@@ -1084,17 +1082,17 @@ function localLayer(callback){
   const localTarget = document.querySelectorAll("[data-localpopup]");
   let activeLayer = document.querySelector(".local_layer.active");
 
-  console.log(localTarget);
   if(!!localTarget){
     localTarget.forEach((item)=>{
       item.addEventListener("click",(e)=>{
         e.preventDefault();
         const thisCall = e.currentTarget;
+
         const thisTarget = document.querySelector(thisCall.getAttribute("data-localpopup")) ?? null;
         const thisTargetParent = document.querySelector(thisCall.getAttribute("data-localParent")) ?? null;
+        
         if(!!thisTarget){
-          console.log(thisCall.getBoundingClientRect().top,thisTargetParent.getBoundingClientRect().top);
-          thisTarget.style.top = (thisCall.getBoundingClientRect().top-thisTargetParent.getBoundingClientRect().top)+thisCall.getBoundingClientRect().height+4 + 'px';
+          thisTarget.style.top = (thisCall.getBoundingClientRect().top-thisTargetParent.getBoundingClientRect().top)+thisCall.getBoundingClientRect().height+thisTargetParent.scrollTop+4 + 'px';
          thisTarget.classList.toggle("active");
          if(thisTarget.classList.contains("active")){
           window.dispatchEvent(new Event('resize'));
@@ -1106,13 +1104,32 @@ function localLayer(callback){
         }
       });
     });
-    document.querySelector("body").addEventListener("click",(e)=>{
-      if(e.target.closest(".local_layer") || e.target.getAttribute("data-localpopup") || e.target.closest("[data-localpopup]") || e.target.closest(".ui_picker_render")){
+    document.addEventListener("click",(e)=>{
+      
+    });
+
+    addDynamicEventListener(document.body, 'click', '.page_wrap', function(e) {
+      if(e.target.closest(".local_layer") || e.target.getAttribute("data-localpopup") || e.target.closest("[data-localpopup]") || e.target.closest(".ui_picker_render") || e.target.closest(".tui-datepicker") || e.target.classList.contains(".tui-calendar-btn")){
         return;
       }
       if(!!activeLayer){
         activeLayer.classList.remove("active");
       }
     });
+
+    addDynamicEventListener(document.body, 'click', '.tui-calendar-btn', function(e) {
+      if(!!activeLayer){
+        activeLayer.classList.add("active");
+      }
+    });
   }
 }
+
+// $(function(){
+//   $(document).on("click",".tui-calendar-btn",function(){
+//     console.log('test');
+//     setTimeout(function(){
+//       $(".local_layer").addClass("active");
+//     },30);
+//   });
+// })
