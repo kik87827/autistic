@@ -248,7 +248,7 @@
 					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
-								<a href="#" class="btn_field_box">
+								<a href="#" class="btn_field_box" data-localpopup="#filter_layer" data-localParent=".screen_content_main_cols">
 									<i class="ico_field ico_filter"></i>
 									<span class="field_box_text">필터</span>
 								</a>
@@ -591,6 +591,10 @@
 
 
 			searchForm();
+
+			localLayer(() => {
+				// callback
+			});
 
 			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
 				date: new Date(),

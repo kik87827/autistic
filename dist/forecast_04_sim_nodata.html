@@ -231,7 +231,7 @@
 		<section class="map_screen_wrap">
 			<div class="map_screen_title_row">
 				<div class="map_screen_title_main_cols">
-					<h2 class="map_screen_title">Use-case 관리</h2>
+					<h2 class="map_screen_title">Simulation 목록 관리</h2>
 					<div class="map_screen_title_sub">
 						혼재기 교통상황 예측
 					</div>
@@ -248,7 +248,7 @@
 					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
-								<a href="#" class="btn_field_box">
+								<a href="#" class="btn_field_box" data-localpopup="#filter_layer" data-localParent=".screen_content_main_cols">
 									<i class="ico_field ico_filter"></i>
 									<span class="field_box_text">필터</span>
 								</a>
@@ -531,7 +531,7 @@
 								collapse: false
 							});
 						});
-					</script>)
+					</script>
 					<!-- // filter -->
 					<!-- listdata_render_wrap -->
 					<!-- <div class="listdata_render_wrap">
@@ -653,6 +653,10 @@
 
 
 			searchForm();
+
+			localLayer(() => {
+				// callback
+			});
 
 			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
 				date: new Date(),
