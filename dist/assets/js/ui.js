@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   commonInit();
-  comboFunc()
+  comboFunc();
 });
 window.addEventListener("load", () => {
   layoutFunc();
@@ -177,6 +177,8 @@ function renderApi() {
 function comboFunc() {
   const combo_item = document.querySelectorAll(".combo_item");
   const combo_option_group = document.querySelectorAll(".combo_option_group");
+  const innerScrollDom = [".popup_content_low"];
+
   addDynamicEventListener(document.body, 'click', '.combo_target', function(e) {
     let thisTarget = e.target;
     let thisParent = thisTarget.closest(".combo_item");
@@ -231,15 +233,15 @@ function comboFunc() {
     if (e.target.closest(".combo_item") !== null) {
       return;
     }
-    comtoReset();
+    comboReset();
   });
 
   window.addEventListener("resize", () => {
-    comboRePosAction();
-    //comtoReset();
+    // comboRePosAction();
+    comboReset();
   })
 
-  function comtoReset() {
+  function comboReset() {
     const combo_item = document.querySelectorAll(".combo_item");
     const combo_option_group = document.querySelectorAll(".combo_option_group");
 
@@ -255,7 +257,7 @@ function comboFunc() {
     const combo_item = document.querySelectorAll(".combo_item");
     const appBody = document.querySelector(".page_wrap");
 
-    comtoReset();
+    comboReset();
 
     combo_item.forEach((element, index) => {
       let thisElement = element;
@@ -266,7 +268,8 @@ function comboFunc() {
       } else {
         option_group.setAttribute("data-option", thisElement.getAttribute("id"));
       }
-      if (element.closest(".popup_content_low") !== null) {
+
+      if (!!element.closest(".popup_content_low")) {
         element.closest(".popup_content_low").appendChild(option_group);
       } else {
         appBody.appendChild(option_group);
@@ -354,13 +357,13 @@ function comboFunc() {
       if (appendOption.classList.contains("reverse_pos")) {
         appendOption.setAttribute("style", `
         top : ${combo_top+0.5}px; 
-        left : ${combo_left}px;
+        left : ${combo_left+window.scrollX}px;
           width : ${ comboCall.getBoundingClientRect().width }px;
       `)
       } else {
         appendOption.setAttribute("style", `
           top : ${combo_top + comboCall.getBoundingClientRect().height - 1}px; 
-          left : ${combo_left}px;
+          left : ${combo_left+window.scrollX}px;
           width : ${ comboCall.getBoundingClientRect().width }px;
       `)
       }
