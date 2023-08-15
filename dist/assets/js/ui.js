@@ -48,6 +48,7 @@ function layoutFunc() {
   const map_screen_wrap = document.querySelector(".map_screen_wrap");
   const nav_twoitem_list_wrap = document.querySelectorAll(".nav_twoitem_list_wrap");
   let arrayHeightTwo = [];
+  let headerTouch = false;
 
   if (!header_wrap) {
     return;
@@ -71,13 +72,16 @@ function layoutFunc() {
       thisItem.classList.add("active");
     });
   });
+  header_wrap.addEventListener("mouseover", () => {
+    headerTouch = true;
+  });
   header_wrap.addEventListener("mouseleave", () => {
     twodepthInActive();
   });
   document.querySelector("body").addEventListener("mouseleave", () => {
     twodepthInActive();
   });
-  if (!!map_screen_wrap) {
+  if (!!map_screen_wrap && headerTouch) {
     document.querySelector(".map_screen_wrap").addEventListener("mouseover", () => {
       twodepthInActive();
     });
@@ -369,6 +373,8 @@ function formItemFunc() {
     const thisTargetParent = thisTarget.closest(".input_component_box");
     if (thisTarget.value.length) {
       thisTargetParent.classList.add("filled");
+    } else {
+      thisTargetParent.classList.remove("filled");
     }
   });
   addDynamicEventListener(document.body, 'focusout', '.input_component_box .input_origin_item', function(e) {
@@ -393,6 +399,33 @@ function formItemFunc() {
       thisTargetSearchParent.classList.remove("value_true");
       document.querySelector(`[data-autoLayer='${thisTargetSearchParent.getAttribute("id")}']`).classList.remove("auto_mode");
     }
+  });
+
+  //textarea
+  addDynamicEventListener(document.body, 'focusin', '.form_textarea_box .form_textarea', function(e) {
+    const thisTarget = e.target;
+    const thisTargetParent = thisTarget.closest(".form_textarea_box");
+    if (thisTargetParent.classList.contains("filled")) {
+      thisTargetParent.classList.add("focus");
+    }
+  });
+  addDynamicEventListener(document.body, 'input', '.form_textarea_box .form_textarea', function(e) {
+    const thisTarget = e.target;
+    const thisTargetParent = thisTarget.closest(".form_textarea_box");
+    if (thisTarget.value.length) {
+      thisTargetParent.classList.add("filled");
+    } else {
+      thisTargetParent.classList.remove("filled");
+    }
+  });
+  addDynamicEventListener(document.body, 'focusout', '.form_textarea_box .form_textarea', function(e) {
+    const thisTarget = e.target;
+    const thisTargetParent = thisTarget.closest(".form_textarea_box");
+    thisTargetParent.classList.remove("focus");
+    if (thisTarget.value.length === 0) {
+      thisTargetParent.classList.remove("filled");
+    }
+
   });
 }
 
@@ -1155,3 +1188,22 @@ function localLayer(callback) {
 //     },30);
 //   });
 // })
+
+
+function maxWidthFunc(target) {
+  const targetItem = document.querySelectorAll(target);
+  let maxArray = [];
+  if (!!targetItem) {
+    targetItem.forEach((item) => {
+      if (item.getAttribute("data-maxelse") == null) {
+        maxArray.push(item.getBoundingClientRect().width)
+      }
+    })
+    console.log(maxArray);
+    targetItem.forEach((item) => {
+      if (item.getAttribute("data-maxelse") == null) {
+        item.style.width = Math.max.apply(null, maxArray) + "px";
+      }
+    })
+  }
+}

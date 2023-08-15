@@ -24,7 +24,7 @@
 					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
-								<a href="javascript:;" class="btn_field_box" data-parent=".screen_content_main_cols" data-target="#filter_layer">
+								<a href="#" class="btn_field_box" data-localpopup="#filter_layer" data-localParent = ".screen_content_main_cols">
 									<i class="ico_field ico_filter"></i>
 									<span class="field_box_text">필터</span>
 								</a>
@@ -396,8 +396,7 @@
 							<li>
 								<div class="subc_form_th_cols"><span class="subc_form_label imp">Use-case 명칭</span></div>
 								<div class="subc_form_td_cols">
-									<div class="input_component_box skin2">
-										<i class="ico_input ico_men"></i>
+									<div class="input_component_box small">
 										<input type="text" class="input_origin_item" placeholder="Use-case 명칭 입력">
 										<span class="count_wrap">
 											<span class="count_text">0/0</span>
@@ -437,10 +436,10 @@
 								<div class="subc_form_content_row">
 									<!--  -->
 									<div class="subc_form_item">
-										<div class="subc_form_title_row">
+										<div class="subc_form_item_title_row">
 											<p class="subc_form_title">공사/사고</p>
 										</div>
-										<div class="subc_form_content_row">
+										<div class="subc_form_item_content_row">
 											<table class="subc_form_tb">
 												<tr>
 													<th><span class="subc_form_label">항목</span></th>
@@ -526,7 +525,7 @@
 								<div class="subc_form_title_row">
 									<span class="subc_form_label">설명</span>
 								</div>
-								<div class="subc_form_content_row">
+								<div class="subc_form_content_row type2">
 									<div class="form_textarea_box">
 										<textarea rows="10" cols="10" class="form_textarea" placeholder="설명 입력"></textarea>
 										<span class="count_wrap">
@@ -537,11 +536,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="scroll_subfooter_row">
-						<a href="#" class="btn_field_formbox cloudy">
+					<div class="field_footer_row">
+						<a href="#" class="btn_field_formbox big cloudy">
 							<span class="btn_field_formbox_text">취소</span>
 						</a>
-						<a href="#" class="btn_field_formbox primary">
+						<a href="#" class="btn_field_formbox big primary">
 							<i class="ico_field_formbox ico_check"></i>
 							<span class="btn_field_formbox_text">저장</span>
 						</a>
@@ -554,6 +553,10 @@
 
 			
   			searchForm();
+
+			localLayer(()=>{
+				// callback
+			});
 
 
 			var datepicker_start = new tui.DatePicker('#form_date_start_render', {

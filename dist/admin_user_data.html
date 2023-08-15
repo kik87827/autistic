@@ -216,6 +216,12 @@
 						</div>
 						<div class="list_table_row">
 							<table class="list_table">
+								<colgroup>
+									<col style="width:25%" />
+									<col style="width:25%" />
+									<col style="width:25%" />
+									<col />
+								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col"><span class="thtext">아이디</span></th>
@@ -326,13 +332,13 @@
 					<div class="screen_subtitle_row">
 						<h3 class="screen_subtitle">사용자 등록</h3>
 						<div class="screen_subelse_wrap">
-							<a href="#" class="btn_controlbox">
-								<i class="ico_controlbox ico_modify"></i>
-								<span class="btn_controlbox_text">수정</span>
+							<a href="#" class="btn_field_formbox cloudy small minwid0">
+								<i class="ico_field_formbox ico_pencil"></i>
+								<span class="btn_field_formbox_text">수정</span>
 							</a>
-							<a href="#" class="btn_controlbox">
-								<i class="ico_controlbox ico_del"></i>
-								<span class="btn_controlbox_text">삭제</span>
+							<a href="#" class="btn_field_formbox cloudy small minwid0">
+								<i class="ico_field_formbox ico_del"></i>
+								<span class="btn_field_formbox_text">삭제</span>
 							</a>
 						</div>
 					</div>
@@ -350,7 +356,7 @@
 									<div class="getdata_view_item">
 										<i class="getdata_view_ico ico_mail"></i>
 										<div class="getdata_view_spec_group type2">
-											<p class="gv_spec_key">이메일</p>
+											<p class="gv_spec_key" data-maxelse>이메일</p>
 											<p class="gv_spec_value">abc@abc.com</p>
 										</div>
 									</div>
@@ -391,12 +397,6 @@
 	</div>
 	<script>
 		comboChangeCallback({
-			target: "filter_combo",
-			callback(value) {
-				console.log(value);
-			}
-		});
-		comboChangeCallback({
 			target: "sort_type01",
 			callback(value) {
 				console.log(value);
@@ -408,6 +408,12 @@
 				console.log(value);
 			}
 		});
+
+		searchForm();
+
+		window.addEventListener("load", () => {
+			maxWidthFunc(".user_ui_databox .gv_spec_key");
+		})
 	</script>
 </body>
 
