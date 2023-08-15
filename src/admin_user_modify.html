@@ -363,5 +363,22 @@
 			</div>
 		</section>
 	</div>
+
+	<script>
+		comboChangeCallback({
+			target: "sort_type01",
+			callback(value) {
+				console.log(value);
+			}
+		});
+		comboChangeCallback({
+			target: "sort_type02",
+			callback(value) {
+				console.log(value);
+			}
+		});
+
+		searchForm();
+	</script>
 </body>
 </html>
