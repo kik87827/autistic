@@ -248,7 +248,7 @@
 					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
-								<a href="#" class="btn_field_box">
+								<a href="#" class="btn_field_box" data-localpopup="#filter_layer" data-localParent=".screen_content_main_cols">
 									<i class="ico_field ico_filter"></i>
 									<span class="field_box_text">필터</span>
 								</a>
@@ -770,8 +770,7 @@
 							<li>
 								<div class="subc_form_th_cols"><span class="subc_form_label imp">Use-case 명칭</span></div>
 								<div class="subc_form_td_cols">
-									<div class="input_component_box skin2">
-										<i class="ico_input ico_men"></i>
+									<div class="input_component_box small">
 										<input type="text" class="input_origin_item" placeholder="Use-case 명칭 입력">
 										<span class="count_wrap">
 											<span class="count_text">0/0</span>
@@ -816,6 +815,11 @@
 										</div>
 										<div class="subc_form_item_content_row">
 											<table class="subc_form_tb">
+												<colgroup>
+													<col style="width:30px" />
+													<col />
+													<col style="width:40px" />
+												</colgroup>
 												<tr>
 													<th><span class="subc_form_label">항목</span></th>
 													<td>
@@ -926,8 +930,11 @@
 		<script>
 			menuRock("#one_depth_03");
 
-
 			searchForm();
+
+			localLayer(() => {
+				// callback
+			});
 
 			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
 				date: new Date(),

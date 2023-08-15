@@ -67,11 +67,10 @@ function layoutFunc(){
 
       twodepthActive();
 
+      headerTouch = true;
+
       thisItem.classList.add("active");
     });
-  });
-  header_wrap.addEventListener("mouseover",()=>{
-    headerTouch = true;
   });
   header_wrap.addEventListener("mouseleave",()=>{
     twodepthInActive();
@@ -79,11 +78,18 @@ function layoutFunc(){
   document.querySelector("body").addEventListener("mouseleave",()=>{
     twodepthInActive();
   });
-  if(!!map_screen_wrap && headerTouch){
-    document.querySelector(".map_screen_wrap").addEventListener("mouseover",()=>{
+  window.addEventListener("mouseout",(e)=>{
+    if(e.pageX <0 || e.pageY <0){
+      setTimeout(()=>{
+        twodepthInActive();
+      },30)
+    }
+  });
+  document.querySelector(".map_screen_wrap").addEventListener("mouseover",()=>{
+    if(!!map_screen_wrap && headerTouch){
       twodepthInActive();
-    });
-  }
+    }
+  });
 
   // function
   function initGnb(){
@@ -190,6 +196,10 @@ function comboFunc() {
     if (thisOptionGroup !== null) {
       comboInit(thisParent);
     }
+
+    e.preventDefault();
+    e.stopPropagation();
+    
     // not
     combo_item.forEach((element) => {
       if (element !== thisParent) {
@@ -206,7 +216,9 @@ function comboFunc() {
     });
     thisParent.classList.toggle("active");
     appendOption.classList.toggle("active");
-    comboPosAction();
+    if(thisParent.classList.contains("active")){
+      comboPosAction();
+    }
     if (appendOption.classList.contains("active")) {
       if (combo_option_scroll.classList.contains("addHeight")) {
         return;
@@ -317,10 +329,13 @@ function comboFunc() {
       let parent_contlow_left = comboCall.closest(item).getBoundingClientRect().left;
       let comboCallLayerParent = !!comboCall.closest(item) ? comboCall.closest(item) : null;
       let child_combo_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
+      let child_combo_left = comboCall.getBoundingClientRect().left - parent_contlow_left;
 
-      appendOption.style.top = `${(child_combo_top - parent_contlow_top) + comboCall.getBoundingClientRect().height - 1}px`;
-      appendOption.style.left = `${combo_left - parent_contlow_left}px`;
-      appendOption.style.width = `${ comboCall.getBoundingClientRect().width }px`;
+
+      appendOption.style.top = `${(comboCall.offsetTop) + comboCall.getBoundingClientRect().height - 1}px`;
+      // appendOption.style.top = `${(child_combo_top - parent_contlow_top) + comboCall.getBoundingClientRect().height - 1}px`;
+      appendOption.style.left = `${comboCall.offsetLeft}px`;
+      appendOption.style.width = `${ comboCall.offsetWidth }px`;
     }
   }
 }

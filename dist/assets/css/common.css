@@ -2961,6 +2961,13 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   overflow: overlay;
   position: relative;
 }
+.combo_option_scroll::-webkit-scrollbar {
+  width: 12px;
+}
+.combo_option_scroll::-webkit-scrollbar-thumb {
+  background-color: hsla(0deg, 0%, 42%, 0.49);
+  border-radius: 100px;
+}
 
 .combo_option {
   font-size: 12px;
@@ -4181,9 +4188,9 @@ input.props_form[type=radio]:checked {
 
 .subc_form_tb {
   width: 100%;
+  table-layout: fixed;
 }
 .subc_form_tb th {
-  width: 1px;
   padding-right: 8px;
 }
 .subc_form_tb th, .subc_form_tb td {
@@ -4198,6 +4205,7 @@ input.props_form[type=radio]:checked {
 }
 .subc_form_tb td .combo_item {
   width: 100%;
+  box-sizing: border-box;
 }
 .subc_form_tb td.has_control {
   width: 30px;
