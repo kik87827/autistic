@@ -248,7 +248,7 @@
 					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
-								<a href="#" class="btn_field_box">
+								<a href="#" class="btn_field_box" data-localpopup="#filter_layer" data-localParent=".screen_content_main_cols">
 									<i class="ico_field ico_filter"></i>
 									<span class="field_box_text">필터</span>
 								</a>
@@ -652,7 +652,7 @@
 					<div class="data_detail_vitem_wrap">
 						<div class="data_detail_item">
 							<div class="detail_vitem_title_row">
-								<p class="data_detail_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">Use-case 목록</span></p>
+								<p class="data_detail_vitem_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">Use-case 목록</span></p>
 								<div class="data_detail_title_else">
 									<a href="#" class="btn_field_formbox small disabled">
 										<span class="btn_field_formbox_text">매핑 해제</span>
@@ -725,7 +725,7 @@
 											<!-- // Pagination -->
 										</div>
 									</div>
-									<div class="list_table_row">
+									<div class="list_table_row skin2">
 										<table class="list_table">
 											<thead>
 												<tr>
@@ -779,7 +779,7 @@
 						</div>
 						<div class="data_detail_item">
 							<div class="detail_vitem_title_row">
-								<p class="data_detail_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">파라미터 목록</span></p>
+								<p class="data_detail_vitem_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">파라미터 목록</span></p>
 							</div>
 							<div class="data_detail_content_row">
 								<!-- 내용이 들어갑니다. -->
@@ -863,7 +863,7 @@
 											<!-- // Pagination -->
 										</div>
 									</div>
-									<div class="list_table_row">
+									<div class="list_table_row skin2">
 										<table class="list_table">
 											<thead>
 												<tr>
@@ -1841,6 +1841,8 @@
 			searchForm();
 
 			localLayer();
+
+			tooltipFunc();
 
 			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
 				date: new Date(),

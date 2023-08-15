@@ -248,7 +248,7 @@
 					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
-								<a href="#" class="btn_field_box">
+								<a href="#" class="btn_field_box" data-localpopup="#filter_layer" data-localParent=".screen_content_main_cols">
 									<i class="ico_field ico_filter"></i>
 									<span class="field_box_text">필터</span>
 								</a>
@@ -547,7 +547,7 @@
 								<!-- // Pagination -->
 							</div>
 						</div>
-						<div class="list_table_row primary">
+						<div class="list_table_row skin2">
 							<table class="list_table">
 								<thead>
 									<tr>
@@ -717,10 +717,16 @@
 					<div class="data_detail_primary_wrap">
 						<div class="data_detail_title_row">
 							<h3 class="data_detail_title">uc_0000020</h3>
-							<ul class="data_detail_title_else_list">
-								<li><a href="#" class="btn_data_control"><i class="ico_data ico_write"></i><span class="data_control_text">수정</span></a></li>
-								<li><a href="#" class="btn_data_control"><i class="ico_data ico_del"></i><span class="data_control_text">삭제</span></a></li>
-							</ul>
+							<div class="screen_subelse_wrap">
+								<a href="#" class="btn_field_formbox cloudy small minwid0">
+									<i class="ico_field_formbox ico_pencil"></i>
+									<span class="btn_field_formbox_text">수정</span>
+								</a>
+								<a href="#" class="btn_field_formbox cloudy small minwid0">
+									<i class="ico_field_formbox ico_del"></i>
+									<span class="btn_field_formbox_text">삭제</span>
+								</a>
+							</div>
 						</div>
 						<div class="data_detail_summary_row">
 							<ul class="detail_summary_box">
@@ -738,12 +744,12 @@
 					<div class="data_detail_vitem_wrap">
 						<div class="data_detail_item">
 							<div class="detail_vitem_title_row">
-								<p class="data_detail_title"><i class="ico_data_detail ico_ca"></i><span class="data_detail_title_text">카테고리</span></p>
+								<p class="data_detail_vitem_title"><i class="ico_data_detail ico_ca"></i><span class="data_detail_title_text">카테고리</span></p>
 								<div class="data_detail_title_else">
-									<a href="#" class="btn_field_formbox small">
+									<!-- <a href="#" class="btn_field_formbox small minwid60">
 										<span class="btn_field_formbox_text">분리</span>
-									</a>
-									<a href="#" class="btn_field_formbox small disabled">
+									</a> -->
+									<a href="#" class="btn_field_formbox small disabled minwid60">
 										<span class="btn_field_formbox_text">분리</span>
 									</a>
 								</div>
@@ -757,7 +763,7 @@
 										</div>
 									</div>
 									<div class="depth_content_row">
-										<div class="list_table_row">
+										<div class="list_table_row skin2">
 											<table class="list_table">
 												<colgroup>
 													<col style="width:55%" />
@@ -772,7 +778,7 @@
 												<tbody>
 													<tr>
 														<td>
-															<div class="props_form_item">
+															<div class="props_form_item type2">
 																<input type="checkbox" class="props_form" id="dep_two_01_01">
 																<label for="dep_two_01_01" class="props_label">특징 A</label>
 															</div>
@@ -792,7 +798,7 @@
 										</div>
 									</div>
 									<div class="depth_content_row">
-										<div class="list_table_row">
+										<div class="list_table_row skin2">
 											<table class="list_table">
 												<colgroup>
 													<col style="width:55%" />
@@ -807,7 +813,7 @@
 												<tbody>
 													<tr>
 														<td>
-															<div class="props_form_item">
+															<div class="props_form_item type2">
 																<input type="checkbox" class="props_form" id="dep_two_02_01">
 																<label for="dep_two_02_01" class="props_label">특징 B</label>
 															</div>
@@ -816,7 +822,7 @@
 													</tr>
 													<tr>
 														<td>
-															<div class="props_form_item">
+															<div class="props_form_item type2">
 																<input type="checkbox" class="props_form" id="dep_two_02_02">
 																<label for="dep_two_02_02" class="props_label">특징 C</label>
 															</div>
@@ -836,7 +842,7 @@
 										</div>
 									</div>
 									<div class="depth_content_row">
-										<div class="list_table_row">
+										<div class="list_table_row skin2">
 											<table class="list_table">
 												<colgroup>
 													<col style="width:55%" />
@@ -851,7 +857,7 @@
 												<tbody>
 													<tr>
 														<td>
-															<div class="props_form_item">
+															<div class="props_form_item type2">
 																<input type="checkbox" class="props_form" id="dep_two_03_01">
 																<label for="dep_two_03_01" class="props_label">AV 혼입율(%)</label>
 															</div>
@@ -867,19 +873,24 @@
 						</div>
 						<div class="data_detail_item">
 							<div class="detail_vitem_title_row">
-								<p class="data_detail_title"><i class="ico_data_detail ico_docu"></i><span class="data_detail_title_text">설명</span></p>
+								<p class="data_detail_vitem_title"><i class="ico_data_detail ico_docu"></i><span class="data_detail_title_text">설명</span></p>
 							</div>
 							<div class="data_detail_content_row">
-								<div class="render_write_box">
-									해당 Use-case는 블라블라
-									해당 Use-case는 블라블라해당 Use-case는 블라블라해당 Use-case는 블라블라
-									해당 Use-case는 블라블라해당 Use-case는 블라블라
+								<div class="form_textarea_box skin2">
+									<textarea rows="10" cols="10" class="form_textarea" placeholder="설명 입력" style="height:100px;">
+해당 Use-case는 블라블라
+해당 Use-case는 블라블라해당 Use-case는 블라블라해당 Use-case는 블라블라
+해당 Use-case는 블라블라해당 Use-case는 블라블라
+									</textarea>
+									<span class="count_wrap">
+										<span class="count_text">0/0</span>
+									</span>
 								</div>
 							</div>
 						</div>
 						<div class="data_detail_item">
 							<div class="detail_vitem_title_row">
-								<p class="data_detail_title"><i class="ico_data_detail ico_history"></i><span class="data_detail_title_text">이력</span></p>
+								<p class="data_detail_vitem_title"><i class="ico_data_detail ico_history"></i><span class="data_detail_title_text">이력</span></p>
 							</div>
 							<div class="data_detail_content_row">
 								<!-- 내용이 들어갑니다. -->
@@ -981,7 +992,7 @@
 						</div>
 						<div class="data_detail_item">
 							<div class="detail_vitem_title_row">
-								<p class="data_detail_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">Simulation 목록</span></p>
+								<p class="data_detail_vitem_title"><i class="ico_data_detail ico_list"></i><span class="data_detail_title_text">Simulation 목록</span></p>
 							</div>
 							<div class="data_detail_content_row">
 								<!-- 내용이 들어갑니다. -->
@@ -1045,7 +1056,7 @@
 											<!-- // Pagination -->
 										</div>
 									</div>
-									<div class="list_table_row">
+									<div class="list_table_row skin2">
 										<table class="list_table">
 											<thead>
 												<tr>
@@ -1143,6 +1154,10 @@
 
 
 			searchForm();
+
+			localLayer(() => {
+				// callback
+			});
 
 			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
 				date: new Date(),

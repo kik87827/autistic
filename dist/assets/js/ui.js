@@ -303,6 +303,7 @@ function comboFunc() {
       return;
     }
     const comboCall = document.querySelector(".combo_item.active");
+    const comboCalljQ = $(".combo_item.active");
 
     if (!comboCall || !appendOption) {
       return;
@@ -338,11 +339,13 @@ function comboFunc() {
       let child_combo_top = !!comboCallLayerParent ? comboCallLayerParent.scrollTop + comboCall.getBoundingClientRect().top : 0;
       let child_combo_left = comboCall.getBoundingClientRect().left - parent_contlow_left;
 
-
       appendOption.style.top = `${(comboCall.offsetTop) + comboCall.getBoundingClientRect().height - 1}px`;
       // appendOption.style.top = `${(child_combo_top - parent_contlow_top) + comboCall.getBoundingClientRect().height - 1}px`;
-      appendOption.style.left = `${comboCall.offsetLeft}px`;
-      appendOption.style.width = `${ comboCall.offsetWidth }px`;
+      //appendOption.style.left = `${comboCall.offsetLeft}px`;
+      appendOption.style.left = `${comboCalljQ.position().left}px`;
+      appendOption.style.width = `${ comboCall.getBoundingClientRect().width }px`;
+
+
     }
   }
 }
@@ -1187,7 +1190,7 @@ function localLayer(callback) {
       }
     });
 
-    addDynamicEventListener(document.body, 'click', '.tui-calendar-btn', function(e) {
+    addDynamicEventListener(document.body, 'click', '.tui-calendar-btn , .tui-calendar-title , .tui-calendar-date', function(e) {
       if (!!activeLayer) {
         activeLayer.classList.add("active");
       }

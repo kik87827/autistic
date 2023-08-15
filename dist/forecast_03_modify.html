@@ -248,7 +248,7 @@
 					<div class="search_field_container">
 						<div class="search_field_row">
 							<div class="search_field_cols">
-								<a href="#" class="btn_field_box">
+								<a href="#" class="btn_field_box" data-localpopup="#filter_layer" data-localParent=".screen_content_main_cols">
 									<i class="ico_field ico_filter"></i>
 									<span class="field_box_text">필터</span>
 								</a>
@@ -547,12 +547,21 @@
 								<!-- // Pagination -->
 							</div>
 						</div>
-						<div class="list_table_row primary">
+						<div class="list_table_row">
 							<table class="list_table">
+								<colgroup>
+									<col style="width:16px;" />
+									<col style="width:14%" />
+									<col style="width:12%" />
+									<col style="width:13%" />
+									<col style="width:15%" />
+									<col style="width:15%" />
+									<col />
+									<col style="width:12%" />
+								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="has_check"></th>
-										<th scope="col"><span class="thtext">번호</span></th>
 										<th scope="col"><span class="thtext">ID</span></th>
 										<th scope="col"><span class="thtext">명칭</span></th>
 										<th scope="col"><span class="thtext">Type</span></th>
@@ -565,25 +574,16 @@
 								<tbody>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">1</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">2</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
@@ -604,154 +604,116 @@
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">3</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
 										<td>
 											<span class="tdtext">s_0000019</span>
 											<div class="data_count_box_wrap">
-												<span class="data_count_box">+20</span>
-											</div>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
 												<span class="data_count_box">+2</span>
 											</div>
 										</td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">4</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">5</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">6</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">7</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+20</span>
-											</div>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">8</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+20</span>
-											</div>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">9</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
 									<tr>
 										<td class="has_check"><input type="checkbox" class="props_form"></td>
-										<td><span class="tdtext">10</span></td>
 										<td><span class="tdtext">uc_0000020</span></td>
 										<td><span class="tdtext">testID1</span></td>
 										<td><span class="tdtext">이벤트 상황</span></td>
-										<td>
-											<span class="tdtext">s_0000019</span>
-										</td>
-										<td>
-											<span class="tdtext">testS2</span>
-											<div class="data_count_box_wrap">
-												<span class="data_count_box">+2</span>
-											</div>
-										</td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td class="has_check"><input type="checkbox" class="props_form"></td>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">이벤트 상황</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td class="has_check"><input type="checkbox" class="props_form"></td>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">이벤트 상황</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
+										<td><span class="tdtext">2023/06/28 10:00</span></td>
+										<td><span class="tdtext">User</span></td>
+									</tr>
+									<tr>
+										<td class="has_check"><input type="checkbox" class="props_form"></td>
+										<td><span class="tdtext">uc_0000020</span></td>
+										<td><span class="tdtext">testID1</span></td>
+										<td><span class="tdtext">이벤트 상황</span></td>
+										<td><span class="tdtext">s_0000019</span></td>
+										<td><span class="tdtext">testS2</span></td>
 										<td><span class="tdtext">2023/06/28 10:00</span></td>
 										<td><span class="tdtext">User</span></td>
 									</tr>
@@ -770,8 +732,7 @@
 							<li>
 								<div class="subc_form_th_cols"><span class="subc_form_label imp">Use-case 명칭</span></div>
 								<div class="subc_form_td_cols">
-									<div class="input_component_box skin2">
-										<i class="ico_input ico_men"></i>
+									<div class="input_component_box small">
 										<input type="text" class="input_origin_item" value="testID1" placeholder="Use-case 명칭 입력">
 										<span class="count_wrap">
 											<span class="count_text">0/0</span>
@@ -803,6 +764,11 @@
 										</div>
 										<div class="subc_form_item_content_row">
 											<table class="subc_form_tb">
+												<colgroup>
+													<col style="width:30px" />
+													<col />
+													<col style="width:40px" />
+												</colgroup>
 												<tr>
 													<th><span class="subc_form_label">항목</span></th>
 													<td>
@@ -888,6 +854,11 @@
 										</div>
 										<div class="subc_form_item_content_row">
 											<table class="subc_form_tb">
+												<colgroup>
+													<col style="width:30px" />
+													<col />
+													<col style="width:40px" />
+												</colgroup>
 												<tr>
 													<th><span class="subc_form_label">항목</span></th>
 													<td>
@@ -973,6 +944,11 @@
 										</div>
 										<div class="subc_form_item_content_row">
 											<table class="subc_form_tb">
+												<colgroup>
+													<col style="width:30px" />
+													<col />
+													<col style="width:40px" />
+												</colgroup>
 												<tr>
 													<th><span class="subc_form_label">항목</span></th>
 													<td>
@@ -1069,10 +1045,10 @@
 						</div>
 					</div>
 					<div class="field_footer_row">
-						<a href="#" class="btn_field_formbox cloudy">
+						<a href="#" class="btn_field_formbox cloudy big">
 							<span class="btn_field_formbox_text">취소</span>
 						</a>
-						<a href="#" class="btn_field_formbox primary">
+						<a href="#" class="btn_field_formbox primary big">
 							<i class="ico_field_formbox ico_check"></i>
 							<span class="btn_field_formbox_text">저장</span>
 						</a>
@@ -1085,6 +1061,30 @@
 
 
 			searchForm();
+
+			localLayer(() => {
+				// callback
+			});
+
+			var datepicker_start = new tui.DatePicker('#form_date_start_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-startinput',
+					format: 'yyyy-MM-dd HH:mm A'
+				},
+				timePicker: true
+			});
+
+			var datepicker_end = new tui.DatePicker('#form_date_end_render', {
+				date: new Date(),
+				language: 'ko',
+				input: {
+					element: '#datepicker-endinput',
+					format: 'yyyy-MM-dd HH:mm A'
+				},
+				timePicker: true
+			});
 
 			comboChangeCallback({
 				target: "filter_combo",
