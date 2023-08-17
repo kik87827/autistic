@@ -85,11 +85,14 @@ function layoutFunc(){
       },30)
     }
   });
-  document.querySelector(".map_screen_wrap").addEventListener("mouseover",()=>{
-    if(!!map_screen_wrap && headerTouch){
-      twodepthInActive();
-    }
-  });
+  if(!!map_screen_wrap){
+
+    map_screen_wrap.addEventListener("mouseover",()=>{
+      if(!!map_screen_wrap && headerTouch){
+        twodepthInActive();
+      }
+    });
+  }
 
   // function
   function initGnb(){
