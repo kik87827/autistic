@@ -99,7 +99,9 @@ html:not(.touchmode) {
       &:after{display:block;content:'';width:10px;height:10px;background:url("../images/ico_combo.png") no-repeat 0 0/100% auto;position:absolute;top:50%;right:10px;transform: translateY(-50%);}
     }
 }
-.util_ico_menu{display:inline-block;width:24px;height:24px;background:url("../images/ic_logout_off@2x.png") no-repeat 0 0/100% auto;}
+.util_ico_menu{display:inline-block;width:24px;height:24px;background:url("../images/ic_logout.png") no-repeat 0 0/100% auto;
+  &:hover{background-position:0 100%;}
+}
 .hgroup_util_menu_list_wrap{
     display:none; position:absolute;top:100%;left:50%;transform:translateX(-50%);
     box-sizing: border-box;
@@ -160,7 +162,7 @@ html:not(.touchmode) {
   &.full_render_zone{height:100%;display:flex;flex:1;margin:0 24px 24px;}
 }
 @media  (max-width:1440px){
-  body{background-size:1440px auto !important;}
+  .front_body.center_form_body{background-size:1440px auto !important;background-image:url("../images/background_1440.png");}
 }
 
 

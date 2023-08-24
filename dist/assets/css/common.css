@@ -514,7 +514,7 @@ html.smooth {
 }
 
 .tui-calendar .tui-calendar-today {
-  color: #4b96e6;
+  color: #7b54ff;
 }
 
 .tui-calendar .tui-calendar-prev-month, .tui-calendar .tui-calendar-next-month {
@@ -526,7 +526,7 @@ html.smooth {
 }
 
 .tui-calendar .tui-calendar-btn-choice {
-  background-color: #4b96e6;
+  background-color: #7b54ff;
 }
 
 .tui-calendar .tui-calendar-btn-close {
@@ -1989,7 +1989,10 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url("../images/ic_logout_off@2x.png") no-repeat 0 0/100% auto;
+  background: url("../images/ic_logout.png") no-repeat 0 0/100% auto;
+}
+.util_ico_menu:hover {
+  background-position: 0 100%;
 }
 
 .hgroup_util_menu_list_wrap {
@@ -2144,8 +2147,9 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 
 @media (max-width: 1440px) {
-  body {
+  .front_body.center_form_body {
     background-size: 1440px auto !important;
+    background-image: url("../images/background_1440.png");
   }
 }
 /* loading */
@@ -2884,13 +2888,13 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border-bottom-color: transparent;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
   color: #7b54ff;
-  border-color: #ccc !important;
+  border-color: #ddd !important;
 }
 .combo_item.active .combo_target:after {
   background-position: 0 100%;
 }
 .combo_item.active.reverse_item .combo_target {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-top-color: transparent;
   border-radius: 0 0 4px 4px;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
@@ -2970,13 +2974,14 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .combo_option_group.active {
   display: block;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  border-color: #ddd;
 }
 .combo_option_group.active.reverse_pos {
-  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: none !important;
 }
 .combo_option_group.reverse_pos {
   transform: translateY(-100%);
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
 }
@@ -3259,7 +3264,7 @@ input.props_form[type=radio]:checked {
   color: #4363ff;
 }
 .btn_quad:hover {
-  background-color: #f2efff;
+  background-color: #F6F4FF;
 }
 .btn_quad:hover.type2 {
   background-color: #f4f6ff;
@@ -3553,6 +3558,7 @@ input.props_form[type=radio]:checked {
 .hor_form_list {
   display: flex;
   align-items: center;
+  font-size: 0;
 }
 .hor_form_list > li.short {
   padding: 0 5px;
@@ -3565,14 +3571,15 @@ input.props_form[type=radio]:checked {
 
 .btn_formbox {
   min-width: 70px;
-  padding: 8px 12px;
+  padding: 0 12px;
   box-sizing: border-box;
   border-radius: 4px;
   display: inline-block;
   font-size: 13px;
   font-weight: 600;
   text-align: center;
-  line-height: 1;
+  line-height: 29px;
+  height: 30px;
 }
 .btn_formbox.primary {
   background-color: #7b54ff;
@@ -3678,7 +3685,7 @@ input.props_form[type=radio]:checked {
   top: 0;
   left: 50%;
   transform: translateX(-50%) translateY(-100%);
-  background-color: #f5f5f5;
+  background-color: #fff;
   box-shadow: 0 1px 10px 0 rgba(6, 5, 39, 0.1);
 }
 .btn_map_fold_control:after {
@@ -4661,6 +4668,9 @@ input.props_form[type=radio]:checked {
   font-size: 14px;
   color: #5f637a;
   font-weight: 600;
+}
+.btn_cform_other:hover {
+  color: #7b54ff;
 }
 
 .cform_else_row {

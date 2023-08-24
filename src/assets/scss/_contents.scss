@@ -117,13 +117,13 @@
     &.active{
         .combo_target{
             background-position:100% 100%;border-radius:4px 4px 0 0;border-bottom-color:transparent;box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2); color:$primary;
-            border-color:#ccc !important;
+            border-color:#ddd !important;
             &:after{
                 background-position:0 100%;
             }
         }
         &.reverse_item{
-            .combo_target{border:1px solid #ccc;border-top-color:transparent;border-radius:0 0 4px 4px;
+            .combo_target{border:1px solid #ddd;border-top-color:transparent;border-radius:0 0 4px 4px;
                 box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
             }
         }
@@ -167,12 +167,12 @@
         
 
     &.active{display:block;
-        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
-        &.reverse_pos{box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.2);}
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2); border-color:#ddd;
+        &.reverse_pos{box-shadow: none !important;}
     }
     &.reverse_pos{
         transform: translateY(-100%);
-        border: 1px solid #ccc;border-bottom:0;border-radius:4px 4px 0 0;
+        border: 1px solid #ddd;border-bottom:0;border-radius:4px 4px 0 0;
     }
     &.medium{
         .combo_option{font-size:14px;}
@@ -399,7 +399,7 @@ input.props_form {
     }
 
     &:hover{
-        background-color:#f2efff;
+        background-color:#F6F4FF;
         &.type2{
             background-color:#f4f6ff;
         }
@@ -564,7 +564,7 @@ input.field_search_input{}
 .map_clabel_fxtext{font-size: 14px; line-height: 1; display:inline-block;color: #f0f0f0;}
 
 .hor_form_list{
-    display:flex;align-items:center;
+    display:flex;align-items:center;font-size:0;
     > li{
         &.short{padding:0 5px;}
         &:last-of-type{}
@@ -573,7 +573,7 @@ input.field_search_input{}
 }
 .time_picker_item{}
 .btn_formbox{
-    min-width: 70px;padding: 8px 12px; box-sizing: border-box;border-radius: 4px;display:inline-block; font-size:13px;font-weight:600;text-align:center; line-height:1;
+    min-width: 70px;padding: 0 12px; box-sizing: border-box;border-radius: 4px;display:inline-block; font-size:13px;font-weight:600;text-align:center; line-height:29px;height:30px;
     &.primary{background-color: $primary;color:#fff;
         &:hover{background-color: $primary_hover;}
     }
@@ -630,7 +630,7 @@ input.field_search_input{}
 .map_fold_control_row{}
 .btn_map_fold_control{
     display:block;width:70px;height:20px;border: solid 1px #ddd; border-radius:7px 7px 0 0;position:absolute;top:0;left:50%;transform: translateX(-50%)translateY(-100%);
-  background-color: #f5f5f5; box-shadow:0 1px 10px 0 rgba(6, 5, 39, 0.1);
+  background-color: #fff; box-shadow:0 1px 10px 0 rgba(6, 5, 39, 0.1);
     &:after{display:block;content:'';width:7px;height:7px;border-right:2px solid #494c5a;border-bottom:2px solid #494c5a;transform:rotate(225deg);transition:.5s; position:absolute;top:50%;left:50%;margin:-1px 0 0 -5px}
     &:before{display:block;content:'';position:absolute;bottom:-2px;height:5px;background:#fff;width:100%;}
     &.fold{
@@ -1186,7 +1186,11 @@ input.field_search_input{}
         &:last-of-type{}
     }
 }
-.btn_cform_other{font-size:14px;color:#5f637a;font-weight:600;}
+.btn_cform_other{font-size:14px;color:#5f637a;font-weight:600;
+    &:hover{
+        color:$primary;
+    }
+}
 
 .cform_else_row{margin:40px -30px 0;background:url("../images/bg_form_line.png") repeat-x 0 0;padding:20px 0 0 0;}
 .btn_cform_else_list{
