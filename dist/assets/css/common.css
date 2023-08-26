@@ -3067,14 +3067,14 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .input_component_box.warn {
   border-color: #e84854 !important;
 }
+.input_component_box.focus {
+  border-color: #9747ff;
+}
 .input_component_box.focus .count_wrap {
   display: block;
 }
 .input_component_box.focus .btn_form_reset {
   display: block;
-}
-.input_component_box.filled {
-  border-color: #9747ff;
 }
 .input_component_box.filled .count_wrap {
   display: block;
@@ -3811,18 +3811,8 @@ input.props_form[type=radio]:checked {
 }
 .chart_map_title.type2 {
   position: relative;
-  padding-left: 10px;
-}
-.chart_map_title.type2:before {
-  display: block;
-  content: "";
-  width: 4px;
-  height: 4px;
-  background: #313444;
-  border-radius: 100%;
-  position: absolute;
-  top: 6px;
-  left: 0;
+  /* padding-left:10px;
+  &:before{display:block;content:'';width:4px;height:4px;background:#313444; border-radius:100%;position:absolute;top:6px;left:0;} */
 }
 
 .chart_content_flex_wrap {
@@ -3867,6 +3857,7 @@ input.props_form[type=radio]:checked {
   border-radius: 8px;
   position: relative;
   overflow: hidden;
+  height: 260px;
 }
 
 .chart_dot_guide_list {

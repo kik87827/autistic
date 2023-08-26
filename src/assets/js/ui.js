@@ -378,17 +378,18 @@ function formItemFunc(){
   addDynamicEventListener(document.body, 'focusin', '.input_component_box .input_origin_item', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
-    if(thisTargetParent.classList.contains("filled")){
-      thisTargetParent.classList.add("focus");
-    }
+    // if(thisTargetParent.classList.contains("filled")){
+    // }
+    thisTargetParent.classList.add("focus");
   });
   addDynamicEventListener(document.body, 'input', '.input_component_box .input_origin_item', function(e) {
     const thisTarget = e.target;
     const thisTargetParent = thisTarget.closest(".input_component_box");
     if(thisTarget.value.length){
+      thisTargetParent.classList.add("focus");
       thisTargetParent.classList.add("filled");
     }else{
-      thisTargetParent.classList.remove("filled");
+      thisTargetParent.classList.remove("filled","focus");
     }
   });
   addDynamicEventListener(document.body, 'focusout', '.input_component_box .input_origin_item', function(e) {
@@ -406,8 +407,7 @@ function formItemFunc(){
     const thisTargetInput = thisTargetParent.querySelector(".input_origin_item");
     const thisTargetSearchParent = thisTarget.closest(".search_field_wrap");
     thisTargetInput.value = '';
-    thisTargetParent.classList.remove("focus");
-    thisTargetParent.classList.remove("warn");
+    thisTargetParent.classList.remove("focus","warn","filled");
 
     if(!!thisTargetSearchParent){
       thisTargetSearchParent.classList.remove("value_true");
@@ -441,6 +441,23 @@ function formItemFunc(){
     }
    
   });
+}
+
+function formItemInit(){
+  const inputItem = document.querySelectorAll(".input_component_box");
+  if(!!inputItem){
+    inputItem.forEach((item)=>{
+      const thisItem = item;
+      const thisItemInput = thisItem.querySelector(".input_origin_item");
+      
+  
+      if(thisItemInput.value.length){
+        thisItem.classList.add("filled");
+      }else{
+        thisItem.classList.remove("filled");
+      }
+    })
+  }
 }
 
 
