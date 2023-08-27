@@ -549,7 +549,7 @@ DesignPopup.prototype.popupShow = function () {
   if (this.selector == null) {
     return;
   }
-  // this.domHtml.classList.add("touchDis");
+  this.domHtml.classList.add("touchDis");
   
   this.selector.classList.add("active");
   setTimeout(()=>{
@@ -621,9 +621,9 @@ DesignPopup.prototype.bindEvent = function () {
     this.btn_closeTrigger = this.selector.querySelectorAll(".close_trigger");
     closeItemArray.push(...this.btn_closeTrigger)
   }
-  if (!!this.bg_design_popup) {
-    closeItemArray.push(this.bg_design_popup);
-  }
+  // if (!!this.bg_design_popup) {
+  //   closeItemArray.push(this.bg_design_popup);
+  // }
   if (closeItemArray.length) {
     closeItemArray.forEach((element) => {
       element.addEventListener("click", (e) => {

@@ -3070,6 +3070,9 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 .input_component_box.focus {
   border-color: #9747ff;
 }
+.input_component_box.focus .ico_input {
+  background-position: 0 100%;
+}
 .input_component_box.focus .count_wrap {
   display: block;
 }
@@ -3674,6 +3677,9 @@ input.props_form[type=radio]:checked {
   border-radius: 4px;
   background-color: #7b54ff;
 }
+.btn_map_summarybox:hover {
+  background-color: #6243cc;
+}
 
 .btn_map_fold_control {
   display: block;
@@ -3858,6 +3864,8 @@ input.props_form[type=radio]:checked {
   position: relative;
   overflow: hidden;
   height: 260px;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .chart_dot_guide_list {
@@ -4004,7 +4012,6 @@ input.props_form[type=radio]:checked {
   width: 10px;
   height: 10px;
   position: relative;
-  top: -1px;
 }
 .getdata_box_close:before, .getdata_box_close:after {
   display: block;
@@ -4877,6 +4884,12 @@ input.props_form[type=radio]:checked {
 .btn_formbox_submit.else .btn_formbox_submit_text {
   color: #626888;
 }
+.btn_formbox_submit.else:hover {
+  background-color: #dcdfe7;
+}
+.btn_formbox_submit.else:hover .btn_formbox_submit_text {
+  color: #5a5d69;
+}
 .btn_formbox_submit.else:before, .btn_formbox_submit.else:after {
   display: none;
 }
@@ -5474,7 +5487,7 @@ input.input_tree {
   width: 100%;
   height: 30px;
   cursor: pointer;
-  background: url("../images/bg_tree_toggle.png") no-repeat 100% 0/17px auto;
+  background: url("../images/bg_tree_toggle.png") no-repeat 100% 0/19px auto;
 }
 
 .guide_page {

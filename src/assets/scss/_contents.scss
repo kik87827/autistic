@@ -256,7 +256,7 @@
     }
     &.focus{
         border-color:#9747ff;
-        .ico_input{}
+        .ico_input{background-position:0 100%;}
         .ico_input.ico_men{}
         .count_wrap{display:block;}
         .count_text{}
@@ -625,6 +625,9 @@ input.field_search_input{}
     padding: 9px 12px;
     border-radius: 4px;
     background-color: $primary;
+    &:hover{
+        background-color: $primary_hover;
+    }
 }
 
 .map_fold_row{}
@@ -696,7 +699,7 @@ input.field_search_input{}
 .nodata_guide{color: #5f637a;font-size:14px;}
 .chart_content_render{background:#f5f5f5; border-radius: 8px; position:relative;overflow:hidden;
     height:260px;
-    
+    box-sizing: border-box;padding:10px;
 }
 .chart_dot_guide_list{
     display:flex;gap:10px;
@@ -761,7 +764,7 @@ input.field_search_input{}
     line-height: 1;
     color: #5f637a;}
 .getdata_box_close{
-    display:block;width:10px;height:10px;position:relative;top:-1px;
+    display:block;width:10px;height:10px;position:relative;
     &:before,
     &:after{display:block;content:'';width:10px;height:1px;background:#000;position:absolute;top:50%;left:50%;margin:-0.5px 0 0 -5px;}
     &:before{transform: rotate(45deg);}
@@ -1317,6 +1320,9 @@ input.field_search_input{}
     &.else{
         background:#e7eaf3;
         .btn_formbox_submit_text{color:#626888;}
+        &:hover{  background-color: #dcdfe7;
+            .btn_formbox_submit_text{color:#5a5d69;}
+        }
         &:before,&:after{display:none;}
     }
 }
