@@ -249,7 +249,7 @@
         &.ico_password{background-image:url("../images/ic_pw_off@2x.png");}
     }
     .count_wrap{
-        display:none;white-space:nowrap;position:relative;top:-1px;
+        display:none;white-space:nowrap;position:relative;/* top:-1px; */line-height:1;
         & + .btn_form_reset{margin-left:4px;}
     }
     .count_text{font-size:12px;color: rgba(49, 52, 68, 0.5)}
@@ -1177,10 +1177,10 @@ input.field_search_input{}
 }
 .bg_center_form{}
 .cform_content_wrap{}
-.cform_content_box_wrap{padding:160px 0;}
+.cform_content_box_wrap{padding:140px 0;}
 .cform_content_box{width: 640px; margin:0 auto;border-radius: 30px;box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1); background-color: #fff;}
-.cform_field_item{padding:60px 70px 80px;
-    &.type2{padding:155px 110px 177px;}
+.cform_field_item{padding:60px 74px 60px;
+    &.type2{padding:96px 114px 115px;}
 }
 .cform_field_title{
     text-align: center;
@@ -1267,15 +1267,18 @@ input.field_search_input{}
     }
 }
 
-.cform_else_wrap{max-width:640px;margin:0 auto;padding:20px 40px 0;box-sizing: border-box;}
+.cform_else_wrap{max-width:660px;margin:0 auto;padding:20px 40px 0;}
 .cform_elselogo_list{
-    display:flex;width:100%;gap:15px;
+    display:flex;gap:12px 0;flex-wrap:wrap;justify-content:center;
     > li{
+        flex:0 0 20%; box-sizing: border-box; text-align: center;
         &:before{}
         &:last-of-type{}
     }
 }
-.cform_elselogo{width:100px;display:inline-block;}
+.cform_elselogo{max-width:100px;display:inline-block;
+    &.type2{max-width:140px;}
+}
 .cform_elselogo img{vertical-align: middle;}
 
 
