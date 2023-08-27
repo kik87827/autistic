@@ -2665,17 +2665,18 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border-radius: 4px;
   position: relative;
   overflow: hidden;
+  padding: 14px;
+  box-sizing: border-box;
 }
 .form_textarea_box .count_wrap {
-  display: none;
-  white-space: nowrap;
-  position: relative;
-  top: -1px;
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: rgba(49, 52, 68, 0.5);
+  position: relative; /* top:-1px; */
+  margin-top: 10px;
 }
-.form_textarea_box .count_wrap + .btn_form_reset {
-  margin-left: 4px;
-}
-.form_textarea_box.filled {
+.form_textarea_box.focus {
   border-color: #9747ff;
 }
 .form_textarea_box.error {
@@ -2693,9 +2694,8 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 
 .form_textarea {
-  height: 150px;
+  height: 96px;
   border: 0;
-  padding: 14px;
   width: 100%;
   box-sizing: border-box;
   background: none;
@@ -2877,10 +2877,15 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border-radius: 4px 4px 0 0;
   border-bottom-color: transparent;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
-  color: #7b54ff;
-  border-color: #ddd !important;
+  border-color: #dadcde !important;
 }
 .combo_item.active .combo_target:after {
+  background-position: 0 50%;
+}
+.combo_item.active .combo_target:hover {
+  color: #7b54ff;
+}
+.combo_item.active .combo_target:hover:after {
   background-position: 0 100%;
 }
 .combo_item.active.reverse_item .combo_target {
@@ -2888,6 +2893,12 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border-top-color: transparent;
   border-radius: 0 0 4px 4px;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+.combo_item.active.medium .combo_target:after {
+  background-position: 0 50%;
+}
+.combo_item.active.medium .combo_target:hover:after {
+  background-position: 0 100%;
 }
 .combo_item.reverse_item .combo_target:after {
   background-image: url("../images/ic_sort_arrow_b_reverse.png");
@@ -2914,7 +2925,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   font-size: 12px;
   text-align: left;
   padding: 0 26px 0 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #dadcde;
   border-radius: 4px;
   position: relative;
   box-sizing: border-box;
@@ -2963,7 +2974,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 .combo_option_group.active {
   display: block;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
   border-color: #ddd;
 }
 .combo_option_group.active.reverse_pos {
@@ -2993,7 +3004,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 
 .combo_option {
   font-size: 12px;
-  color: #000000;
+  color: #626888;
   display: block;
   padding: 8px 10px;
 }
@@ -3058,7 +3069,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border-color: #e84854 !important;
 }
 .input_component_box.focus {
-  border-color: #9747ff;
+  border-color: #9747ff !important;
 }
 .input_component_box.focus .ico_input {
   background-position: 0 100%;
@@ -3073,10 +3084,32 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border-radius: 4px;
   height: auto;
   padding: 0 5px 0 10px;
+  border-width: 1px;
 }
 .input_component_box.small input.input_origin_item {
-  height: 36px;
+  height: 38px;
   font-size: 13px;
+}
+.input_component_box.xsmall {
+  border-radius: 4px;
+  height: auto;
+  padding: 0 5px 0 10px;
+}
+.input_component_box.xsmall input.input_origin_item {
+  height: 28px;
+  font-size: 13px;
+}
+.input_component_box.dtype2 {
+  background: #fff;
+  border-radius: 4px;
+  border: solid 1px #dadcde;
+}
+.input_component_box.dtype2 .count_wrap {
+  line-height: 1;
+  top: 0;
+}
+.input_component_box.dtype2 input.input_origin_item {
+  font-size: 12px;
 }
 
 input.input_origin_item {
