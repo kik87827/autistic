@@ -604,9 +604,9 @@ DesignPopup.prototype.popupHide = function () {
      if ("closeCallback" in this.option) {
        this.option.closeCallback();
      }
-    //  if (this.design_popup_wrap_active.length == 0) {
-    //    this.domHtml.classList.remove("touchDis");
-    //  }
+     if (this.design_popup_wrap_active.length == 1) {
+       this.domHtml.classList.remove("touchDis");
+     }
   }
 }
 
