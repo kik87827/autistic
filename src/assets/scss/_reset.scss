@@ -30,7 +30,7 @@ input[type="number"],
 input[type="password"]{border-radius:0;font-family: 'Pretendard';color:#5d5d5d;-webkit-appearance: none;-moz-appearance: none;appearance: none;-webkit-border-radius: 0;border-radius: 0;}
 fieldset legend ,
 table caption {display:inline-block;width:0;height:0;overflow:hidden;line-height:0;color:transparent;position:absolute;top:0;left:-99999px;}
-textarea{font-family: 'Pretendard';color:#000;border:1px solid #c8c8c8;-webkit-appearance: none;-moz-appearance: none;-webkit-border-radius: 0;}
+textarea{font-family: 'Pretendard';color:#000;border:1px solid #c8c8c8;-webkit-appearance: none;-moz-appearance: none;-webkit-border-radius: 0;resize: none !important;}
 
 ::-webkit-input-placeholder{color:rgba(49, 52, 68, 0.5);;font-family: 'Pretendard';}
 ::-moz-input-placeholder{color:rgba(49, 52, 68, 0.5);;font-family: 'Pretendard';}

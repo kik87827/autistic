@@ -202,6 +202,7 @@ function comboFunc() {
 
     e.preventDefault();
     e.stopPropagation();
+
     
     // not
     combo_item.forEach((element) => {
@@ -217,6 +218,7 @@ function comboFunc() {
         element.classList.remove("active");
       }
     });
+    thisParent.classList.remove("warn");
     thisParent.classList.toggle("active");
     appendOption.classList.toggle("active");
     if(thisParent.classList.contains("active")){

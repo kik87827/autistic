@@ -98,16 +98,17 @@
         &:after{display:block;content:'';width:11px;height:1px;background:#fff;position:absolute;top:50%;left:50%;margin:-1px 0 0 -5px;}
         &:after{transform: rotate(90deg);}
     }
-    &.ico_write{}
+    &.ico_write{background-image:url("../images/ic_plus_s@2x.png");}
     &.ico_check{background-image:url("../images/ic_check@2x.png");}
     &.ico_del{background-image:url("../images/ico_del.png");}
     &.ico_pencil{background-image:url("../images/ico_pencil.png");}
     &.ico_add{
-        position:relative;
-        &:before,
-        &:after{display:block;content:'';width:9px;height:1px;background:#fff;position:absolute;top:50%;left:50%;margin:-0.5px 0 0 -4.5px;}
-        &:before{}
-        &:after{transform: rotate(90deg);}
+        background-image:url("../images/ic_plus_s@2x.png");
+        // position:relative;
+        // &:before,
+        // &:after{display:block;content:'';width:9px;height:1px;background:#fff;position:absolute;top:50%;left:50%;margin:-0.5px 0 0 -4.5px;}
+        // &:before{}
+        // &:after{transform: rotate(90deg);}
     }
 }
 .btn_field_formbox_text{font-size:14px;color:#fff;line-height:1;display:inline-block;font-weight:600;}
@@ -258,9 +259,9 @@
         border-color:#9747ff;
         .ico_input{background-position:0 100%;}
         .ico_input.ico_men{}
-        .count_wrap{display:block;}
-        .count_text{}
-        .btn_form_reset{display:block;}
+        // .count_wrap{display:block;}
+        // .count_text{}
+        // .btn_form_reset{display:block;}
         & + .form_each_message_group{}
     }
     &.filled{
@@ -759,7 +760,19 @@ input.field_search_input{}
 .getdata_box{display:flex;padding: 6px 10px; gap:5px;align-items: center;
     border-radius: 100px;
     border: solid 1px #ddd;
-    background-color: #fff;}
+    background-color: #fff;
+    // &:active,
+    &:hover,
+    &:focus{
+        border-color:$primary;
+        .getdata_box_text{color:$primary;
+        }
+        .getdata_box_close{
+            &:before,
+            &:after{background-color:$primary;}
+        }
+    }
+}
 .getdata_box_text{font-size: 12px; display:inline-block;
     line-height: 1;
     color: #5f637a;}
@@ -782,11 +795,15 @@ input.field_search_input{}
 .btn_pagination_control{
     display:flex;width:24px;height:24px; align-items: center; justify-content: center;
     &:after{
-        display:block;content:'';width:16px;height:16px;background:url("../images/ic_arrow_dgr@2x.png") no-repeat 50% 50%/100% auto;
+        display:block;content:'';width:16px;height:16px;background:url("../images/ic_arrow_dgr@2x.png") no-repeat 0 0/100% auto;
     }
     &:focus{}
-    &:hover{}
-    &.disabled{opacity:.3}
+    &:hover{
+        &:after{background-position:0 100%;}
+    }
+    &.disabled{opacity:.3; cursor: default;
+        &:after{background-position:0 0 !important;}
+    }
     &.prev_go{
         &:after{transform: rotate(180deg);}
     }
@@ -1351,9 +1368,7 @@ input.field_search_input{}
     .input_component_box{
         background:#fff; border:1px solid #ddd;border-radius:4px;height:40px;box-sizing:border-box; padding:0 12px;
         input.input_origin_item{height:38px;}
-        &.filled{
-            &.focus{border-color:$primary}
-        }
+        &.focus{border-color:$primary !important}
     }
 }
 .search_field_row{display:flex;gap:5px;}
@@ -1381,20 +1396,18 @@ input.field_search_input{}
 }
 
 
-.auto_word_layer {
-    &.auto_mode {display: block;}
-    &.auto_scroll_show {opacity: 1;}
-}
-
 .auto_word_layer {z-index: 10;position: absolute;top:100%;left: 0;width: 100%;box-sizing: border-box;display: none;opacity: 0;
+    overflow:hidden;
     border-radius: 4px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
     background-color: #fff;
+    &.auto_mode {display: block;}
+    &.auto_scroll_show {opacity: 1;}
 }
 .auto_word_list_wrap {overflow: overlay;position: relative;}
 .auto_word_list {}
 .auto_word_item {
-    font-size:14px;color: #313444;display:block;padding:8px 12px;
+    font-size:14px;color: #626888;display:block;padding:8px 12px;
     &:hover{background:#f7f5ff;}
     &.disabled{background:#f2f5f5;color:#adb3b3;cursor:default;}
 }

@@ -28,7 +28,7 @@
         .comboTreeArrowBtn{
             background-position:100% 100%;
         }
-        input.input_tree{border-bottom-color:transparent;border-radius:4px 4px 0 0;}
+        input.input_tree{border-radius:4px 4px 0 0;}
     }
 }
 
@@ -70,16 +70,23 @@
 
 .comboTreeDropDownContainer {
 	display: none;
+    position:relative;top:-1px;
 	background: var(--ct-bg);
 	border: 1px solid var(--ct-border-color);
 // 	position: absolute;
 //   width: 100%;
 //   box-sizing: border-box;
   z-index: 999;
-	max-height: 220px;
-	overflow-y: auto;
+	// max-height: 220px;
+	// overflow-y: auto;
+    border-radius:0 0 4px 4px;
+    overflow:hidden;
 }
+.comboTreeDropDownContainer > ul{
+    max-height: 186px;
+    overflow-y: auto;
 
+}
 .comboTreeDropDownContainer ul{
 	padding: 0px;
 	margin: 0;
@@ -89,6 +96,13 @@
 	list-style-type: none;
 	padding-left: 17px;
 }
+
+.tree_nodata_wrap{display:none; text-align: center;padding:25px 10px !important;
+    &:before{display:block;content:'';width:64px;height:64px;background:url("../images/ic_list_no@2x.png") no-repeat 0 0/100% auto;margin:0 auto 8px;}
+}
+.tree_nodata{font-size: 13px;
+    line-height: 1;
+    color: #5f637a;}
 
 .comboTreeDropDownContainer li .selectable{
 	cursor: pointer;
@@ -157,7 +171,7 @@ span.comboTreeItemTitle, .comboTreeDropDownContainer .selectAll{
     vertical-align: middle;
     margin-right:4px;
     cursor: pointer;
-    &:focus{border-color:$primary}
+    &:hover{border-color:$primary}
 
     &:checked {
         background-color: $primary;
