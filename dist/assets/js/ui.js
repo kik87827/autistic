@@ -1204,7 +1204,7 @@ function localLayer(callback) {
     });
 
     addDynamicEventListener(document.body, 'click', '.page_wrap', function(e) {
-      if (e.target.closest(".local_layer") || e.target.getAttribute("data-localpopup") || e.target.closest("[data-localpopup]") || e.target.closest(".ui_picker_render") || e.target.closest(".tui-datepicker") || e.target.classList.contains(".tui-calendar-btn")) {
+      if (e.target.closest(".local_layer") || e.target.getAttribute("data-localpopup") || e.target.closest("[data-localpopup]") || e.target.closest(".ui_picker_render") || e.target.closest(".tui-datepicker") || e.target.classList.contains("tui-calendar-btn") || e.target.classList.contains(".tui-calendar-title") || e.target.classList.contains("tui-calendar-month")) {
         return;
       }
       if (!!activeLayer) {
