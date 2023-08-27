@@ -508,7 +508,7 @@
         if(searchText.length>0){
           this._elemDropDownContainer.find(".tree_nodata_wrap").show();
         }else{
-          this._elemDropDownContainer.find("*").show();
+          this._elemDropDownContainer.find("*").not(".tree_nodata_wrap").show();
         }
       }
     }
