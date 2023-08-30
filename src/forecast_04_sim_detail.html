@@ -80,8 +80,8 @@
 					</div>
 					<!-- // search -->
 					<!-- filter -->
-					@@include('./include/_filter.html', { 
-						toggleText : "카테고리 선택"
+					@@include('./include/_filter_sim.html', { 
+						toggleText : "파라미터 선택"
 					})
 					<!-- // filter -->
 					<!-- list_table_render_wrap -->
@@ -410,7 +410,7 @@
 							<div class="data_detail_content_row">
 								<!-- 내용이 들어갑니다. -->
 								<div class="list_combosort_wrap">
-									<div class="combo_item medium full_wid" id="parameter_combo">
+									<!-- <div class="combo_item medium full_wid" id="parameter_combo">
 										<a href="javascript:;" class="combo_target">파라미터 선택</a>
 										<div class="combo_option_group medium">
 											<div class="combo_option_scroll" data-rowCount="5">
@@ -427,7 +427,8 @@
 												</ul>
 											</div>
 										</div>
-									</div>
+									</div> -->
+									<input type="text" id="treeInput2" placeholder="파라미터 선택" class="input_tree type2" autocomplete="off" />
 								</div>
 								<div class="list_table_render_wrap">
 									<div class="list_sort_row">
@@ -666,6 +667,15 @@
 				}
 			});
 
+			/* 20230831 -  */
+			$(function() {
+				var comboTreeListSort = $('#treeInput2').comboTree({
+					source : SampleJSONDataSimple,
+					isMultiple: true,
+					cascadeSelect: true,
+					collapse: false
+				});
+			});
 
 			// 퍼블확인용
 			let url = window.location.href.split('?')[1];

@@ -3010,6 +3010,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
 }
 .combo_option:hover {
   background: #f7f5ff;
+  color: #313444;
 }
 .combo_option.disabled {
   background: #f2f5f5;
@@ -3051,6 +3052,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   white-space: nowrap;
   position: relative; /* top:-1px; */
   line-height: 1;
+  margin-left: 8px;
 }
 .input_component_box .count_wrap + .btn_form_reset {
   margin-left: 4px;
@@ -3069,7 +3071,7 @@ html:not(.touchmode) ::-webkit-scrollbar-track {
   border-color: #e84854 !important;
 }
 .input_component_box.focus {
-  border-color: #9747ff !important;
+  border-color: #9747ff;
 }
 .input_component_box.focus .ico_input {
   background-position: 0 100%;
@@ -3136,7 +3138,7 @@ input.props_form {
   vertical-align: middle;
   cursor: pointer;
 }
-input.props_form:focus {
+input.props_form:hover {
   border-color: #7b54ff;
 }
 
@@ -4146,6 +4148,7 @@ input.props_form[type=radio]:checked {
   padding: 9px 10px 10px;
   line-height: 1.2;
   border-bottom: 1px solid #ddd;
+  cursor: pointer;
 }
 .list_table tbody td.nodata_td {
   height: 607px;
@@ -4153,7 +4156,7 @@ input.props_form[type=radio]:checked {
 .list_table tbody td.nodata_td:hover {
   background: #fff;
 }
-.list_table tbody tr:hover td {
+.list_table tbody tr:hover td, .list_table tbody tr.active td {
   background: #f7f5ff;
 }
 .list_table .thtext {
@@ -4167,6 +4170,12 @@ input.props_form[type=radio]:checked {
   font-size: 13px;
   color: #5f637a;
   display: inline-block;
+}
+.list_table.else_case tbody tr:hover td {
+  background: #fff !important;
+}
+.list_table.else_case tbody tr td {
+  cursor: default;
 }
 
 .popup_content_low .list_table tbody td.nodata_td {
@@ -4896,7 +4905,7 @@ input.props_form[type=radio]:checked {
   overflow: hidden;
   background-image: linear-gradient(99deg, #7b4efe -1%, #70cfff 107%);
 }
-.btn_formbox_submit:before, .btn_formbox_submit:after {
+.btn_formbox_submit:after {
   display: block;
   content: "";
   width: 100%;
@@ -4905,19 +4914,13 @@ input.props_form[type=radio]:checked {
   top: 0;
   left: 0;
   transition: 0.4s;
-  opacity: 1;
-}
-.btn_formbox_submit:before {
-  background-image: linear-gradient(99deg, #70cfff -1%, #7b4efe 107%);
-}
-.btn_formbox_submit:after {
-  background-image: linear-gradient(99deg, #7b4efe -1%, #70cfff 107%);
-}
-.btn_formbox_submit:hover:before {
-  opacity: 1;
+  transform: scale(1.01);
+  border-radius: 10000px;
+  background-image: linear-gradient(99deg, #70cfff 0%, #7b4efe 107%);
+  opacity: 0;
 }
 .btn_formbox_submit:hover:after {
-  opacity: 0;
+  opacity: 1;
 }
 .btn_formbox_submit.else {
   background: #e7eaf3;
@@ -5093,6 +5096,7 @@ input.props_form[type=radio]:checked {
 }
 .auto_word_item:hover {
   background: #f7f5ff;
+  color: #313444;
 }
 .auto_word_item.disabled {
   background: #f2f5f5;
@@ -5544,6 +5548,9 @@ input.input_tree {
   background-color: #fff;
   cursor: pointer;
   height: 30px;
+}
+input.input_tree.type2 {
+  height: 32px;
 }
 
 .comboTreeArrowBtn {

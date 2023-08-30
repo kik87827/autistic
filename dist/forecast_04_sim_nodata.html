@@ -352,13 +352,19 @@
 												<li>
 													<div class="props_form_item">
 														<input type="checkbox" class="props_form" id="type_check_02">
-														<label for="type_check_02" class="props_label">일반적 상황</label>
+														<label for="type_check_02" class="props_label">타입 A</label>
 													</div>
 												</li>
 												<li>
 													<div class="props_form_item">
 														<input type="checkbox" class="props_form" id="type_check_03">
-														<label for="type_check_03" class="props_label">이벤트 상황</label>
+														<label for="type_check_03" class="props_label">타입 B</label>
+													</div>
+												</li>
+												<li>
+													<div class="props_form_item">
+														<input type="checkbox" class="props_form" id="type_check_04">
+														<label for="type_check_04" class="props_label">타입 C</label>
 													</div>
 												</li>
 											</ul>
@@ -384,7 +390,7 @@
 					</div>
 
 					<script type="text/javascript">
-						var SampleJSONData = [{
+						var SampleJSONDataSimple = [{
 							id: '01',
 							title: 'Logical scenario',
 							subs: [{
@@ -521,11 +527,13 @@
 						}];
 
 
-						var comboTree3;
+						var comboTreeFilter;
+
+
 
 						$(function() {
-							comboTree3 = $('#treeInput').comboTree({
-								source: SampleJSONData,
+							comboTreeFilter = $('#treeInput').comboTree({
+								source: SampleJSONDataSimple,
 								isMultiple: true,
 								cascadeSelect: true,
 								collapse: false
