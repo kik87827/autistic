@@ -1258,26 +1258,18 @@ function maxWidthFunc(target) {
 /* list control */
 
 function listTableFunc() {
+
   addDynamicEventListener(document.body, 'click', '.list_table tbody td', function(e) {
     const thisTd = e.target;
     const thisTr = thisTd.closest("tr");
+    const sub_cols = thisTd.closest(".screen_content_sub_cols");
     const thisTrSiblings = siblings(thisTr);
-    const thisTrChk = thisTr.querySelector(".has_check .props_form");
-    if (thisTd.closest(".else_case")) {
+    if (thisTd.closest(".else_case") || e.target.classList.contains("props_form") || !!sub_cols) {
       return;
     }
-
     thisTrSiblings.forEach((item) => {
-      const thisTrLoopChk = item.querySelector(".has_check .props_form");
-      if (!!thisTrLoopChk) {
-        thisTrLoopChk.checked = false;
-      }
       item.classList.remove("active");
     })
-
     thisTr.classList.toggle("active");
-    if (!!thisTrChk) {
-      thisTrChk.checked = thisTr.classList.contains("active");
-    }
   });
 }
