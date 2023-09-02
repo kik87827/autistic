@@ -4061,7 +4061,16 @@ input.props_form[type=radio]:checked {
 
 .list_combosort_wrap {
   margin: 19px 0 12px;
+  position: relative;
+  height: 32px;
 }
+.list_combosort_wrap .comboTreeWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 /* list table */
 .pagination_wrap {
   display: flex;

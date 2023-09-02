@@ -817,8 +817,8 @@ input.field_search_input{}
 }
 
 .list_combosort_wrap{
-    margin:19px 0 12px;
-    .combo_item{}
+    margin:19px 0 12px;position:relative;height:32px;
+    .comboTreeWrapper{position:absolute;top:0;left:0;width:100%;}
 }
 
 
