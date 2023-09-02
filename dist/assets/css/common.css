@@ -4152,6 +4152,8 @@ input.props_form[type=radio]:checked {
 }
 .list_table tbody td.nodata_td {
   height: 607px;
+  cursor: default;
+  background: #fff !important;
 }
 .list_table tbody td.nodata_td:hover {
   background: #fff;
@@ -4178,8 +4180,17 @@ input.props_form[type=radio]:checked {
   cursor: default;
 }
 
+.screen_content_sub_cols .list_table tbody tr:hover td {
+  background: #fff !important;
+}
+.screen_content_sub_cols .list_table tbody tr td {
+  cursor: default;
+}
+
 .popup_content_low .list_table tbody td.nodata_td {
   height: 446px;
+  cursor: default;
+  background: #fff !important;
 }
 
 .nodata_para_wrap:before {
