@@ -4154,8 +4154,8 @@ input.props_form[type=radio]:checked {
   border-radius: 0 4px 4px 0;
 }
 .list_table tbody td {
-  padding: 9px 10px 10px;
-  line-height: 1.2;
+  padding: 12px 10px;
+  line-height: 1;
   border-bottom: 1px solid #ddd;
   cursor: pointer;
 }
@@ -4166,6 +4166,12 @@ input.props_form[type=radio]:checked {
 }
 .list_table tbody td.nodata_td:hover {
   background: #fff;
+}
+.list_table tbody td.type2 {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 0;
+  line-height: 0;
 }
 .list_table tbody tr:hover td, .list_table tbody tr.active td {
   background: #f7f5ff;
@@ -4181,6 +4187,7 @@ input.props_form[type=radio]:checked {
   font-size: 13px;
   color: #5f637a;
   display: inline-block;
+  line-height: 1;
 }
 .list_table.else_case tbody tr:hover td {
   background: #fff !important;
@@ -4220,6 +4227,7 @@ input.props_form[type=radio]:checked {
 .data_count_box_wrap {
   font-size: 0;
   line-height: 0;
+  margin-top: 1px;
 }
 
 .data_count_box {

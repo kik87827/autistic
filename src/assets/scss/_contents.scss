@@ -893,9 +893,12 @@ input.field_search_input{}
                 cursor: default;background:#fff !important;
                 &:hover{background:#fff;}
             }
-            padding:9px 10px 10px;line-height:1.2;
+            padding:12px 10px;line-height:1;
             border-bottom:1px solid #ddd;
             cursor: pointer;
+            &.type2{
+                padding-top:0;padding-bottom:0;font-size:0;line-height:0;
+            }
         }
         tr{
             &:hover, &.active{
@@ -909,7 +912,7 @@ input.field_search_input{}
         line-height: 1;
         display:inline-block;
         color: #fff;}
-    .tdtext{font-size:13px;color:#5f637a;display:inline-block;}
+    .tdtext{font-size:13px;color:#5f637a;display:inline-block;line-height:1;}
     &.else_case{
         tbody{
             tr{
@@ -942,7 +945,7 @@ input.field_search_input{}
 }
 .nodata_para{font-size:14px;color:#5f637a;margin-top:5px;}
 
-.data_count_box_wrap{font-size:0;line-height:0;}
+.data_count_box_wrap{font-size:0;line-height:0;margin-top:1px;}
 .data_count_box{display:inline-block;color:#fff;font-size:10px;background:#7b92ff;padding:2px;border-radius:4px;line-height:1;}
 
 .data_detail_primary_wrap{}
